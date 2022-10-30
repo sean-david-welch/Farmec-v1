@@ -3,7 +3,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light py-2.5 fixed-top" style="background-color: #dc3545;">
     <div class="container">
-        <img src="{% static 'images/farmec-logo.png' %}" alt="..." />
+        <a href="{% url 'home' %}"><img src="{% static 'images/farmec-logo.png' %}" alt="..." /></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">About Us</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Our Team</a></li>
+                        <li><a class="dropdown-item" href="{% url 'teams' %}">Our Team</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

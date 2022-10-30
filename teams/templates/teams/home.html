@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
 <!-- Page Content-->
@@ -6,7 +7,7 @@
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5" style="color: #dc3545">
         <div class="col-lg-7">
-            <img class="img-fluid rounded mb-4 mb-lg-0" src="img/sip.jpeg" alt="" />
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/sip.jpeg' %}" alt="" />
         </div>
         <div class="col-lg-5">
             <h1 class="font-weight">Farmec Ireland Ltd.</h1>

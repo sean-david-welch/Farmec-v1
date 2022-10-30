@@ -8,3 +8,6 @@ def teams(request):
 
     context = {'members': members}
     return render(request, 'teams/teams.html', context)
+
+def home(request):
+    return render(request, 'teams/home.html')
