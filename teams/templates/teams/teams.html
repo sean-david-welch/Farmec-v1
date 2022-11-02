@@ -1,19 +1,18 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<!-- <div class="container px-4 px-lg-5 p-5 p-lg-0 pt-lg-5"> -->
-
 <!-- Header -->
 <header class="text-center py-5 mb-4" style="background-color: #c80e13;">
-    <div class="container pt-lg-5">
+    <div class="container pt-lg-5"
+        style="font-family: 'EB Garamond', sans-serif; font-style: italic; font-weight: absolute;">
         <h2 class="fw-light text-white"><u>Meet Our Team Members</u></h2>
+        <h1><i class="bi bi-arrow-down"></i></h1>
     </div>
 </header>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container d-flex flex-column min-vh-100">
     <div class="row">
-
         <!-- Team Member 1 -->
         {% for member in members %}
         <div class="col-xl-3 col-md-6 mb-4">
@@ -26,9 +25,8 @@
             </div>
         </div>
         {% endfor %}
-
     </div>
 </div>
-</div>
+
 
 {% endblock content %}
