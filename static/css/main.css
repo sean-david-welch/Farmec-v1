@@ -1,0 +1,370 @@
+/* Styles imports */
+@import 'variables.css';
+@import 'utils.css';
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+/* Logo */
+#logo {
+  display: flex;
+  height: 4.5rem;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  z-index: 1;
+  transition: all 0.5s linear;
+}
+
+#logo:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  position: absolute;
+  background: transparent;
+  width: 100vw;
+  z-index: 1;
+  background: var(--dark-color);
+  transition: 0.5s ease-in;
+}
+
+#navbar.main-page {
+  background: transparent;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+#navbar li {
+  padding: 1rem 1rem;
+  padding-right: 75px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: var(--light-color);
+  text-transform: uppercase;
+  border-bottom: 3px transparent solid;
+  padding-bottom: 0.1rem;
+  transition: border-color 0.5s;
+}
+
+#navbar li {
+  transition: all 0.5s linear;
+}
+
+#navbar li:hover {
+  transform: scale(1.15);
+}
+
+#navbar ul a:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+#navbar a.current {
+  border-color: var(--primary-color);
+}
+
+/* Header content - home page */
+.header-content {
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header-content::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+  background: url('../images/mx.jpeg') no-repeat center center/cover;
+}
+
+.header-subcontent {
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 42rem;
+  z-index: 1;
+}
+
+.header-subcontent h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--light-color);
+}
+
+.header-subcontent a {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Home Section - A */
+#home-a .stats  {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#home-a .stats ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+#home-a .stats a {
+  text-decoration: none;
+  font-style: none;
+  color: var(--mdark-color);
+}
+
+#home-a .stats li {
+  line-height: 2;
+  text-decoration: none;
+}
+
+#home-a ul .stats-title {
+  font-size: 1.25rem;
+}
+
+#home-a ul .stats-number {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#home-a div {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+#home-a div:nth-child(odd) {
+  background: var(--light-color);
+}
+
+#home-a div:nth-child(even) {
+  background: var(--medium-color);
+}
+
+#home-a ul,
+#home-a a {
+  transition: all 0.3s linear;
+  color: var(--dark-color);
+}
+
+#home-a ul:hover,
+#home-a a:hover {
+  transform: scale(1.15);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Home Section - B */
+#home-b .specials {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#home-b .icon a, 
+#home-b .icon ul {
+  list-style: none;
+  text-decoration: none;
+  font-style: none;
+  color: var(--mdark-color);
+  transition: all 0.3s linear;
+}
+
+#home-b .icon ul:hover
+ {
+  transform: scale(1.1);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Home Sectipon C - Blog */
+#blog .blog {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#blog .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+#blog .column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  flex: 1;
+}
+
+#blog .column-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+#blog img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#blog .column-2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px;
+}
+
+#blog .btn {
+  margin-top: 0.5rem;
+}
+
+#blog .flex-reverse {
+  flex-direction: row-reverse;
+}
+
+/* About Page - Team Section */
+#about-team {
+  padding: 6rem;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: left;
+  align-items: center;
+}
+
+.bio-image {
+  height: 10rem;
+  border-radius: 10px;
+  margin: 0 1rem;
+}
+
+.bio {
+  border-radius: 10px;
+  height: 10rem;
+  border-top: 2px solid var(--primary-color);
+  border-left: 2px solid var(--primary-color);
+  padding: 1rem;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* Footer */
+#main-footer {
+  background: var(--mdark-color);
+  color: var(--light-color);
+  height: 5.5rem;
+}
+
+#main-footer .footer-content {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+  align-items: baseline;
+  justify-content: center;
+}
+
+#main-footer p {
+  font-size: 1.5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+#main-footer .social a {
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--light-color);
+}
+
+#main-footer .navigation ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#main-footer .navigation li {
+  padding: 0.5rem;
+  transition: all 0.5s linear;
+}
+
+#main-footer .navigation a {
+  color: var(--medium-color);
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all 0.5s linear;
+  padding: 0.25rem;
+}
+
+#main-footer .navigation li:hover,
+#main-footer .navigation a:hover {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+
+#main-footer .social .fab {
+  margin: 1rem;
+  border: 3px var(--medium-color) solid;
+  border-radius: 50%;
+  height: 50px;
+  width: 55px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0.5rem;
+  transition: all 0.3s linear;
+}
+
+#main-footer .footer-content .social .fab:hover {
+  background: var(--primary-color);
+  transform: scale(1.05);
+}
+
+
+
+
+

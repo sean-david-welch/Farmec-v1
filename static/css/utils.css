@@ -1,0 +1,104 @@
+/* Styles Import */
+@import 'variables.css';
+
+/* General Utilities */
+h2, h3, h4 {
+    text-transform: uppercase;
+} 
+  
+.container {
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: .5rem 3rem;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s linear;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+/* Paragraph leads */
+.lead {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--dark-color);
+}
+
+.lead-1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+/* Miscellaeneous */
+.spacing {
+    margin: 2rem;
+}
+
+.text-center {
+    text-align: center;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    font-weight: 500;
+}
+
+.bottom-line {
+    height: 2px;
+    width: 15rem;
+    background: var(--primary-color);
+    display: block;
+    margin: 0 auto .5rem auto;
+}
+
+/* backgrounds */
+.bg-primary {
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+
+.bg-light {
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+.bg-dark {
+    background: var(--dark-color);
+    color: var(--light-color);
+}
+
+.bg-medium {
+    background: var(--medium-color);
+    color: var(--light-color);
+}
+
+/* Padding */
+.py-1 {
+    padding: 1rem;
+}
+
+.py-2 {
+    padding: 2rem;
+}

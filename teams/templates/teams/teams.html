@@ -1,32 +1,30 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
-<!-- Header -->
-<header class="text-center py-5 mb-4" style="background-color: #c80e13;">
-    <div class="container pt-lg-5"
-        style="font-family: 'EB Garamond', sans-serif; font-style: italic; font-weight: absolute;">
-        <h2 class="fw-light text-white"><u>Meet Our Team Members</u></h2>
-        <h1><i class="bi bi-arrow-down"></i></h1>
-    </div>
-</header>
+<!-- About - Team -->
+<section id="about-team" class="text-center py-2">
+    <div class="container">
+        <h2>Our Team</h2>
+        <div class="bottom-line"></div>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
 
-<!-- Page Content -->
-<div class="container d-flex flex-column min-vh-100">
-    <div class="row">
-        <!-- Team Member 1 -->
+        <!-- Bio Section -->
         {% for member in members %}
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-0 shadow">
-                <img src="{{member.imageurl}}" class="card-img-top" alt="..." />
-                <div class="card-body text-center">
-                    <h5 class="card-title mb-0">{{member.name}}</h5>
-                    <div class="card-text text-black-50">{{member.email}}</div>
+        <div class="spacing">
+            <div class="about-info">
+                <img src="{{member.imageurl}}" alt="" class="bio-image">
+                <div class="bio bg-light">
+                    <h1>Name: {{member.name}}</h1>
+                    <h1>Email: {{member.email}}</h1>
+                    <h1>Role: Office Management, Admin & Marketing</h1>
+                    <h1>Short Bio: {{member.bio}}
+                    </h1>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
-</div>
-
+</section>
 
 {% endblock content %}
