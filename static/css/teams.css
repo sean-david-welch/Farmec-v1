@@ -1,0 +1,29 @@
+/* About Page - Team Section */
+#about-team {
+    padding: 6rem;
+  }
+  
+  .about-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+  }
+  
+  .bio-image {
+    height: 10rem;
+    border-radius: 10px;
+    margin: 0 1rem;
+  }
+  
+  .bio {
+    border-radius: 10px;
+    height: 10rem;
+    border-top: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+    padding: 1rem;
+    font-size: 10px;
+    font-weight: 400;
+  }

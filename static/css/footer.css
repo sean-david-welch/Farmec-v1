@@ -1,0 +1,99 @@
+/* Footer */
+/* To top button */
+.to-top {
+    background: var(--light-color);
+    position: fixed;
+    bottom: 16px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--dark-color);
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+  }
+  
+  .to-top.active {
+    bottom: 32px;
+    pointer-events: auto;
+    opacity: 1;
+  }
+  
+  #main-footer {
+    background: var(--mdark-color);
+    color: var(--light-color);
+    height: 5.5rem;
+  }
+  
+  #main-footer .footer-content {
+    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    align-items: baseline;
+    justify-content: center;
+  }
+  
+  #main-footer p {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  
+  #main-footer .social a {
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--light-color);
+  }
+  
+  #main-footer .navigation ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #main-footer .navigation li {
+    font-size: 1.5rem;
+    padding: 0.1rem;
+    transition: all 0.5s linear;
+  }
+  
+  #main-footer .navigation a {
+    color: var(--medium-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.5s linear;
+    padding: 0.5rem;
+  }
+  
+  #main-footer .navigation li:hover,
+  #main-footer .navigation a:hover {
+    transform: scale(1.1);
+    color: var(--primary-color);
+  }
+  
+  
+  #main-footer .social .fab {
+    margin: 0.5rem;
+    border: 3px var(--medium-color) solid;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    line-height: 36px;
+    text-align: center;
+    padding: 0.25rem;
+    transition: all 0.3s linear;
+  }
+  
+  #main-footer .footer-content .social .fab:hover {
+    background: var(--primary-color);
+    transform: scale(1.05);
+  }
