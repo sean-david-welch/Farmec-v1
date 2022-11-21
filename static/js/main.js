@@ -28,7 +28,7 @@ $('#navbar a, .btn').on('click', function (e) {
             {
                 scrollTop: $(hash).offset().top - 60,
             },
-            1000
+            500
         );
     }
 });

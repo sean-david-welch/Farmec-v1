@@ -1,7 +1,7 @@
 {% load static %}
 <header id="home">
     <!-- Navbar -->
-    <nav id="navbar" class="{% if request.url == 'home' %} main-page {% endif %}">
+    <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
         <a href="{% url 'home' %}"><img src="{% static 'images/farmec-logo-2.png' %}" alt="" id="logo"></a>
         <ul>
             <li><a href="{% url 'home' %}" class="current">Home</a></li>
