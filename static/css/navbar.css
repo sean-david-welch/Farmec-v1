@@ -6,15 +6,15 @@
     padding-left: 50px;
     z-index: 1;
     transition: all 0.5s linear;
-  }
-  
-  #logo:hover {
+}
+
+#logo:hover {
     transform: scale(1.05);
     cursor: pointer;
-  }
-  
-  /* Navbar */
-  #navbar {
+}
+
+/* Navbar */
+#navbar {
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
@@ -22,48 +22,48 @@
     background: transparent;
     width: 100vw;
     z-index: 1;
-    background: var(--dark-color);
+    background: var(--gradient-dark);
     transition: 0.5s ease-in;
-  }
-  
-  #navbar.main-page {
+}
+
+#navbar.main-page {
     background: transparent;
-  }
-  
-  #navbar ul {
+}
+
+#navbar ul {
     display: flex;
     list-style: none;
-  }
-  
-  #navbar li {
+}
+
+#navbar li {
     padding: 1rem 1rem;
     padding-right: 75px;
     font-size: 1.25rem;
     font-weight: 600;
-  }
-  
-  #navbar a {
+}
+
+#navbar ul a {
     text-decoration: none;
     color: var(--light-color);
     text-transform: uppercase;
     border-bottom: 3px transparent solid;
     padding-bottom: 0.1rem;
     transition: border-color 0.5s;
-  }
-  
-  #navbar li {
+}
+
+#navbar li {
     transition: all 0.5s linear;
-  }
-  
-  #navbar li:hover {
+}
+
+#navbar li:hover {
     transform: scale(1.15);
-  }
-  
-  #navbar ul a:hover {
+}
+
+#navbar a:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
-  }
-  
-  #navbar a.current {
+}
+
+#navbar a.current {
     border-color: var(--primary-color);
-  }
+}

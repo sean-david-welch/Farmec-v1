@@ -1,14 +1,56 @@
-/* Styles Import */
-@import 'variables.css';
+/* Variables */
+:root {
+    --website-width: 100vw;
+    --primary-color: #d90000;
+    --light-color: #f4f4f4;
+    --medium-color: #ccc;
+    --darker-color: #636363;
+    --mdark-color: #2f2f2f;
+    --dark-color: #212121;
+    --gradient-primary: linear-gradient(#db0101 70%, #a20202);
+    --gradient-dark: linear-gradient(#1f1e1e 60%, #0f0f0f);
+    --gradient-light: linear-gradient(#dddddd 60%, #9f9e9e);
+}
 
 /* General Utilities */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gradient-dark) var(--gradient-light);
+}
+
+html::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--darker-color);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background-image: var(--gradient-dark);
+}
+
+body {
+    font-family: "Dosis", sans-serif;
+    line-height: 1.6;
+    background: #fff;
+    overflow-x: hidden;
+    background-image: var(--gradient-light);
+}  
+
 h2, h3, h4 {
     text-transform: uppercase;
 } 
   
 .container {
-    max-width: 100%;
-    margin: auto;
+    max-width: var(--website-width);
     overflow: hidden;
 }
 
@@ -50,7 +92,11 @@ h2, h3, h4 {
 
 /* Miscellaeneous */
 .spacing {
-    margin: 2rem;
+    margin-top: 3rem;
+}
+
+.spacing-bottom {
+    margin-bottom: 3rem;
 }
 
 .text-center {
