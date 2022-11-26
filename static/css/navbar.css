@@ -1,7 +1,7 @@
 /* Logo */
 #logo {
     display: flex;
-    height: 4.5rem;
+    height: 4.25rem;
     padding-bottom: 10px;
     padding-left: 50px;
     z-index: 1;
@@ -38,25 +38,24 @@
 #navbar li {
     padding: 1rem 1rem;
     padding-right: 75px;
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-#navbar ul a {
+#navbar a {
     text-decoration: none;
     color: var(--light-color);
     text-transform: uppercase;
     border-bottom: 3px transparent solid;
-    padding-bottom: 0.1rem;
     transition: border-color 0.5s;
 }
 
-#navbar li {
-    transition: all 0.5s linear;
+#navbar a {
+    transition: 0.5s linear;
 }
 
-#navbar li:hover {
-    transform: scale(1.15);
+#navbar a:hover {
+    transform: scale(1.05);
 }
 
 #navbar a:hover {

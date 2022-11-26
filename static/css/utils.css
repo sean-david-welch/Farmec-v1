@@ -9,7 +9,7 @@
     --dark-color: #212121;
     --gradient-primary: linear-gradient(#db0101 70%, #a20202);
     --gradient-dark: linear-gradient(#1f1e1e 60%, #0f0f0f);
-    --gradient-light: linear-gradient(#dddddd 60%, #9f9e9e);
+    --gradient-light: linear-gradient(#f6f6f6 80%, #747474);
 }
 
 /* General Utilities */
@@ -19,13 +19,8 @@
     box-sizing: border-box;
 }
 
-html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--gradient-dark) var(--gradient-light);
-}
-
 html::-webkit-scrollbar {
-    width: 0.5vw;
+    width: 0.3vw;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -93,6 +88,10 @@ h2, h3, h4 {
 /* Miscellaeneous */
 .spacing {
     margin-top: 3rem;
+}
+
+.spacing-1 {
+    margin-top: 1rem;
 }
 
 .spacing-bottom {

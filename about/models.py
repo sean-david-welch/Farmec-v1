@@ -2,9 +2,10 @@ from django.db import models
 import uuid
 # Create your models here.
 
-class Member(models.Model):
+class Staff(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
-    email = models.CharField(max_length=500, blank=True, null=True)
+    email = models.EmailField(max_length=500, blank=True, null=True)
+    role = models.CharField(max_length=500, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     profile_image = models.ImageField(null=True, blank=True, default="default.jpg")
     social_twitter = models.CharField(max_length=200, blank=True, null=True)
@@ -23,4 +24,3 @@ class Member(models.Model):
         except: 
             url = ''
         return url
-    
