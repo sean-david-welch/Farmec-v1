@@ -23,7 +23,6 @@
     width: 100vw;
     z-index: 1;
     background: var(--gradient-dark);
-    transition: 0.5s ease-in;
 }
 
 #navbar.main-page {
@@ -50,15 +49,15 @@
     transition: border-color 0.5s;
 }
 
-#navbar a {
-    transition: 0.5s linear;
+#navbar li {
+    transition: all 0.5s linear;
 }
 
-#navbar a:hover {
+#navbar li:hover {
     transform: scale(1.05);
 }
 
-#navbar a:hover {
+#navbar ul a:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
 }

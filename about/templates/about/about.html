@@ -2,73 +2,8 @@
 {% load static %}
 
 {% block content %}
-<!-- About - Timeline -->
-<section id="timeline" class="text-center py-2">
 
-    <div class="container spacing">
-        <div class="top-section">
-            <h2>Our Story</h2>
-            <p class="lead">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore corporis rerum consequuntur atque
-                similique perspiciatis esse, ipsum adipisci. Non, beatae inventore officia exercitationem placeat
-                ullam qui maiores. Nobis, architecto tempore.
-            </p>
-        </div>
-
-        <div class="timeline">
-            <div class="line"></div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+{% include './timeline.html' %}
 
 <!-- About - Team -->
 <section id="about-team" class="text-center py-2">
@@ -85,13 +20,22 @@
                     <div class="card-image">
                         <img src="{{staff.imageurl}}" alt="Profile Image">
                     </div>
-                    <p class="name">{{staff.name}}</p>
-                    <p class="role">{{staff.role}}</p>
-                    <p class="short bio">{{staff.bio | slice:"200"}}</p>
+                    <p class="name lead-1">{{staff.name}}</p>
+                    <p class="role lead-1">{{staff.role}}</p>
+                    <p class="short bio lead">{{staff.bio | slice:"200"}}</p>
                     <div class="socials">
-                        <button class="twitter"><i class="fab fa-twitter"></i></button>
-                        <button class="linkedin"><i class="fab fa-linkedin"></i></button>
-                        <button class="whatsapp"><i class="fab fa-whatsapp"></i></button>
+                        {% if staff.social_twitter %}
+                        <a href="{{staff.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if staff.social_linkedin %}
+                        <a href="{{staff.linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if staff.social_whatsapp %}
+                        <a href="{{staff.social_whatsapp}}" target="_blank"><button class="whatsapp"><i
+                                    class="fab fa-whatsapp"></i></button></a>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}

@@ -7,7 +7,7 @@
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.3);
   
-  }
+}
   
 .header-content::before {
     content: '';
@@ -29,13 +29,13 @@
 }
   
 .header-subcontent h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--light-color);
 }
   
 .header-subcontent a {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1rem;
 }
   

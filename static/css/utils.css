@@ -9,7 +9,7 @@
     --dark-color: #212121;
     --gradient-primary: linear-gradient(#db0101 70%, #a20202);
     --gradient-dark: linear-gradient(#1f1e1e 60%, #0f0f0f);
-    --gradient-light: linear-gradient(#f6f6f6 80%, #747474);
+    --gradient-light: linear-gradient(#f6f6f6 30%, #b4b3b3);
 }
 
 /* General Utilities */
@@ -34,7 +34,7 @@ html::-webkit-scrollbar-track {
 
 body {
     font-family: "Dosis", sans-serif;
-    line-height: 1.6;
+    line-height: 1.75;
     background: #fff;
     overflow-x: hidden;
     background-image: var(--gradient-light);
@@ -75,13 +75,19 @@ h2, h3, h4 {
 /* Paragraph leads */
 .lead {
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--dark-color);
 }
 
+.lead-light {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--light-color);
+}
+
 .lead-1 {
-    font-weight: 600;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 1.15rem;
     color: var(--dark-color);
 }
 
@@ -104,7 +110,7 @@ h2, h3, h4 {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     display: block;
     text-align: center;
     font-weight: 500;

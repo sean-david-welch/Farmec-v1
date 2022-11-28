@@ -1,24 +1,31 @@
 {% load static %}
-<header id="home">
-        <!-- Navbar -->
-        <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
-                <a href="{% url 'home' %}"><img src="{% static 'images/farmec-logo-2.png' %}" alt="" id="logo"></a>
-                <ul>
-                        <li><a href="{% url 'home' %}"
-                                        class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
-                        </li>
-                        <li><a href="{% url 'about' %}"
-                                        class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About</a>
-                        </li>
-                        <li><a href="suppliers.html"
-                                        class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
-                        </li>
-                        <li><a href="amenity.html"
-                                        class="{% if request.resolver_match.url_name == 'parts' %} current {% endif %}">Amenity</a>
-                        </li>
-                        <li><a href="blog.html"
-                                        class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
-                        </li>
-                </ul>
-        </nav>
+<header>
+        <div class="container">
+                <!-- Navbar -->
+                <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
+                        <a href="{% url 'home' %}"><img src="{% static 'images/farmec-logo-2.png' %}" alt=""
+                                        id="logo"></a>
+                        <ul>
+                                <li><a href="{% url 'home' %}"
+                                                class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
+                                </li>
+                                <li><a href="{% url 'about' %}"
+                                                class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About</a>
+                                </li>
+                                <li><a href="suppliers.html"
+                                                class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
+                                </li>
+                                <li><a href="amenity.html"
+                                                class="{% if request.resolver_match.url_name == 'parts' %} current {% endif %}">Amenity</a>
+                                </li>
+                                <li><a href="blog.html"
+                                                class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
+                                </li>
+                                <li><a href="contact.html"
+                                                class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Contact
+                                                Us</a>
+                                </li>
+                        </ul>
+                </nav>
+        </div>
 </header>

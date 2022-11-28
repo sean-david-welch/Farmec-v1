@@ -7,7 +7,7 @@ $('#navbar a, .btn').on('click', function (e) {
 
         $('html, body').animate(
             {
-                scrollTop: $(hash).offset().top - 100,
+                scrollTop: $(hash).offset().top - 90,
             },
             1000
         );
@@ -31,7 +31,7 @@ function qs(selector, all = false) {
 const sections = qs('.section', true);
 const timeline = qs('.timeline');
 const line = qs('.line');
-line.style.bottom = `calc(100% - 20px)`;
+line.style.bottom = `calc(100% - 60px)`;
 let prevScrollY = window.scrollY;
 let up, down;
 let full = false;

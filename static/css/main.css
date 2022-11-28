@@ -4,6 +4,7 @@
 @import 'header.css';
 @import 'footer.css';
 @import 'about.css';
+@import 'timeline.css';
 @import 'media.css';
 
 /* Home Grid - Stats */
@@ -26,7 +27,7 @@
 #home .stats ul h1,
 #home .stats ul .stats-title,
 #home .stats ul .stats-number {
-	font-size: 1.6rem;
+	font-size: 1.25rem;
 }
 
 #home .stats a {
@@ -52,7 +53,7 @@
 }
 
 #home .specials li {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 }
 
 #home .specials a {
