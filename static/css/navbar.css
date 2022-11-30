@@ -9,7 +9,7 @@
 }
 
 #logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     cursor: pointer;
 }
 
@@ -19,7 +19,6 @@
     justify-content: space-between;
     padding-top: 1rem;
     position: absolute;
-    background: transparent;
     width: 100vw;
     z-index: 1;
     background: var(--gradient-dark);
@@ -34,34 +33,101 @@
     list-style: none;
 }
 
+#navbar ul .nav-list {
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
 #navbar li {
     padding: 1rem 1rem;
-    padding-right: 75px;
-    font-size: 1.1rem;
+    padding-right: 5rem;
+    font-size: 1.05rem;
     font-weight: 500;
+    list-style: none;
+    transition: all 0.5s linear;
 }
 
 #navbar a {
     text-decoration: none;
     color: var(--light-color);
     text-transform: uppercase;
-    border-bottom: 3px transparent solid;
-    transition: border-color 0.5s;
 }
 
-#navbar li {
-    transition: all 0.5s linear;
+#navbar li .nav-list-item {
+    position: relative;
 }
 
-#navbar li:hover {
-    transform: scale(1.05);
+#navbar .nav-list-item::after {
+    content: '';
+    width: 0;
+    height: 0.2rem;
+    border-radius: 10px;
+    position: absolute;
+    left: 0.4rem;
+    bottom: 1.5rem;
+    background-color: var(--primary-color);
+    transition: width 200ms ease-in;
 }
 
-#navbar ul a:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+#navbar .nav-list-item:hover::after,
+#navbar .nav-list-item:focus::after {
+    width: 60%;
+}
+
+#navbar .nav-list-item:hover ul,
+#navbar .nav-list-item:focus ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+#navbar .nav-drop {
+    position: absolute;
+    top: 3rem;
+    left: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    width: 12rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms ease-in;
+}
+
+#navbar .nav-drop li {
+    list-style: none;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+    background-color: var(--dark-color);
+    box-shadow: 0 2px 2px -2px rgba(255, 255, 255, 0.2);
+    transition: background-color 200ms ease-in;
+    font-size: 1rem;
+}
+
+#navbar .nav-drop li:hover,
+#navbar .nav-drop li:focus {
+    background-color: var(--primary-color);
+}
+
+#navbar .nav-list-item:hover {
+    transform: scale(1.01);
 }
 
 #navbar a.current {
-    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 700;
 }
+
+/* #navbar a.current::before {
+    content: '';
+    position: absolute;
+    width: 7%;
+    height: 0.2rem;
+    border-radius: 10px;
+    bottom: 1.5rem;
+    background-color: var(--primary-color);
+} */

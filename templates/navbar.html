@@ -1,7 +1,6 @@
 {% load static %}
-<header>
+<!-- <header>
         <div class="container">
-                <!-- Navbar -->
                 <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
                         <a href="{% url 'home' %}"><img src="{% static 'images/farmec-logo-2.png' %}" alt=""
                                         id="logo"></a>
@@ -22,6 +21,52 @@
                                                 class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
                                 </li>
                                 <li><a href="contact.html"
+                                                class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Contact
+                                                Us</a>
+                                </li>
+                        </ul>
+                </nav>
+        </div>
+</header> -->
+
+<header>
+        <div class="container">
+                <!-- Navbar -->
+                <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
+                        <a href="{% url 'home' %}"><img src="{% static 'images/farmec-logo-2.png' %}" alt="Logo"
+                                        id="logo"></a>
+                        <ul class="nav-list">
+                                <li class="nav-list-item"><a href="{% url 'home' %}"
+                                                class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
+                                </li>
+                                <li class="nav-list-item"><a href="{% url 'about' %}"
+                                                class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About</a>
+                                        <ul class="nav-drop">
+                                                <li><a href="{% url 'about' %}">Our Story</a></li>
+                                                <li><a href="{% url 'about' %}">Our Team</a></li>
+                                        </ul>
+                                </li>
+                                <li class="nav-list-item"><a href="suppliers.html"
+                                                class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Agriculture</a>
+                                        <ul class="nav-drop">
+                                                <li><a href="#">SIP Grass Machinery</a></li>
+                                                <li><a href="#">MX Loaders & Front-Linkage</a></li>
+                                                <li><a href="#">Sulky Fertilizer, Harrows & Drills</a></li>
+                                        </ul>
+                                </li>
+                                <li class="nav-list-item"><a href="amenity.html"
+                                                class="{% if request.resolver_match.url_name == 'amenity' %} current {% endif %}">Amenity</a>
+                                        <ul class="nav-drop">
+                                                <li><a href="#">Aerway</a></li>
+                                                <li><a href="#">Arag GPS & Sprayer Fittings</a></li>
+                                                <li><a href="#">Bargham Amenity Sprayers</a></li>
+                                                <li><a href="#">Twose Compact Hedge Cutters</a></li>
+                                        </ul>
+                                </li>
+                                <li class="nav-list-item"><a href="blog.html"
+                                                class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
+                                </li>
+                                <li class="nav-list-item"><a href="contact.html"
                                                 class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Contact
                                                 Us</a>
                                 </li>

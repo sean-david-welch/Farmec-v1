@@ -1,0 +1,53 @@
+/* Blurb section for home page */
+#blog .blog {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+#blog .row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100vw;
+}
+
+#blog .column {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 100%;
+	flex: 1;
+}
+
+#blog .column-1 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	height: 100%;
+}
+
+#blog img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+#blog .column-2 {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 30px;
+}
+
+#blog .btn {
+	margin-top: 0.5rem;
+}
+
+#blog .flex-reverse {
+	flex-direction: row-reverse;
+}

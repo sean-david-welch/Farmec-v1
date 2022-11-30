@@ -21,7 +21,7 @@ window.addEventListener("scroll", () => {
     if (window.scrollY < 100) {
         toTop.classList.remove("active");
     }
-})
+});
 
 // Timeline animation
 function qs(selector, all = false) {

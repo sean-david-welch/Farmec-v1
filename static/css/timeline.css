@@ -50,7 +50,7 @@
     padding: 1rem;
     border-radius: 1rem;
     align-items: center;
-    min-height: 250px;
+    min-height: 400px;
 }
   
 #timeline .section:nth-child(odd) {
