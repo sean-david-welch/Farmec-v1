@@ -3,11 +3,9 @@
 
 {% block content %}
 
-{% include './timeline.html' %}
-
 <!-- About - Team -->
-<section id="about-team" class="text-center py-2">
-    <div class="container">
+<section id="about-team" class="text-center spacing">
+    <div class="container spacing">
         <h2>Our Team</h2>
         <div class="bottom-line"></div>
         <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
@@ -42,5 +40,7 @@
             </div>
         </div>
 </section>
+
+{% include './timeline.html' %}
 
 {% endblock content %}
