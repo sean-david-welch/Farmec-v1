@@ -12,8 +12,8 @@
                                 <li class="nav-list-item"><a href="{% url 'about' %}"
                                                 class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About</a>
                                         <ul class="nav-drop">
-                                                <li><a href="{% url 'about' %}">Our Story</a></li>
                                                 <li><a href="{% url 'about' %}">Our Team</a></li>
+                                                <li><a href="{% url 'about' %}">Our Story</a></li>
                                         </ul>
                                 </li>
                                 <li class=" nav-list-item"><a href="suppliers.html"
@@ -38,7 +38,7 @@
                                 <li class="nav-list-item"><a href="blog.html"
                                                 class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
                                 </li>
-                                <li class="nav-list-item"><a href="contact.html"
+                                <li class="nav-list-item"><a href="{% url 'contact' %}"
                                                 class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Contact
                                                 Us</a>
                                 </li>
