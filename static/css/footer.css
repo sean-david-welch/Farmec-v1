@@ -2,50 +2,91 @@
 #main-footer {
 	background-image: var(--gradient-dark);
 	color: var(--light-color);
-	height: 8rem;
+	height: 20.5rem;
+	max-width: var(--website-width);
 }
 
 #main-footer .footer-content {
-	margin: 2.5rem 1rem;
-	display: flex;
-	flex-direction: row;
+	margin: 2rem 1rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	align-items: center;
 	justify-content: space-evenly;
 }
 
-#main-footer .navigation ul {
+#main-footer .information {
+	margin-top: -1.25rem;
+}
+
+#main-footer .information img {
 	display: flex;
+	width: 7.5rem;
+	margin-left: 2.25rem;
 }
 
-#main-footer .navigation li {
-	margin: 0 0.5rem;
+#main-footer .information ul {
 	list-style: none;
-	font-size: 1.25rem;
-	justify-content: space-between;
-	transition: all 0.5s ease-in;
+	margin-left: 2.4rem;
 }
 
-#main-footer .footer-content p {
-	font-size: 1.25rem;
+#main-footer .accreditation p {
+	display: flex;
 	text-align: center;
+	justify-content: center;
+	color: var(--light-color);
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+#main-footer .accreditation img {
+	width: 10rem;
+	display: flex;
+	margin-left: 10rem;
+	justify-content: center;
+}
+
+#main-footer .social {
+	margin-top: 1.5rem;
+	margin-left: 4.5rem;
 }
 
 #main-footer .footer-content li a,
-#main-footer .footer-content .soc {
+#main-footer .soc {
 	text-decoration: none;
 	color: var(--light-color);
 	transition: all 0.5s ease-in;
 }
 
-#main-footer .navigation li:hover,
+#main-footer .navigation {
+	margin-top: -1.25rem;
+	margin-left: 10rem;
+}
+
+#main-footer .navigation ul {
+	display: flex;
+	flex-direction: column;
+	margin-left: 2rem;
+}
+
+#main-footer .navigation li {
+	margin: 0.5rem;
+	list-style: none;
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-decoration: underline;
+	justify-content: space-between;
+	transition: all 0.5s ease-in;
+}
+
 #main-footer .navigation a:hover {
-	transform: scale(1.05);
+	transform: scale(1.025);
 	color: var(--primary-color);
 }
 
 #main-footer .social .fab {
 	border: 3px var(--medium-color) solid;
-	margin: 0 1rem;
+	margin-left: 1.5rem;
 	border-radius: 10px;
 	height: 50px;
 	width: 50px;
