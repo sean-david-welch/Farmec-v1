@@ -5,5 +5,5 @@ from . models import Supplier, Product
 def suppliers(request):
     suppliers = Supplier.objects.all()
 
-    context = {'supplier': suppliers}
+    context = {'suppliers': suppliers}
     return render(request, 'suppliers/suppliers.html', context)

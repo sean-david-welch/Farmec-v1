@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from . models import Staff
-
+from . models import Employee
 
 # Create your views here.
 def about(request):
-    staff = Staff.objects.all()
+    employee = Employee.objects.all()
 
-    context = {'staff': staff}
+    context = {'employee': employee}
     return render(request, 'about/about.html', context)
 
 # def timeline(request):

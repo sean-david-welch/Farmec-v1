@@ -13,25 +13,25 @@
         <!-- Bio Section -->
         <div class="spacing">
             <div class="about-info">
-                {% for staff in staff %}
+                {% for employee in employee %}
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{staff.imageurl}}" alt="Profile Image">
+                        <img src="{{employee.imageurl}}" alt="Profile Image">
                     </div>
-                    <p class="name lead-1">{{staff.name}}</p>
-                    <p class="role lead-1">{{staff.role}}</p>
-                    <p class="short bio lead">{{staff.bio | slice:"250"}}</p>
+                    <p class="name lead-1">{{employee.name}}</p>
+                    <p class="role lead-1">{{employee.role}}</p>
+                    <p class="short bio lead">{{employee.bio | slice:"250"}}</p>
                     <div class="socials">
-                        {% if staff.social_twitter %}
-                        <a href="{{staff.social_twitter}}" target="_blank"><button class="twitter"><i
+                        {% if employee.social_twitter %}
+                        <a href="{{employee.social_twitter}}" target="_blank"><button class="twitter"><i
                                     class="fab fa-twitter"></i></button></a>
                         {% endif %}
-                        {% if staff.social_linkedin %}
-                        <a href="{{staff.linkedin}}" target="_blank"><button class="linkedin"><i
+                        {% if employee.social_linkedin %}
+                        <a href="{{employee.linkedin}}" target="_blank"><button class="linkedin"><i
                                     class="fab fa-linkedin"></i></button></a>
                         {% endif %}
-                        {% if staff.social_whatsapp %}
-                        <a href="{{staff.social_whatsapp}}" target="_blank"><button class="whatsapp"><i
+                        {% if employee.social_whatsapp %}
+                        <a href="{{employee.social_whatsapp}}" target="_blank"><button class="whatsapp"><i
                                     class="fab fa-whatsapp"></i></button></a>
                         {% endif %}
                     </div>

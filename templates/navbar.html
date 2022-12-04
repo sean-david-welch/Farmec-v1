@@ -16,8 +16,8 @@
                                                 <li><a href="{% url 'about' %}">Our Story</a></li>
                                         </ul>
                                 </li>
-                                <li class=" nav-list-item"><a href="suppliers.html"
-                                                class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Agriculture</a>
+                                <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
+                                                class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                                         <ul class="nav-drop">
                                                 <li><a href="#">SIP Grass Machinery</a></li>
                                                 <li><a href="#">MX Loaders & Front-Linkage</a>

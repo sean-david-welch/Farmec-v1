@@ -21,7 +21,7 @@
     position: absolute;
     width: 100vw;
     z-index: 1;
-    background: var(--gradient-dark);
+    background: var(--dark-color);
 }
 
 #navbar.main-page {
