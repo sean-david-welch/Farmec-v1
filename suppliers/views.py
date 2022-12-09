@@ -8,8 +8,8 @@ def suppliers(request):
     context = {'suppliers': suppliers}
     return render(request, 'suppliers/suppliers.html', context)
 
-# def sipfacts(request):
-#     sipfacts = SipFact.objects.all()
+def single_supplier(request, pk):
+    supplier = Supplier.objects.get(id=pk)
 
-#     context = {'sipfacts': sipfacts}
-#     return render(request, 'suppliers/suppliers.html', context)
+    context = {'supplier': supplier}
+    return render(request, 'suppliers/single-supplier.html', context)

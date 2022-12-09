@@ -11,6 +11,7 @@
     background: var(--mdark-color);
     color: var(--medium-color);
     border-radius: 2rem;
+    margin-bottom: 3rem;
 }
 
 #suppliers .supplier-info {
