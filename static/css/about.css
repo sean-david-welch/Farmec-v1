@@ -82,28 +82,3 @@
 #about-team button:hover {
 	transform: scale(1.05);
 }
-
-button i {
-	color: var(--light-color);
-	font-size: 1.4rem;
-}
-
-button.twitter {
-	background-color: #00acee;
-}
-
-button.linkedin {
-	background-color: #0072b1;
-}
-
-button.whatsapp {
-	background-color: #075e54;
-}
-
-button.facebook {
-	background-color: #3b5998;
-}
-
-button.youtube {
-	background-color: #FF0000;
-}

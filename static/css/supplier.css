@@ -9,6 +9,7 @@
     margin: 1rem;
     padding: 2rem;
     background: var(--mdark-color);
+    color: var(--medium-color);
     border-radius: 2rem;
 }
 
@@ -34,10 +35,6 @@
     border: 4px solid var(--medium-color);
 }
 
-/* #suppliers .supplier-description {
-
-} */
-
 #suppliers .supplier-description p {
     font-size: 1rem;
     font-weight: 400;
@@ -58,15 +55,11 @@
 
 /* link-grid */
 #suppliers .link-grid {
-    position: absolute;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    top: 25rem;
-    left: 6rem;
     gap: 1rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin-top: .5rem;
 }
 
 #suppliers .supplier-link {
@@ -75,25 +68,9 @@
     justify-self: start;
 }
 
-#suppliers .button{
-    text-decoration: none;
-    color: var(--dark-color);
-    background: var(--darker-color);
-    border: 0.5rem solid var(--darker-color);
-    border-radius: 2rem;
-    padding: 0.5rem 2rem;
-    transition: all 0.5s linear;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-#suppliers .button i {
-    color: var(--medium-color);
-    margin-left: 0.25rem;    
-}
-
-#suppliers .button:hover {
-    transform: scale(1.01);
+#suppliers .supplier-link a i {
+    margin-left: .25rem;
+    margin-top: .25rem;
 }
 
 #suppliers .supplier-social {
@@ -105,8 +82,8 @@
 }
 
 #suppliers .supplier-social button {
-	width: 4rem;
-	height: 4rem;
+	width: 3.5rem;
+	height: 3.5rem;
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;

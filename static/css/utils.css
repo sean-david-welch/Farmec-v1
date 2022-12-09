@@ -66,13 +66,32 @@ h2, h3, h4 {
     font-size: 1.1rem;
 }
 
+.btn-small {
+    display: inline-block;
+    padding: .5rem 2.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.5s linear;
+}
+
 .btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-small:hover {
     transform: scale(1.05);
 }
 
 .btn-primary {
     color: #fff;
     background-color: var(--primary-color);
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: var(--darker-color);
 }
 
 /* Paragraph leads */
@@ -155,4 +174,33 @@ h2, h3, h4 {
 
 .py-2 {
     padding: 2rem;
+}
+
+/* Social Button */
+button.twitter {
+	background-color: #00acee;
+}
+
+button.linkedin {
+	background-color: #0072b1;
+}
+
+button.whatsapp {
+	background-color: #075e54;
+}
+
+button.facebook {
+	background-color: #3b5998;
+}
+
+button.youtube {
+	background-color: #FF0000;
+}
+
+button.instagram {
+    background-image: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+button.website {
+    background-color: #7ea7ff;
 }

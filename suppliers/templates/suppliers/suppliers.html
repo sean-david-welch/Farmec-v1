@@ -8,22 +8,43 @@
     <div class="container">
         {% for supplier in suppliers %}
         <div class="supplier-profile">
-            <div class="link-grid">
-                <button class="supplier-link">
-                    <a href="" class="button">Supplier Page
-                        <i class="fa-sharp fa-solid fa-circle-chevron-right"></i>
-                    </a>
-                </button>
-                <div class="supplier-social">
-                    <a href="#" target="_blank"><button class="twitter"><i class="fab fa-twitter"></i></button></a>
-                    <a href="#" target="_blank"><button class="facebook"><i class="fab fa-facebook"></i></button></a>
-                    <a href="#" target="_blank"><button class="linkedin"><i class="fab fa-linkedin"></i></button></a>
-                    <a href="#" target="_blank"><button class="youtube"><i class="fab fa-youtube"></i></button></a>
-                </div>
-            </div>
             <div class="supplier-info">
                 <img src="{{supplier.imageurl}}" alt="supplier-logo">
-                <h1>SIP Grass Machinery:</h1>
+                <h1>{{supplier.name}}</h1>
+                <div class="link-grid">
+                    <div class="supplier-social">
+                        {% if supplier.social_facebook %}
+                        <a href="{{supplier.social_facebook}}" target="_blank"><button class="facebook"><i
+                                    class="fab fa-facebook"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_twitter %}
+                        <a href="{{supplier.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_instagram %}
+                        <a href="{{supplier.social_instagram}}" target="_blank"><button class="instagram"><i
+                                    class="fab fa-instagram"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_youtube %}
+                        <a href="{{supplier.social_youtube}}" target="_blank"><button class="youtube"><i
+                                    class="fab fa-youtube"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_linkedin %}
+                        <a href="{{supplier.social_linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_website %}
+                        <a href="{{supplier.social_website}}" target="_blank"><button class="website"><i
+                                    class="fa-solid fa-globe"></i></button></a>
+                        {% endif %}
+                    </div>
+                    <button class="supplier-link">
+                        <a href="" class="btn-small btn-secondary">
+                            Learn More
+                            <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                        </a>
+                    </button>
+                </div>
             </div>
             <img src="{{supplier.marketing_imageurl}}" alt="marketing-image" class="marketing-image">
             <div class="supplier-description">
