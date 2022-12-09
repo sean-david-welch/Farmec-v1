@@ -29,6 +29,10 @@
 	margin-left: 2.4rem;
 }
 
+#main-footer .legal {
+	color: var(--primary-color);
+}
+
 #main-footer .accreditation p {
 	display: flex;
 	text-align: center;

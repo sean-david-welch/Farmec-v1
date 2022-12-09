@@ -56,45 +56,65 @@
     margin-bottom: 1rem;
 }
 
-#suppliers .supplier-social {
+/* link-grid */
+#suppliers .link-grid {
     position: absolute;
-	display: flex; 
-	align-items: center;
-    margin-top: -45rem;
-    margin-left: 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    top: 25rem;
+    left: 6rem;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+#suppliers .supplier-link {
+    background: none;
+    border: none;
+    justify-self: start;
+}
+
+#suppliers .button{
+    text-decoration: none;
+    color: var(--dark-color);
+    background: var(--darker-color);
+    border: 0.5rem solid var(--darker-color);
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    transition: all 0.5s linear;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#suppliers .button i {
+    color: var(--medium-color);
+    margin-left: 0.25rem;    
+}
+
+#suppliers .button:hover {
+    transform: scale(1.01);
+}
+
+#suppliers .supplier-social {
+    justify-self: start;
 }
 
 #suppliers .supplier-social i {
     font-size: 2.5rem;
 }
 
-#suppliers button {
-	margin: 1rem;
+#suppliers .supplier-social button {
 	width: 4rem;
 	height: 4rem;
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;
 	transition: all 0.3s linear;
+    margin-right: 1rem;
+
 }
 
-#suppliers button:hover {
+#suppliers .supplier-social button:hover {
 	transform: scale(1.05);
-}
-
-#suppliers .button {
-    position: absolute;
-    text-decoration: none;
-    color: var(--light-color);
-    background: var(--primary-color);
-    border: 0.5rem solid var(--primary-color);
-    border-radius: 2rem;
-    padding: 0rem 2.5rem;
-    transition: all 0.5s linear;
-    font-size: 1rem;
-    margin: -38.5rem 3rem;
-}
-
-#suppliers .button:hover {
-    transform: scale(1.01);
 }
