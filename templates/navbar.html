@@ -12,7 +12,7 @@
                         class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
                     <ul class="nav-drop">
                         <li><a href="{% url 'about' %}">Our Team</a></li>
-                        <li><a href="{% url 'about' %}">Our Story</a></li>
+                        <li><a href="{% url 'timeline' %}">Our Story</a></li>
                     </ul>
                 </li>
                 <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
@@ -21,17 +21,6 @@
                         {% for supplier in suppliers %}
                         <li><a href="{% url 'supplier' pk=supplier.pk %}">{{ supplier.name }}</a></li>
                         {% endfor %}
-
-                        <li>
-                            <a href="#">SIP Grass
-                                Machinery</a>
-                        </li>
-                        <li>
-                            <a href="#">MX Loaders & Front-Linkage</a>
-                        </li>
-                        <li>
-                            <a href="#">Sulky Fertilizer, Harrows & Drills</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nav-list-item"><a href="amenity.html"

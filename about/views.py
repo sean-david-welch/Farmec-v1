@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Employee
+from . models import Employee, Timeline
 
 # Create your views here.
 def about(request):
@@ -8,8 +8,8 @@ def about(request):
     context = {'employee': employee}
     return render(request, 'about/about.html', context)
 
-# def timeline(request):
-#     timelines = Timeline.objects.all()
+def timeline(request):
+    timeline = Timeline.objects.all()
 
-#     context = {'timelines': timelines}
-#     return render(request, 'teams/teams.html', context)
+    context = {'timeline': timeline}
+    return render(request, 'about/timeline.html', context)
