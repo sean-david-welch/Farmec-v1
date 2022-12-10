@@ -1,0 +1,43 @@
+{% load static %}
+{% block content %}
+<!-- About - Team -->
+<section id="about-team" class="text-center spacing">
+    <div class="container spacing">
+        <h2>Our Team</h2>
+        <div class="bottom-line"></div>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
+
+        <!-- Bio Section -->
+        <div class="spacing">
+            <div class="about-info">
+                {% for employee in employee %}
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{employee.imageurl}}" alt="Profile Image">
+                    </div>
+                    <p class="name lead-1">{{employee.name}}</p>
+                    <p class="role lead-1">{{employee.role}}</p>
+                    <p class="short bio lead">{{employee.bio | slice:"250"}}</p>
+                    <div class="socials">
+                        {% if employee.social_twitter %}
+                        <a href="{{employee.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if employee.social_linkedin %}
+                        <a href="{{employee.linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if employee.social_whatsapp %}
+                        <a href="{{employee.social_whatsapp}}" target="_blank"><button class="whatsapp"><i
+                                    class="fab fa-whatsapp"></i></button></a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="#timeline" class="btn btn-primary">
+                Company History <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+            </a>
+        </div>
+</section>
+{% endblock %}

@@ -6,3 +6,4 @@ admin.site.register(Supplier)
 admin.site.register(Fact)
 admin.site.register(Machine)
 admin.site.register(Product)
+

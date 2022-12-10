@@ -21,6 +21,9 @@ class Supplier(models.Model):
     def __str__(self):
         return str(self.name)
 
+    class Meta:
+        ordering = ['created']
+
     @property
     def imageurl(self):
         try:
@@ -59,6 +62,9 @@ class Machine(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
+
+    class Meta:
+        ordering = ['created']
     
     def __str__(self):
         return str(self.name)
@@ -73,6 +79,9 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
+
+    class Meta:
+        ordering = ['created']
 
     def __str__(self):
         return str(self.name)

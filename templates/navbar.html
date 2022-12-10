@@ -9,7 +9,7 @@
                         class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
                 </li>
                 <li class="nav-list-item"><a href="{% url 'about' %}"
-                        class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About</a>
+                        class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
                     <ul class="nav-drop">
                         <li><a href="{% url 'about' %}">Our Team</a></li>
                         <li><a href="{% url 'about' %}">Our Story</a></li>
@@ -18,8 +18,12 @@
                 <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
                         class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                     <ul class="nav-drop">
+                        {% for supplier in suppliers %}
+                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{ supplier.name }}</a></li>
+                        {% endfor %}
+
                         <li>
-                            <a href="{% url 'single-supplier' supplier.id %}">SIP Grass
+                            <a href="#">SIP Grass
                                 Machinery</a>
                         </li>
                         <li>
@@ -39,7 +43,7 @@
                         <li><a href="#">Twose Compact Hedge Cutters</a></li>
                     </ul>
                 </li>
-                <li class="nav-list-item"><a href="blog.html"
+                <li class="nav-list-item"><a href="{% url 'blog' %}"
                         class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
                 </li>
                 <li class="nav-list-item"><a href="{% url 'contact' %}"

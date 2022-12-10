@@ -11,13 +11,13 @@
 	align-items: center;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	margin: 2.5rem;
+	/* margin: 2.5rem; */
 }
 
 #about-team .card {
 	position: relative;
 	width: 300px;
-	background-color: var(--light-color);
+	background-color: var(--medium-color);
 	color: var(--dark-color);
 	border-radius: 10px;
 	padding: 1rem;

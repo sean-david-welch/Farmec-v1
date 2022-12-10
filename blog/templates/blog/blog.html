@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2 class="section-title spacing py-2">Check out our Latest Blog Posts</h2>
+<div class="bottom-line"></div>
+{% for blog in blog %}
+
+<section id="main-blog" class="spacing-1">
+    <h2>{{blog.title}}</h2>
+    <h2>{{blog.subheading}}</h2>
+    <p>{{blog.body|slice:"150"}}</p>
+    <img src="{{blog.imageurl}}" alt="">
+</section>
+
+{% endfor %}
+
+{% endblock content %}
