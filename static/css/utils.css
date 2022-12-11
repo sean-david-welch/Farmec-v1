@@ -146,6 +146,13 @@ h2, h3, h4 {
     margin: 0 auto .5rem auto;
 }
 
+.bottom-line-side {
+    height: 2px;
+    width: 12.5rem;
+    background: var(--primary-color);
+    display: block;
+}
+
 /* backgrounds */
 .bg-primary {
     background: var(--primary-color);

@@ -3,8 +3,40 @@
 
 {% block content %}
 
-<section id="profile" style="margin: 10rem;">
-    <p>name: {{supplier.name}}</p>
+<section id="profile">
+    <div class="container">
+        <div class="profile-body">
+            <div class="profile-header">
+                <h1 class="text-center">{{supplier.name}}
+                    <div class="bottom-line"></div>
+                </h1>
+                <div class="profile-image">
+                    <img src="{{supplier.marketing_imageurl}}" alt="">
+                </div>
+                <div class="nav-button">
+                    <a href="#timeline" class="btn btn-primary">
+                        Brand Products <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="profile-grid-description">
+                <img src="{{supplier.imageurl}}" alt="">
+                <p>{{supplier.description}}</p>
+            </div>
+            <div class="profile-facts">
+                <h1>{{supplier.name.split.0}} Features:</h1>
+                <div class="bottom-line-side"></div>
+                {% for fact in supplier.fact_set.all %}
+                <p>{{fact}}</p>
+                {% endfor %}
+            </div>
+            <div class="nav-button">
+                <a href="#timeline" class="btn btn-primary">
+                    Brand Products <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 
 {% endblock content %}

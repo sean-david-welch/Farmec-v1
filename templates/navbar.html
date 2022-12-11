@@ -5,9 +5,11 @@
         <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
             <a href="{% url 'home' %}"><img src="{% static 'images/farmeclogo.png' %}" alt="Logo" id="logo"></a>
             <ul class="nav-list">
+
                 <li class="nav-list-item"><a href="{% url 'home' %}"
                         class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
                 </li>
+
                 <li class="nav-list-item"><a href="{% url 'about' %}"
                         class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
                     <ul class="nav-drop">
@@ -15,6 +17,7 @@
                         <li><a href="{% url 'timeline' %}">Our Story</a></li>
                     </ul>
                 </li>
+
                 <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
                         class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                     <ul class="nav-drop">
@@ -23,6 +26,8 @@
                         {% endfor %}
                     </ul>
                 </li>
+
+
                 <li class="nav-list-item"><a href="amenity.html"
                         class="{% if request.resolver_match.url_name == 'amenity' %} current {% endif %}">Amenity</a>
                     <ul class="nav-drop">
@@ -32,13 +37,16 @@
                         <li><a href="#">Twose Compact Hedge Cutters</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-list-item"><a href="{% url 'blog' %}"
                         class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
                 </li>
+
                 <li class="nav-list-item"><a href="{% url 'contact' %}"
                         class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Contact
                         Us</a>
                 </li>
+
             </ul>
         </nav>
     </div>
