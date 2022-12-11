@@ -70,6 +70,14 @@ class Machine(models.Model):
     def __str__(self):
         return str(self.name)
 
+    @property
+    def imageurl(self):
+        try:
+            url = self.machine_image.url
+        except: 
+            url = ''
+        return url
+
 class Product(models.Model):
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
@@ -86,3 +94,11 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+    @property
+    def imageurl(self):
+        try:
+            url = self.product_image.url
+        except: 
+            url = ''
+        return url

@@ -1,0 +1,115 @@
+
+/* Profile Page */
+#profile .profile-logo {
+    width: 10rem;
+}
+
+#profile .profile-body {
+    border-radius: 2rem;
+    padding: 6rem 2rem 3rem 2rem;
+    background-color: var(none);
+}
+
+#profile .profile-header {
+    height: 100%;
+}
+
+#profile .profile-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#profile .profile-image {
+    margin-top: 1rem;
+}
+
+#profile .profile-image img {
+    display: block;
+    margin: auto;
+    object-fit: cover;
+    width: 100%;
+    border: 2rem transparent var(--dark-color);
+    border-radius: 2rem;
+}
+
+#profile .nav-button a {
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#profile .profile-grid-description {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    margin: 1rem 4rem;
+}
+
+#profile .profile-grid-description p {
+    max-height: 20rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#profile .profile-image {
+    margin-top: 1rem;
+}
+
+#profile .profile-image img {
+    display: block;
+    margin: auto;
+    object-fit: cover;
+    width: 95%;
+    height: 40rem;
+    border: 2rem transparent var(--dark-color);
+    border-radius: 2rem;
+}
+
+#profile .profile-facts {
+    margin: 2rem 4rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#profile .nav-button {
+    display: flex;
+    margin-top: 2rem;
+}
+
+/* Product Cards */
+#profile .products {
+    background-color: var(--darker-color);
+    margin: 0 4rem;
+    border-radius: 2rem;
+}
+
+#profile .product-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 2rem;
+}
+
+#profile .product-card img {
+    display: block;
+    width: 40rem;
+    object-fit: cover;
+    border: 5px solid var(--mdark-color);
+    border-start-start-radius: 2rem;
+    border-end-start-radius: 2rem;
+}
+
+#profile .product-info h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#profile .product-info p {
+    font-size: 1.15rem;
+}
+
+#profile .product-info a {
+    margin-top: 1rem;
+    margin-left: -.5rem;
+}
