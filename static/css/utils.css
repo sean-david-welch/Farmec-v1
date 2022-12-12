@@ -64,6 +64,7 @@ h2, h3, h4 {
     text-decoration: none;
     transition: all 0.5s linear;
     font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .btn-small {
@@ -72,7 +73,7 @@ h2, h3, h4 {
     border-radius: 2rem;
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.5s linear;
 }
 
@@ -87,11 +88,13 @@ h2, h3, h4 {
 .btn-primary {
     color: #fff;
     background-color: var(--primary-color);
+    font-weight: 700;
 }
 
 .btn-secondary {
     color: #fff;
     background-color: var(--darker-color);
+    font-weight: 700;
 }
 
 /* Paragraph leads */
@@ -144,6 +147,14 @@ h2, h3, h4 {
     background: var(--primary-color);
     display: block;
     margin: 0 auto .5rem auto;
+}
+
+.bottom-line-small {
+    height: 2px;
+    width: 15rem;
+    background: var(--primary-color);
+    display: block;
+    margin: 0 auto 0 auto;
 }
 
 .bottom-line-side {

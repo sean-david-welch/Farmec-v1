@@ -1,13 +1,13 @@
 
 /* Profile Page */
-#profile .profile-logo {
-    width: 10rem;
-}
-
 #profile .profile-body {
     border-radius: 2rem;
     padding: 6rem 2rem 3rem 2rem;
     background-color: var(none);
+}
+
+#profile .profile-logo {
+    width: 10rem;
 }
 
 #profile .profile-header {
@@ -27,8 +27,9 @@
     display: block;
     margin: auto;
     object-fit: cover;
-    width: 100%;
-    border: 2rem transparent var(--dark-color);
+    width: 90%;
+    height: 40rem;
+    border: 7.5px solid var(--mdark-color);
     border-radius: 2rem;
 }
 
@@ -39,32 +40,26 @@
     margin: auto;
 }
 
+#profile .border {
+    border: 5px solid var(--mdark-color);
+    border-radius: 2rem;
+    margin: 1rem 4rem;
+    padding: 2rem 0;
+}
+
 #profile .profile-grid-description {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     gap: 1rem;
-    margin: 1rem 4rem;
+    margin: 1rem 4rem 1rem 4rem;
+    padding-top: 3rem;
 }
 
 #profile .profile-grid-description p {
     max-height: 20rem;
     font-size: 1rem;
     font-weight: 500;
-}
-
-#profile .profile-image {
-    margin-top: 1rem;
-}
-
-#profile .profile-image img {
-    display: block;
-    margin: auto;
-    object-fit: cover;
-    width: 95%;
-    height: 40rem;
-    border: 2rem transparent var(--dark-color);
-    border-radius: 2rem;
 }
 
 #profile .profile-facts {
@@ -78,38 +73,50 @@
     margin-top: 2rem;
 }
 
-/* Product Cards */
-#profile .products {
+/* Machine Cards */
+#profile .cards {
+    padding-top: 2rem;
+}
+
+#profile .machines {
     background-color: var(--darker-color);
-    margin: 0 4rem;
+    color: var(--medium-color);
+    margin: 2rem 5.5rem;
     border-radius: 2rem;
 }
 
-#profile .product-card {
+#profile .machine-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 2rem;
+    border-radius: 2rem;
+    border: 7px solid var(--mdark-color);
+
 }
 
-#profile .product-card img {
+#profile .machine-card img {
     display: block;
     width: 40rem;
     object-fit: cover;
-    border: 5px solid var(--mdark-color);
-    border-start-start-radius: 2rem;
-    border-end-start-radius: 2rem;
+    border-right: 5px solid var(--mdark-color);
+    border-start-start-radius: 1.5rem;
+    border-end-start-radius: 1.5rem;
 }
 
-#profile .product-info h1 {
+#profile .machine-info {
+    margin-left: 1rem;
+}
+
+#profile .machine-info h1 {
     font-size: 2rem;
     font-weight: 600;
 }
 
-#profile .product-info p {
+#profile .machine-info p {
     font-size: 1.15rem;
 }
 
-#profile .product-info a {
+#profile .machine-info a {
     margin-top: 1rem;
     margin-left: -.5rem;
 }

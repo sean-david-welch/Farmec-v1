@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from . models import Supplier
+from . models import Supplier, Product, Machine
 
 # Create your views here.
 def suppliers(request):
@@ -14,3 +13,9 @@ def supplier(request, pk):
 
     context = {'supplier': supplier}
     return render(request, 'suppliers/supplier.html', context)
+
+def machine(request, pk):
+    machine = Machine.objects.get(id=pk)
+
+    context = {'machine': machine}
+    return render(request, 'suppliers/machine.html', context)
