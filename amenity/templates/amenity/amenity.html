@@ -1,6 +1,66 @@
-{% include 'main.html' %}
+{% extends 'main.html' %}
 {% load static %}
 
 {% block content %}
+
+<section id="amenity">
+    <div class="amenity">
+        <div class="amenity-heading">
+            <h1>
+                Amenity Suppliers<div class="bottom-line"></div>
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, perspiciatis?</p>
+        </div>
+        {% for amenity in amenity %}
+        <div class="amenity-body" id="amenity-body-{{forloop.counter}}">
+            <div class="amenity-grid">
+                <div>
+                    <h1>
+                        {{amenity.name}}<div class="bottom-line"></div>
+                        <img src="{{amenity.imageurl}}" alt="">
+                    </h1>
+                    <div class="link-grid">
+                        <div class="amenity-social">
+                            {% if amenity.social_facebook %}
+                            <a href="{{amenity.social_facebook}}" target="_blank"><button class="facebook"><i
+                                        class="fab fa-facebook"></i></button></a>
+                            {% endif %}
+                            {% if amenity.social_twitter %}
+                            <a href="{{amenity.social_twitter}}" target="_blank"><button class="twitter"><i
+                                        class="fab fa-twitter"></i></button></a>
+                            {% endif %}
+                            {% if amenity.social_instagram %}
+                            <a href="{{amenity.social_instagram}}" target="_blank"><button class="instagram"><i
+                                        class="fab fa-instagram"></i></button></a>
+                            {% endif %}
+                            {% if amenity.social_youtube %}
+                            <a href="{{amenity.social_youtube}}" target="_blank"><button class="youtube"><i
+                                        class="fab fa-youtube"></i></button></a>
+                            {% endif %}
+                            {% if amenity.social_linkedin %}
+                            <a href="{{amenity.social_linkedin}}" target="_blank"><button class="linkedin"><i
+                                        class="fab fa-linkedin"></i></button></a>
+                            {% endif %}
+                            {% if amenity.social_website %}
+                            <a href="{{amenity.social_website}}" target="_blank"><button class="website"><i
+                                        class="fa-solid fa-globe"></i></button></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <img class="marketing" src="{{amenity.marketing_imageurl}}" alt="marketing-image">
+            </div>
+            <p>{{amenity.description}}</p>
+            <div class="links">
+                <a href="#amenity-body-{{forloop.counter|add:1}}" class="btn btn-primary">
+                    View More Products<i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+                </a>
+                <a href="#" class="btn-small btn-primary">
+                    Product Page<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+</section>
 
 {% endblock content %}

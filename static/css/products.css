@@ -3,7 +3,7 @@
 }
 
 #products .product-grid {
-    margin: 6rem 8rem 4rem 8rem;
+    margin: 6rem 8rem 0rem 8rem;
     padding: .5rem;
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
@@ -13,10 +13,6 @@
     border: 10px solid var(--mdark-color);
     transition: all 300ms linear;
 }
-/* 
-#products .product-grid:hover {
-    transform: scale(1.01);
-} */
 
 #products .product-grid h1 {
     text-align: center;

@@ -1,0 +1,92 @@
+#amenity {
+    margin: 6rem auto 2rem auto;
+}
+
+#amenity .amenity {
+    text-align: center;
+}
+
+#amenity .amenity-heading {
+    margin: 1.5rem 0;
+}
+
+#amenity .amenity-heading h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#amenity .amenity-heading p {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#amenity .amenity-body {
+    background-color: var(--medium-color);
+    color: var(--mdark-color);
+    margin: 0 4rem 2rem 4rem;
+    padding: 1.5rem;
+    border: .5rem solid var(--mdark-color);
+    border-radius: 3rem;
+}
+
+#amenity .amenity-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#amenity .amenity-grid img {
+    border-bottom: 5px solid var(--mdark-color);
+}
+
+#amenity .marketing  {
+    width: 25rem;
+    border: 5px solid var(--mdark-color);
+    border-radius: 1rem;
+}
+
+#amenity .amenity-body p {
+    margin-top: 3rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#amenity .links {
+    margin: 1.5rem 0rem .5rem 0;
+}
+
+#amenity .links a {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+/* link-grid */
+#amenity .link-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 1.5rem;
+}
+
+#amenity .amenity-social {
+    justify-self: center;
+}
+
+#amenity .amenity-social i {
+    font-size: 2.5rem;
+}
+
+#amenity .amenity-social button {
+	width: 3.5rem;
+	height: 3.5rem;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.3s linear;
+    margin-right: 1rem;
+
+}
+
+#amenity .amenity-social button:hover {
+	transform: scale(1.05);
+}

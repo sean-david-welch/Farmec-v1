@@ -10,54 +10,81 @@
                 <h1 class="text-center">{{supplier.name}}
                     <div class="bottom-line"></div>
                 </h1>
-                <div class="profile-image">
-                    <img src="{{supplier.marketing_imageurl}}" alt="">
+                <div class="link-grid">
+                    <div class="supplier-social">
+                        {% if supplier.social_facebook %}
+                        <a href="{{supplier.social_facebook}}" target="_blank"><button class="facebook"><i
+                                    class="fab fa-facebook"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_twitter %}
+                        <a href="{{supplier.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_instagram %}
+                        <a href="{{supplier.social_instagram}}" target="_blank"><button class="instagram"><i
+                                    class="fab fa-instagram"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_youtube %}
+                        <a href="{{supplier.social_youtube}}" target="_blank"><button class="youtube"><i
+                                    class="fab fa-youtube"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_linkedin %}
+                        <a href="{{supplier.social_linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_website %}
+                        <a href="{{supplier.social_website}}" target="_blank"><button class="website"><i
+                                    class="fa-solid fa-globe"></i></button></a>
+                        {% endif %}
+                    </div>
+                    <div class="profile-image">
+                        <img src="{{supplier.marketing_imageurl}}" alt="">
+                    </div>
+                    <div class="nav-button">
+                        <a href="#description" class="btn btn-primary">
+                            Brand Information <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="nav-button">
-                    <a href="#description" class="btn btn-primary">
-                        Brand Information <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border">
-                <div class="profile-grid-description" id="description">
-                    <img class="profile-logo" src="{{supplier.imageurl}}" alt="logo">
-                    <div class="bottom-line-side"></div>
-                    <p>{{supplier.description}}</p>
-                </div>
-                <div class="profile-facts">
-                    <h1>{{supplier.name.split.0}} Features:</h1>
-                    <div class="bottom-line-side"></div>
-                    {% for fact in supplier.fact_set.all %}
-                    <p>{{fact}}</p>
-                    {% endfor %}
-                </div>
-                <div class="nav-button">
-                    <a href="#cards" class="btn btn-primary">
-                        Brand Products <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="cards" id="cards">
-            {% for machine in supplier.machine_set.all %}
-            <div class="machines" id="machines">
-                <div class="machine-card">
-                    <img src="{{machine.imageurl}}" alt="machine-image">
-                    <div class="machine-info">
-                        <h1>{{machine.name}}</h1>
+                <div class="border">
+                    <div class="profile-grid-description" id="description">
+                        <img class="profile-logo" src="{{supplier.imageurl}}" alt="logo">
                         <div class="bottom-line-side"></div>
-                        <p>{{machine.description}}</p>
-                        <a href="{% url 'machine' pk=machine.pk %}" class="btn btn-primary">
-                            View Products
-                            <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                        <p>{{supplier.description}}</p>
+                    </div>
+                    <div class="profile-facts">
+                        <h1>{{supplier.name.split.0}} Features:</h1>
+                        <div class="bottom-line-side"></div>
+                        {% for fact in supplier.fact_set.all %}
+                        <p>{{fact}}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="nav-button">
+                        <a href="#cards" class="btn btn-primary">
+                            Brand Products <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
                         </a>
                     </div>
                 </div>
             </div>
+            <div class="cards" id="cards">
+                {% for machine in supplier.machine_set.all %}
+                <div class="machines" id="machines">
+                    <div class="machine-card">
+                        <img src="{{machine.imageurl}}" alt="machine-image">
+                        <div class="machine-info">
+                            <h1>{{machine.name}}</h1>
+                            <div class="bottom-line-side"></div>
+                            <p>{{machine.description}}</p>
+                            <a href="{% url 'machine' pk=machine.pk %}" class="btn btn-primary">
+                                View Products
+                                <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
 </section>
 
 {% endblock content %}

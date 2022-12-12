@@ -77,6 +77,14 @@ h2, h3, h4 {
     transition: all 0.5s linear;
 }
 
+.fa-circle-chevron-down{
+    margin-left: .5rem;
+}
+
+.fa-right-to-bracket {
+    margin-left: .5rem;
+}
+
 .btn:hover {
     transform: scale(1.05);
 }

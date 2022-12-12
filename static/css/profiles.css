@@ -41,10 +41,12 @@
 }
 
 #profile .border {
-    border: 5px solid var(--mdark-color);
+    border: 5px solid var(--darker-color);
     border-radius: 2rem;
     margin: 1rem 4rem;
     padding: 2rem 0;
+    background-color: var(--mdark-color);
+    color: var(--medium-color);
 }
 
 #profile .profile-grid-description {
@@ -81,7 +83,7 @@
 #profile .machines {
     background-color: var(--darker-color);
     color: var(--medium-color);
-    margin: 2rem 5.5rem;
+    margin: 2rem 5rem;
     border-radius: 2rem;
 }
 
@@ -110,6 +112,7 @@
 #profile .machine-info h1 {
     font-size: 2rem;
     font-weight: 600;
+    color: var(--dark-color);
 }
 
 #profile .machine-info p {
@@ -119,4 +122,45 @@
 #profile .machine-info a {
     margin-top: 1rem;
     margin-left: -.5rem;
+}
+
+/* link-grid */
+#profile .link-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 1.5rem;
+}
+
+#profile .supplier-link {
+    background: none;
+    border: none;
+    justify-self: start;
+}
+
+#profile .supplier-link a i {
+    margin-left: .25rem;
+    margin-top: .25rem;
+}
+
+#profile .supplier-social {
+    justify-self: center;
+}
+
+#profile .supplier-social i {
+    font-size: 2.5rem;
+}
+
+#profile .supplier-social button {
+	width: 3.5rem;
+	height: 3.5rem;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.3s linear;
+    margin-right: 1rem;
+
+}
+
+#profile .supplier-social button:hover {
+	transform: scale(1.05);
 }
