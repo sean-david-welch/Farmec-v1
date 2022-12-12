@@ -7,7 +7,7 @@ class Employee(models.Model):
     email = models.EmailField(max_length=500, blank=True, null=True)
     role = models.CharField(max_length=500, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
-    profile_image = models.ImageField(null=True, blank=True, upload_to='models/', default="models/default.jpg")
+    profile_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     social_twitter = models.CharField(max_length=200, blank=True, null=True)
     social_linkedin = models.CharField(max_length=200, blank=True, null=True)
     social_whatsapp = models.CharField(max_length=50, blank=True, null=True)

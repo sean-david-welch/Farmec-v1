@@ -5,7 +5,7 @@ import uuid
 class Blog(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
     date = models.CharField(max_length=200, blank=True, null=True) 
-    main_image = models.ImageField(null=True, blank=True, upload_to='models/', default="models/default.jpg")
+    main_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     subheading = models.CharField(max_length=200, blank=True, null=True) 
     body = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)

@@ -4,8 +4,8 @@ import uuid
 # Create your models here.
 class Amenity(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
-    logo_image = models.ImageField(null=True, blank=True, upload_to='models/', default="models/default.jpg")
-    marketing_image = models.ImageField(null=True, blank=True, upload_to='models/', default="models/default.jpg")
+    logo_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
+    marketing_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     description = models.TextField(blank=True, null=True)
     short_description = models.TextField(blank=True, null=True)
     social_facebook = models.CharField(max_length=200, blank=True, null=True)
