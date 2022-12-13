@@ -19,7 +19,7 @@
                 </li>
 
                 <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
-                        class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
+                        class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Agriculture</a>
                     <ul class="nav-drop">
                         {% for suppliers in suppliers %}
                         <li><a href="{% url 'supplier' pk=suppliers.pk %}">{{ suppliers.name }}</a></li>

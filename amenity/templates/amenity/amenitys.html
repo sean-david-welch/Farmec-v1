@@ -17,7 +17,8 @@
                 <div>
                     <h1>
                         {{amenity.name}}<div class="bottom-line"></div>
-                        <img src="{{amenity.imageurl}}" alt="">
+                        <a href="{% url 'amenity' pk=amenity.pk %}"><img class="image-link" src=" {{amenity.imageurl}}"
+                                alt=""></a>
                     </h1>
                     <div class="link-grid">
                         <div class="amenity-social">
@@ -54,9 +55,6 @@
             <div class="links">
                 <a href="#amenity-body-{{forloop.counter|add:1}}" class="btn btn-primary">
                     View More Products<i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
-                </a>
-                <a href="{% url 'amenity' pk=amenity.pk %}" class="btn-small btn-primary">
-                    Product Page<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                 </a>
             </div>
         </div>

@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form method="POST" action="#url" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for fields in form.as_p %}
+    <label for="formInput#text">{{field.label}}</label>
+    <input class="input" id="formInput#text" type="text" name="text" placeholder="Enter text...">
+</form>
+
+{% endblock content %}

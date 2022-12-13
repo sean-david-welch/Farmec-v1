@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import Blog
+from . forms import BlogForm
 from suppliers.models import Supplier
 from amenity.models import Amenity
 
@@ -21,3 +22,34 @@ def blog(request, pk):
 
     context = {'blog': blog, 'suppliers': suppliers, 'amenitys': amenitys}
     return render(request, 'blog/blog.html', context)
+
+def createBlog(request): 
+    blog = Blog.objects.all
+    form = BlogForm()
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = blog 
+            post.save()
+            return redirect('blogs')
+
+    context = {'form': form, 'blog': blog}
+    return render(request, 'blog/blog_form.html', context)
+
+
+def updateBlog(request, pk):
+    blog = Blog.objects.get(id=pk)
+    form = BlogForm(instance=blog)
+    
+    if request.method == 'POST':
+
+        form = BlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            blog = form.save()
+
+        return redirect('blogs')
+ 
+    context = {'form': form, 'blog': blog}
+    return render(request, 'blog/blog_form.html', context)

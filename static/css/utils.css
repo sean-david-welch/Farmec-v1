@@ -179,6 +179,13 @@ h2, h3, h4 {
     display: block;
 }
 
+.image-link {
+    transition: all 300ms ease-in;
+}
+
+.image-link:hover {
+    transform: scale(1.05);
+}
 
 /* backgrounds */
 .bg-primary {

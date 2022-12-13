@@ -60,7 +60,8 @@
 
 #blog-post a {
     display: inline-block;
-    margin: 0.5rem auto;
+    margin: 0.25rem auto;
+    text-align: center;
 }
 
 #blog-post h1 {
@@ -72,4 +73,9 @@
     padding: 0 5rem;
     font-size: 1.05rem;
     font-weight: 500;
+}
+
+#blog-post .form-button {
+    margin-top: 2rem;
+    text-decoration: underline;
 }

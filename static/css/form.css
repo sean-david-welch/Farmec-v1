@@ -1,0 +1,45 @@
+#form {
+    display: flex;
+    margin: 10rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#form .form {
+    background-color: var(--mdark-color);
+    border: 2px solid var(--primary-color);
+    padding: 3rem;
+    border-radius: 2rem;
+}
+
+#form .form-fields {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#form .input {
+    width: 50rem;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+#form .input h1 {
+    color: var(--light-color);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+#form .input p {
+    color: var(--light-color);
+}
+
