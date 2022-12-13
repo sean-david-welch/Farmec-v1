@@ -2,7 +2,7 @@
 #main-footer {
 	background: var(--dark-color);
 	color: var(--light-color);
-	height: 20.5rem;
+	height: 22rem;
 	max-width: var(--website-width);
 }
 

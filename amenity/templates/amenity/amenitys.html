@@ -1,14 +1,18 @@
 {% extends 'main.html' %}
+{% load static %}
+
 {% block content %}
+
 <section id="amenity">
     <div class="amenity">
         <div class="amenity-heading">
             <h1>
-                {{amenity.name}}<div class="bottom-line"></div>
+                Amenity Suppliers<div class="bottom-line"></div>
             </h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, perspiciatis?</p>
         </div>
-        <div class="amenity-body">
+        {% for amenity in amenitys %}
+        <div class="amenity-body" id="amenity-body-{{forloop.counter}}">
             <div class="amenity-grid">
                 <div>
                     <h1>
@@ -47,6 +51,16 @@
                 <img class="marketing" src="{{amenity.marketing_imageurl}}" alt="marketing-image">
             </div>
             <p>{{amenity.description}}</p>
+            <div class="links">
+                <a href="#amenity-body-{{forloop.counter|add:1}}" class="btn btn-primary">
+                    View More Products<i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+                </a>
+                <a href="{% url 'amenity' pk=amenity.pk %}" class="btn-small btn-primary">
+                    Product Page<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                </a>
+            </div>
         </div>
+        {% endfor %}
 </section>
+
 {% endblock content %}

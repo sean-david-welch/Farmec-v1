@@ -172,6 +172,14 @@ h2, h3, h4 {
     display: block;
 }
 
+.bottom-line-side-long {
+    height: 2px;
+    width: 15rem;
+    background: var(--primary-color);
+    display: block;
+}
+
+
 /* backgrounds */
 .bg-primary {
     background: var(--primary-color);
@@ -200,6 +208,10 @@ h2, h3, h4 {
 
 .py-2 {
     padding: 2rem;
+}
+
+.py-3 {
+    padding-top: 3rem;
 }
 
 /* Social Button */

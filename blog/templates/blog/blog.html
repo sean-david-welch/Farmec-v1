@@ -1,19 +1,17 @@
 {% extends 'main.html' %}
-{% load static %}
 
 {% block content %}
 
-<h2 class="section-title spacing py-2">Check out our Latest Blog Posts</h2>
-<div class="bottom-line"></div>
-{% for blog in blog %}
-
-<section id="main-blog" class="spacing-1">
-    <h2>{{blog.title}}</h2>
-    <h2>{{blog.subheading}}</h2>
-    <p>{{blog.body|slice:"150"}}</p>
+<section id="blog-post">
+    <h2 class="text-center spacing">
+        {{blog.title}}<div class="bottom-line"></div>
+    </h2>
+    <a href="#post" class="btn btn-primary">Read Post <i class="fa-sharp fa-solid fa-circle-chevron-down"></i></a>
     <img src="{{blog.imageurl}}" alt="">
+    <h1 class="text-center" id="post">
+        {{blog.subheading}}<div class="bottom-line"></div>
+    </h1>
+    <p class="text-center">{{blog.body|linebreaks}}</p>
 </section>
-
-{% endfor %}
 
 {% endblock content %}

@@ -1,0 +1,75 @@
+#main-blog {
+    margin: 4rem 4rem;
+}
+
+#main-blog .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 0 0 4rem 0;
+    background-color: var(--darker-color);
+    color: var(--medium-color);
+    border: 3px solid var(--mdark-color);
+    border-radius: 3rem;
+}
+
+#main-blog .blog-grid img {
+    object-fit: cover;
+    width: 35rem;
+    border-right: 3px solid var(--mdark-color);
+    border-start-start-radius: 2.5rem;
+    border-end-start-radius: 2.5rem;
+}
+
+#main-blog .blog-grid .blog-description {
+    padding: 1rem;
+}
+
+#main-blog .blog-grid .blog-description h2,
+#main-blog .blog-grid .blog-description h1 {
+    color: var(--light-color);
+}
+
+#main-blog .blog-grid .blog-description p {
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+#main-blog .blog-grid .blog-description a {
+    margin-top: 1.5rem;
+}
+
+/* Individual Blog Post */
+#blog-post {
+    margin: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#blog-post h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#blog-post img {
+    margin: 1rem auto;
+    height: 40rem;
+    object-fit: cover;
+    border: 2px solid var(--mdark-color);
+    border-radius: 1rem;
+}
+
+#blog-post a {
+    display: inline-block;
+    margin: 0.5rem auto;
+}
+
+#blog-post h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+#blog-post p {
+    padding: 0 5rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+}

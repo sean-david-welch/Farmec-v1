@@ -28,8 +28,8 @@
                 </li>
 
 
-                <li class="nav-list-item"><a href="{% url 'amenity' %}"
-                        class="{% if request.resolver_match.url_name == 'amenity' %} current {% endif %}">Amenity</a>
+                <li class="nav-list-item"><a href="{% url 'amenitys' %}"
+                        class="{% if request.resolver_match.url_name == 'amenitys' %} current {% endif %}">Amenity</a>
                     <ul class="nav-drop">
                         <li><a href="#">Aerway</a></li>
                         <li><a href="#">Arag GPS & Sprayer Fittings</a></li>
@@ -38,8 +38,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-list-item"><a href="{% url 'blog' %}"
-                        class="{% if request.resolver_match.url_name == 'blog' %} current {% endif %}">Blog</a>
+                <li class="nav-list-item"><a href="{% url 'blogs' %}"
+                        class="{% if request.resolver_match.url_name == 'blogs' %} current {% endif %}">Blog</a>
                 </li>
 
                 <li class="nav-list-item"><a href="{% url 'contact' %}"
