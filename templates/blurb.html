@@ -1,0 +1,21 @@
+{% load static %}
+<section id="blurb">
+    <h2 class="text-center section-heading">
+        Read Our Blog <div class="bottom-line"></div>
+    </h2>
+    {% for blog in blogs %}
+    <div class="blog-grid">
+        <img src="{{blog.imageurl}}" alt="blog-image">
+        <div class="blog-description">
+            <h2>
+                {{blog.title}}
+            </h2>
+            <h1>{{blog.subheading}}</h1>
+            <p>{{blog.body|slice:"400"}}</p>
+            <a href="{% url 'blog' pk=blog.pk %}" class="btn-small btn-primary">
+                Read More<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</section>

@@ -4,6 +4,7 @@
 	color: var(--light-color);
 	height: 22rem;
 	max-width: var(--website-width);
+	border-top: 2px solid var(--primary-color);
 }
 
 #main-footer .footer-content {
