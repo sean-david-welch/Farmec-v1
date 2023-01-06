@@ -54,7 +54,7 @@ h2, h3, h4 {
 }
 
 /* Buttons */
-button {
+.btn-nav {
     background: none;
     border: none;
     display: flex;
@@ -65,7 +65,7 @@ button {
 }
 
 button .btn {
-    padding: 0.5rem 3rem;
+    padding: 0.75rem 3rem;
 }
 
 .btn {
@@ -102,11 +102,11 @@ button .btn {
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 .btn-small:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 .btn-primary {

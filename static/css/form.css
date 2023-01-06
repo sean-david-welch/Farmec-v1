@@ -43,3 +43,6 @@
     color: var(--light-color);
 }
 
+#form .form-button {
+    margin: 1rem;
+}

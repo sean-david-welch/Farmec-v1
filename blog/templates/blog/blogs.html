@@ -22,10 +22,12 @@
         </div>
     </div>
     {% endfor %}
-    <button>
+    {% if request.user.is_superuser %}
+    <button class="btn-nav">
         <a class="btn-small btn-secondary form-buttom" href="{% url 'create-blog' %}">Create Blog <i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
     </button>
+    {% endif %}
 </section>
 
 {% endblock content %}
