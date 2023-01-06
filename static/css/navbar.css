@@ -26,6 +26,11 @@
 
 #navbar.main-page {
     background: transparent;
+    color: var(--mdark-color);
+}
+
+#navbar.main-page a {
+    color: var(--mdark-color);  
 }
 
 #navbar ul {
@@ -52,6 +57,7 @@
     text-decoration: none;
     color: var(--light-color);
     text-transform: uppercase;
+    font-weight: 800;
 }
 
 #navbar li .nav-list-item {
@@ -106,6 +112,11 @@
     box-shadow: 0 2px 2px -2px rgba(255, 255, 255, 0.2);
     transition: background-color 200ms ease-in;
     font-size: 1rem;
+    font-weight: 700;
+}
+
+#navbar .nav-drop li a {
+    color: var(--light-color);
 }
 
 #navbar .nav-drop li:hover,

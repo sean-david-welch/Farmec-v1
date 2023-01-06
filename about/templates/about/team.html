@@ -15,9 +15,12 @@
                     <div class="card-image">
                         <img src="{{employee.imageurl}}" alt="Profile Image">
                     </div>
-                    <p class="name lead-1">{{employee.name}}</p>
-                    <p class="role lead-1">{{employee.role}}</p>
-                    <p class="short bio lead">{{employee.bio | slice:"250"}}</p>
+                    <div class="card-info">
+                        <p class="name lead-1">{{employee.name}}</p>
+                        <p class="name lead-1">{{employee.email}}</p>
+                        <p class="role lead-1">{{employee.role}}</p>
+                        <p class="short bio lead">{{employee.bio | slice:"250"}}</p>
+                    </div>
                     <div class="socials">
                         {% if employee.social_twitter %}
                         <a href="{{employee.social_twitter}}" target="_blank"><button class="twitter"><i

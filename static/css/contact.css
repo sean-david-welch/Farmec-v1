@@ -1,7 +1,7 @@
 #contact-page {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    padding-bottom: 2rem
 }
 
 #contact-page h2 {
@@ -11,14 +11,12 @@
 }
 
 #contact-page .form-container {
-    max-width: 1280px;
-    margin: auto;
+    margin: 0 2.5rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: var(--mdark-color);
     gap: 1.5rem;
     border-radius: 1rem;
-    width: 100%;
     overflow: hidden;
     padding: 2rem;
 }

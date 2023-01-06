@@ -54,9 +54,23 @@ h2, h3, h4 {
 }
 
 /* Buttons */
+button {
+    background: none;
+    border: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+button .btn {
+    padding: 0.5rem 3rem;
+}
+
 .btn {
     display: inline-block;
-    padding: .5rem 3rem;
+    padding: .25rem 3rem;
     margin-bottom: 1rem;
     border: none;
     border-radius: 50px;
@@ -65,6 +79,8 @@ h2, h3, h4 {
     transition: all 0.5s linear;
     font-size: 1.1rem;
     font-weight: 700;
+    text-align: center;
+    justify-content: center;
 }
 
 .btn-small {
@@ -109,7 +125,6 @@ h2, h3, h4 {
 .lead {
     font-weight: 500;
     font-size: 1.1rem;
-    color: var(--dark-color);
 }
 
 .lead-light {
@@ -119,9 +134,8 @@ h2, h3, h4 {
 }
 
 .lead-1 {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.15rem;
-    color: var(--dark-color);
 }
 
 /* Miscellaeneous */

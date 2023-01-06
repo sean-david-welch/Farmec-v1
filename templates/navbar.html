@@ -6,9 +6,9 @@
             <a href="{% url 'home' %}"><img src="{% static 'images/farmeclogo.png' %}" alt="Logo" id="logo"></a>
             <ul class="nav-list">
 
-                <li class="nav-list-item"><a href="{% url 'home' %}"
+                <!-- <li class="nav-list-item"><a href="{% url 'home' %}"
                         class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
-                </li>
+                </li> -->
 
                 <li class="nav-list-item"><a href="{% url 'about' %}"
                         class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
@@ -42,8 +42,8 @@
                 </li>
 
                 <li class="nav-list-item"><a href="{% url 'contact' %}"
-                        class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Contact
-                        Us</a>
+                        class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Spare
+                        Parts</a>
                 </li>
 
             </ul>

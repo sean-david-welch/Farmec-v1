@@ -11,17 +11,16 @@
 	align-items: center;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	/* margin: 2.5rem; */
 }
 
 #about-team .card {
 	position: relative;
-	width: 300px;
-	background-color: var(--medium-color);
-	color: var(--dark-color);
-	border-radius: 10px;
-	padding: 1rem;
-	margin: 5rem;
+	width: 20rem;
+	background-color: var(--mdark-color);
+	color: var(--light-color);
+	border-radius: 2rem;
+	margin: 0 auto;
+	margin-bottom: 2rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -30,40 +29,41 @@
 }
 
 #about-team .card:hover {
-	transform: scale(1.05);
+	transform: scale(1.01);
 }
 
 #about-team .card-image {
-	height: 150px;  
-	width: 150px;
-	border-radius: 50%;
 	overflow: hidden;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 #about-team .card-image img {
 	object-fit: cover;
-	width: 150px;
-	height: 150px;
+	width: 100%;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+	border-bottom: 3px solid var(--darker-color);
+	transition: all 0.3s linear;
+}
+
+#about-team .card-image img:hover {
+	transform: scale(1.01);
+}
+
+#about-team .card-info {
+	padding: 0 2rem;
 }
 
 #about-team p {
-	line-height: 24px;
-	letter-spacing: 0.5px;
-	margin-top: 1rem;
 	margin-bottom: 1rem;
 	text-align: center;
 }
 
 #about-team .name {
-	margin-top: 5rem;
 	margin-bottom: 0.5rem;
 }
 
-#about-team .social {
+#about-team .socials {
+	padding-bottom: 1rem;
 	display: flex; 
 	align-items: center;
 	justify-content: center;

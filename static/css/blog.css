@@ -77,5 +77,6 @@
 
 #blog-post .form-button {
     margin-top: 2rem;
-    text-decoration: underline;
+    text-align: center;
+    justify-content: center;
 }
