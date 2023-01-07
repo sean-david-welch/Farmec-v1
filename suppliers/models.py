@@ -102,3 +102,4 @@ class Product(models.Model):
         except: 
             url = ''
         return url
+

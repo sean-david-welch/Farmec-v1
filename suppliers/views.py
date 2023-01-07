@@ -30,3 +30,4 @@ def machine(request, pk):
 
     context = {'machine': machine, 'suppliers': suppliers, 'amenitys': amenitys}
     return render(request, 'suppliers/machine.html', context)
+

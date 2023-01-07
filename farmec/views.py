@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
 from django.contrib.auth.models import User
 from suppliers.models import Supplier
 from amenity.models import Amenity
@@ -36,7 +37,7 @@ def loginPage(request):
         try:
             User.objects.get(username=username)
         except:
-            print('Username does not exist')
+            messages.error(request, 'Username does not exist')
 
         user = authenticate(request, username=username, password=password)
 
@@ -44,13 +45,14 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            print('Username OR Password is incorrect')
+            messages.error(request, 'Username OR Password is incorrect')
 
     context = {}
     return render(request, 'login.html', context)
 
 def logoutPage(request):
     logout(request)
+    messages.error(request, 'User was logged out!')
     return redirect('home')
 
 

@@ -13,24 +13,27 @@
                 <li class="nav-list-item"><a href="{% url 'about' %}"
                         class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
                     <ul class="nav-drop">
-                        <li><a href="{% url 'about' %}">Our Team</a></li>
-                        <li><a href="{% url 'timeline' %}">Our Story</a></li>
+                        <li><a href="{% url 'about' %}#about-team">Management & Staff</a></li>
+                        <li><a href="{% url 'about' %}#timeline">Company History</a></li>
                     </ul>
                 </li>
 
                 <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
-                        class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Agriculture</a>
+                        class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                     <ul class="nav-drop">
-                        {% for suppliers in suppliers %}
-                        <li><a href="{% url 'supplier' pk=suppliers.pk %}">{{ suppliers.name }}</a></li>
-                        {% endfor %}
+                        <li><a href="{% url 'suppliers' %}">Agriculutre</a></li>
+                        <li><a href="{% url 'amenitys' %}">Amenity</a></li>
                     </ul>
                 </li>
 
 
-                <li class="nav-list-item"><a href="{% url 'amenitys' %}"
-                        class="{% if request.resolver_match.url_name == 'amenitys' %} current {% endif %}">Amenity</a>
+                <li class="nav-list-item"><a href="#"
+                        class="{% if request.resolver_match.url_name == 'spare-parts' %} current {% endif %}">Spare
+                        Parts</a>
                     <ul class="nav-drop">
+                        {% for supplier in suppliers %}
+                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{ supplier.name }}</a></li>
+                        {% endfor %}
                         {% for amenitys in amenitys %}
                         <li><a href="{% url 'amenity' pk=amenitys.pk %}">{{ amenitys.name }}</a></li>
                         {% endfor %}
@@ -41,11 +44,7 @@
                         class="{% if request.resolver_match.url_name == 'blogs' %} current {% endif %}">Blog</a>
                 </li>
 
-                <li class="nav-list-item"><a href="{% url 'contact' %}"
-                        class="{% if request.resolver_match.url_name == 'contact' %} current {% endif %}">Spare
-                        Parts</a>
-                </li>
-
+                <li class="nav-list-item"><a href="{% url 'home' %}#contact-page">Contact</a></li>
             </ul>
         </nav>
     </div>

@@ -41,7 +41,7 @@ def createBlog(request):
     context = {'form': form, 'blog': blog}
     return render(request, 'blog/blog_form.html', context)
 
-
+@login_required(login_url='login')
 def updateBlog(request, pk):
     blog = Blog.objects.get(id=pk)
     form = BlogForm(instance=blog)
@@ -57,6 +57,7 @@ def updateBlog(request, pk):
     context = {'form': form, 'blog': blog}
     return render(request, 'blog/blog_form.html', context)
 
+@login_required(login_url='login')
 def deleteBlog(request, pk):
     blog = Blog.objects.get(id=pk)
     
