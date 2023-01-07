@@ -11,12 +11,16 @@
     <h1 class="text-center" id="post">
         {{blog.subheading}}<div class="bottom-line"></div>
     </h1>
-    <p class="text-center">{{blog.body|linebreaks}}</p>
+    <p class="text-center">{{blog.body|linebreaks}}
+    <div class="bottom-line-gap"></div>
+    </p>
+    {% if request.user.is_superuser %}
     <div class="form-buttons">
         <a class="btn-small btn-secondary form-button" href="{% url 'update-blog' pk=blog.pk %}">Update Blog <i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         <a class="btn-small btn-secondary form-button" href="{% url 'delete-blog' pk=blog.pk %}">Delete Blog <i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
     </div>
+    {% endif %}
 </section>
 {% endblock content %}

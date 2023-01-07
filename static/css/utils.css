@@ -171,6 +171,14 @@ button .btn {
     margin: 0 auto .5rem auto;
 }
 
+.bottom-line-gap {
+    height: 2px;
+    width: 15rem;
+    background: var(--primary-color);
+    display: block;
+    margin: 1rem auto .5rem auto;
+}
+
 .bottom-line-small {
     height: 2px;
     width: 15rem;

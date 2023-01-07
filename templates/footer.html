@@ -36,7 +36,12 @@
                     <li><a href="blog.html">Blog </a></li>
                     <li><a href="suppliers.html">Suppliers </a></li>
                     <li><a href="parts.html">Spare Parts </a></li>
-                    <li><a href="parts.html">Staff Login </a></li>
+
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Staff Login </a></li>
+                    {% endif %}
                 </ul>
             </div>
             <a href="#" class="to-top active"><i class=" fas fa-chevron-up"></i></a>
