@@ -3,25 +3,20 @@ from django.contrib.auth.decorators import login_required
 from . models import Blog
 from . forms import BlogForm
 from suppliers.models import Supplier
-from amenity.models import Amenity
 
 # Create your views here.
 def blogs(request):
     blogs = Blog.objects.all()
     suppliers = Supplier.objects.all()
-    amenitys = Amenity.objects.all()
 
-
-    context = {'blogs': blogs, 'suppliers': suppliers, 'amenitys': amenitys}
+    context = {'blogs': blogs, 'suppliers': suppliers}
     return render(request, 'blog/blogs.html', context)
 
 def blog(request, pk):
     blog = Blog.objects.get(id=pk)
     suppliers = Supplier.objects.all()
-    amenitys = Amenity.objects.all()
 
-
-    context = {'blog': blog, 'suppliers': suppliers, 'amenitys': amenitys}
+    context = {'blog': blog, 'suppliers': suppliers}
     return render(request, 'blog/blog.html', context)
 
 @login_required(login_url='login')

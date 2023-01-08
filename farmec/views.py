@@ -3,29 +3,28 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from suppliers.models import Supplier
-from amenity.models import Amenity
 from blog.models import Blog
 
 def home(request):
     suppliers = Supplier.objects.all()
-    amenitys = Amenity.objects.all()
+
     blogs = Blog.objects.order_by('created')[:3]
 
-    context = {'suppliers': suppliers, 'amenitys': amenitys, 'blogs': blogs}
+    context = {'suppliers': suppliers, 'blogs': blogs}
     return render(request, 'home.html', context)
 
 def contact(request):
     suppliers = Supplier.objects.all()
-    amenitys = Amenity.objects.all()
 
-    context = {'suppliers': suppliers, 'amenitys': amenitys}
+
+    context = {'suppliers': suppliers}
     return render(request, 'contact.html', context)
 
 def navbar(request): 
     suppliers = Supplier.objects.all()
-    amenitys = Amenity.objects.all()
 
-    context = {'suppliers': suppliers, 'amenitys': amenitys}
+
+    context = {'suppliers': suppliers}
     return render(request, 'navbar.hmtl', context)
 
 def loginPage(request):

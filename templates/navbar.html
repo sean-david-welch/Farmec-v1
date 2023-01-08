@@ -6,10 +6,6 @@
             <a href="{% url 'home' %}"><img src="{% static 'images/farmeclogo.png' %}" alt="Logo" id="logo"></a>
             <ul class="nav-list">
 
-                <!-- <li class="nav-list-item"><a href="{% url 'home' %}"
-                        class="{% if request.resolver_match.url_name == 'home' %} current {% endif %}">Home</a>
-                </li> -->
-
                 <li class="nav-list-item"><a href="{% url 'about' %}"
                         class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
                     <ul class="nav-drop">
@@ -21,11 +17,11 @@
                 <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
                         class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                     <ul class="nav-drop">
-                        <li><a href="{% url 'suppliers' %}">Agriculutre</a></li>
-                        <li><a href="{% url 'amenitys' %}">Amenity</a></li>
+                        {% for supplier in suppliers %}
+                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{supplier.name}}</a></li>
+                        {% endfor %}
                     </ul>
                 </li>
-
 
                 <li class="nav-list-item"><a href="#"
                         class="{% if request.resolver_match.url_name == 'spare-parts' %} current {% endif %}">Spare
@@ -33,9 +29,6 @@
                     <ul class="nav-drop">
                         {% for supplier in suppliers %}
                         <li><a href="{% url 'supplier' pk=supplier.pk %}">{{ supplier.name }}</a></li>
-                        {% endfor %}
-                        {% for amenitys in amenitys %}
-                        <li><a href="{% url 'amenity' pk=amenitys.pk %}">{{ amenitys.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
