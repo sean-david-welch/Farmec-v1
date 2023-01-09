@@ -31,6 +31,7 @@ class Employee(models.Model):
 
 class Timeline(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
+    date = models.CharField(max_length=200, blank=True, null=True)
     body = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, 

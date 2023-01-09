@@ -2,74 +2,40 @@
 
 {% block content %}
 <!-- About - Timeline -->
-<section id="timeline" class="text-center">
-    <div class="container">
-        <div class="top-section">
-            <h2>Our Story</h2>
-            <p class="lead">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore corporis rerum consequuntur atque
-                similique perspiciatis esse, ipsum adipisci. Non, beatae inventore officia exercitationem placeat
-                ullam qui maiores. Nobis, architecto tempore.
-            </p>
+<section id="timeline">
+
+    <h2 class="text-center">Our Story<div class="bottom-line"></div>
+    </h2>
+    <p class="company-bio text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quia
+        illo ex minus commodi magnam quos exercitationem, ducimus, pariatur quaerat debitis recusandae aut beatae
+        molestiae et saepe. Nam, perferendis voluptates!
+    <div class="bottom-line"></div>
+    </p>
+
+    <div class="timeline">
+        {% for timeline in timeline %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="timeline-container right-container">
+            <div class="text-box">
+                <h2>{{timeline.title}}</h2>
+                <h3><i class="fa fa-clock"></i> - {{timeline.date}}</h3>
+                <p>{{timeline.body}}</p>
+                <span class="right-container-arrow"></span>
+            </div>
         </div>
-
-        <div class="timeline">
-            <div class="line"></div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
+        {% else %}
+        <div class="timeline-container left-container">
+            <div class="text-box">
+                <h2>{{timeline.title}}</h2>
+                <h3><i class="fa fa-clock"></i> - {{timeline.date}}</h3>
+                <p>{{timeline.body}}</p>
+                <span class="left-container-arrow"></span>
             </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
-            <div class="section hidden">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Design</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloremque illum officia in
-                        dolore eveniet voluptatum ipsa quia aliquam culpa harum nisi nulla inventore repellat ullam
-                        quas atque, corporis architecto?
-                    </p>
-                </div>
-            </div>
-
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
 </section>
+
 <script src="{% static 'js/timeline.js' %}"></script>
 {% endblock %}
