@@ -23,7 +23,6 @@ def contact(request):
 def navbar(request): 
     suppliers = Supplier.objects.all()
 
-
     context = {'suppliers': suppliers}
     return render(request, 'navbar.hmtl', context)
 

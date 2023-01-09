@@ -1,0 +1,74 @@
+form.login-form {
+    background-color: var(--mdark-color);
+    margin: 10rem auto;
+    padding: 3rem;
+    border-radius: 2rem;
+    border: 3px solid var(--primary-color);
+    max-width: 50rem;
+
+}
+
+.login-form .heading {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-form .heading h1 {
+    color: var(--light-color);
+}
+
+.login-form .heading h2 {
+    text-transform: capitalize;
+    color: var(--light-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.login-form .heading img {
+    width: 20rem;
+    margin: 0 auto;
+}
+
+
+.login-form p {
+    color: var(--light-color);
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    margin-left: 7rem;
+}
+
+.login-form input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    width: 30rem;
+    justify-content: center;
+    text-align: center;
+    appearance: none;
+}
+
+.login-form input.login {
+    width: 10rem;
+    margin: 2rem auto;
+    font-size: 1.1rem;
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.login-form input.login:hover {
+    transform: scale(1.01);
+}

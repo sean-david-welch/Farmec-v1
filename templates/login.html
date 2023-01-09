@@ -1,10 +1,18 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
-<form action="{% url 'login' %}" method="post" style="margin: 10rem;">
+<form action="{% url 'login' %}" method="post" class="login-form">
     {% csrf_token %}
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <input type="submit" value="Login">
+    <div class="heading">
+        <img src="{% static 'images/farmeclogo.png' %}" alt="">
+        <h1>Staff Login:</h1>
+        <h2>Enter your details below...</h2>
+    </div>
+    <p>Username:</p>
+    <input type="text" name="username" placeholder="Enter your username...">
+    <p>Password:</p>
+    <input type="password" name="password" placeholder="Enter your password...">
+    <input type="submit" value="Login" class="login">
 </form>
 {% endblock content %}
