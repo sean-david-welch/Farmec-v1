@@ -1,0 +1,24 @@
+{% load static %}
+<!-- Home Section -->
+<section id="home" class="text-center py2">
+    <!-- Stats -->
+    <div class="container spacing">
+        <h2 class="section-title">Farmec at a Glance:</h2>
+        <div class="bottom-line"></div>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, modi.</p>
+    </div>
+    <div class="stats">
+        {% for stats in stats %}
+        <div>
+            <ul>
+                <a href="#">
+                    <h1>{{stats.title}}</h1>
+                    <li><img src="{{stats.imageurl}}" alt=""></li>
+                    <li class="stats-title">{{stats.subheading}}</li>
+                </a>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% include 'specials.html' %}
+</section>

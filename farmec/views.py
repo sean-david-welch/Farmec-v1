@@ -4,29 +4,19 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from suppliers.models import Supplier
 from blog.models import Blog
+from home.models import Special, Stat
 
 def home(request):
     suppliers = Supplier.objects.all()
-
+    special = Special.objects.all()
+    stat = Stat.objects.all()
     blogs = Blog.objects.order_by('created')[:3]
 
-    context = {'suppliers': suppliers, 'blogs': blogs}
+    context = {'suppliers': suppliers, 'blogs': blogs, 'specials': special, 'stats': stat}
     return render(request, 'home.html', context)
 
-def contact(request):
-    suppliers = Supplier.objects.all()
-
-
-    context = {'suppliers': suppliers}
-    return render(request, 'contact.html', context)
-
-def navbar(request): 
-    suppliers = Supplier.objects.all()
-
-    context = {'suppliers': suppliers}
-    return render(request, 'navbar.hmtl', context)
-
 def loginPage(request):
+    suppliers = Supplier.objects.all()
 
     if request.method == 'POST':
         username = request.POST['username']
@@ -45,7 +35,7 @@ def loginPage(request):
         else:
             messages.error(request, 'Username OR Password is incorrect')
 
-    context = {}
+    context = {'suppliers': suppliers}
     return render(request, 'login.html', context)
 
 def logoutPage(request):
