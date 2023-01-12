@@ -12,6 +12,14 @@
     <div class="bottom-line"></div>
     </p>
 
+    {% if request.user.is_superuser %}
+    <button class="btn-nav form-buttons">
+        <a class="btn-small btn-primary form-button" href="{% url 'create-timeline' %}">Create Timeline <i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+
     <div class="timeline">
         {% for timeline in timeline %}
         {% if forloop.counter|divisibleby:2 %}
@@ -22,6 +30,14 @@
                 <p>{{timeline.body}}</p>
                 <span class="right-container-arrow"></span>
             </div>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}">Update
+                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}">Delete
+                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            </div>
+            {% endif %}
         </div>
         {% else %}
         <div class="timeline-container left-container">
@@ -31,6 +47,14 @@
                 <p>{{timeline.body}}</p>
                 <span class="left-container-arrow"></span>
             </div>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}">Update
+                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}">Delete
+                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            </div>
+            {% endif %}
         </div>
         {% endif %}
         {% endfor %}

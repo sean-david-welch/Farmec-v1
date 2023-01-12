@@ -7,6 +7,13 @@
         <div class="bottom-line"></div>
         <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
 
+        {% if request.user.is_superuser %}
+        <button class="btn-nav form-buttons">
+            <a class="btn-small btn-primary form-buttons" href="{% url 'create-employee' %}">Create Employee <i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
+
         <!-- Bio Section -->
         <div class="spacing">
             <div class="about-info">
@@ -35,6 +42,16 @@
                                     class="fab fa-whatsapp"></i></button></a>
                         {% endif %}
                     </div>
+                    {% if request.user.is_superuser %}
+                    <div class="form-buttons btn-nav">
+                        <a class="btn-small btn-secondary form-button"
+                            href="{% url 'update-employee' pk=employee.pk %}"><i class="fa-solid fa-user-pen"></i>
+                        </a>
+                        <a class="btn-small btn-secondary form-button"
+                            href="{% url 'delete-employee' pk=employee.pk %}"><i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

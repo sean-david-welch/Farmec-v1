@@ -75,12 +75,12 @@
     font-weight: 500;
 }
 
-#blog-post .form-buttons {
+.form-buttons {
     display: flex;
     margin: 0 auto;
 }
 
-#blog-post .form-button {
+.form-button {
     margin: 1rem;
     text-align: center;
     justify-content: center;
