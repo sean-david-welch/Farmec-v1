@@ -58,6 +58,12 @@
             </div>
         </div>
         {% endfor %}
+        {% if request.user.is_superuser %}
+        <button class="btn-nav">
+            <a class="btn-small btn-secondary form-buttom" href="{% url 'create-supplier' %}">Create Supplier <i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
     </div>
 </section>
 

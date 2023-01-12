@@ -15,6 +15,12 @@ def home(request):
     context = {'suppliers': suppliers, 'blogs': blogs, 'specials': special, 'stats': stat}
     return render(request, 'home.html', context)
 
+def navbar(request):
+    suppliers = Supplier.objects.all()
+
+    context = {'suppliers': suppliers}
+    return render(request, 'navbar.html', context)
+
 def loginPage(request):
     suppliers = Supplier.objects.all()
 
