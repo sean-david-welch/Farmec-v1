@@ -37,7 +37,9 @@
                         class="{% if request.resolver_match.url_name == 'blogs' %} current {% endif %}">Blog</a>
                 </li>
 
-                <li class="nav-list-item"><a href="{% url 'home' %}#contact-page">Contact</a></li>
+                <li class="nav-list-item"><a
+                        href="{% if request.resolver_match.url_name == 'home' %} {% url 'home' %}#contact-page {% else %} {% url 'contact' %} {% endif %}">Contact</a>
+                </li>
             </ul>
         </nav>
     </div>

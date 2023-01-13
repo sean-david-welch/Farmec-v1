@@ -21,6 +21,14 @@ def navbar(request):
     context = {'suppliers': suppliers}
     return render(request, 'navbar.html', context)
 
+def contactPage(request):
+    suppliers = Supplier.objects.all()
+
+    context = {'suppliers': suppliers}
+    return render(request, 'contact_page.html', context)
+
+
+
 def loginPage(request):
     suppliers = Supplier.objects.all()
 

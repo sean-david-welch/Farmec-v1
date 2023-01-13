@@ -4,6 +4,10 @@
     padding-bottom: 2rem
 }
 
+#contact-page .contact-page {
+    margin: 5rem 0 2rem 0;
+}
+
 #contact-page h2 {
     font-size: 2rem;
     font-weight: 500;
