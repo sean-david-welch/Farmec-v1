@@ -5,8 +5,19 @@
 
 <section id="suppliers">
     <div class="container">
+
+        <div class="index">
+            <h1 class="index-heading">Index:
+                <div class="bottom-line-side"></div>
+            </h1>
+            {% for supplier in suppliers %}
+            <h1 class="index-name"><a class="index-link"
+                    href="#supplier-profile-{{forloop.counter}}">{{forloop.counter}} . {{supplier.name}}</a></h1>
+            {% endfor %}
+        </div>
+
         {% for supplier in suppliers %}
-        <div class="supplier-profile">
+        <div class="supplier-profile" id="supplier-profile-{{ forloop.counter }}">
             <div class="supplier-info">
                 <img src="{{supplier.imageurl}}" alt="supplier-logo">
                 <h1>{{supplier.name}}</h1>

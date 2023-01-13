@@ -271,3 +271,36 @@ button.instagram {
 button.website {
     background-color: #7ea7ff;
 }
+
+/* Model index */
+.index {
+    background-color: var(--mdark-color);
+    color: var(--light-color);
+    margin: 0 1.5rem;
+    padding: 1rem 2rem;
+    border: 5px solid var(--darker-color);
+    border-radius: 1rem;
+}
+
+h1.index-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+h1.index-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: .25rem;
+    padding: .1rem;
+}
+
+a.index-link {
+    text-decoration: none;
+    color: var(--light-color);
+    transition: all 0.3s linear;
+}
+
+a.index-link:hover {
+    transform: scale(1.05);
+    color: var(--primary-color);
+}

@@ -3,20 +3,15 @@
 #profile .profile-body {
     border-radius: 2rem;
     padding: 6rem 2rem 3rem 2rem;
-    background-color: var(none);
 }
 
 #profile .profile-logo {
     width: 10rem;
 }
 
-#profile .profile-header {
-    height: 100%;
-}
-
 #profile .profile-header h1 {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
 }
 
 #profile .profile-image {
@@ -27,9 +22,9 @@
     display: block;
     margin: auto;
     object-fit: cover;
-    width: 90%;
-    height: 40rem;
-    border: 7.5px solid var(--mdark-color);
+    width: 77.5rem;
+    height: 35rem;
+    border: 5px solid var(--mdark-color);
     border-radius: 2rem;
 }
 
@@ -43,10 +38,10 @@
 #profile .border {
     border: 5px solid var(--darker-color);
     border-radius: 2rem;
-    margin: 1rem 4rem;
-    padding: 2rem 0;
+    margin: 1rem 5rem;
+    padding: 1rem 0;
     background-color: var(--mdark-color);
-    color: var(--medium-color);
+    color: var(--light-color);
 }
 
 #profile .profile-grid-description {
@@ -55,18 +50,42 @@
     grid-template-rows: 1fr;
     gap: 1rem;
     margin: 1rem 4rem 1rem 4rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
+}
+
+#profile .profile-grid-description .logo-index {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#profile .logo-index .model-index {
+    justify-self: end;
+    margin-right: 20rem;
+}
+
+#profile .logo-index .model-index h1 {
+    font-size: 1.25rem;
+}
+
+#profile .logo-index .model-index a {
+    text-decoration: none;
+    color: var(--light-color);
+    transition: all 0.3s linear;
+}
+
+#profile .logo-index .model-index a:hover {
+    color: var(--primary-color);
 }
 
 #profile .profile-grid-description p {
     max-height: 20rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 #profile .profile-facts {
     margin: 2rem 4rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -82,7 +101,7 @@
 
 #profile .machines {
     background-color: var(--darker-color);
-    color: var(--medium-color);
+    color: var(--light-color);
     margin: 2rem 5rem;
     border-radius: 2rem;
 }
@@ -128,7 +147,7 @@
 #profile .link-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 #profile .supplier-link {
@@ -147,12 +166,12 @@
 }
 
 #profile .supplier-social i {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
 }
 
 #profile .supplier-social button {
-	width: 3.5rem;
-	height: 3.5rem;
+	width: 2.75rem;
+	height: 2.75rem;
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;

@@ -47,18 +47,29 @@
                             Supplier <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
                     </div>
                     {% endif %}
-                    <div class="profile-image">
+                    <!-- <div class="profile-image">
                         <img src="{{supplier.marketing_imageurl}}" alt="">
-                    </div>
-                    <div class="nav-button">
+                    </div> -->
+                    <!-- <div class="nav-button">
                         <a href="#description" class="btn btn-primary">
                             Brand Information <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="border">
                     <div class="profile-grid-description" id="description">
-                        <img class="profile-logo" src="{{supplier.imageurl}}" alt="logo">
+                        <div class="logo-index">
+                            <img class="profile-logo" src="{{supplier.imageurl}}" alt="logo">
+                            <div class="model-index">
+                                <h1>Machinery Index:
+                                    <div class="bottom-line"></div>
+                                </h1>
+                                {% for machine in supplier.machine_set.all %}
+                                <h1><a href="#machines-{{forloop.counter}}">{{forloop.counter}} .
+                                        {{machine.name}}</a></h1>
+                                {% endfor %}
+                            </div>
+                        </div>
                         <div class="bottom-line-side"></div>
                         <p>{{supplier.description}}</p>
                     </div>
@@ -78,7 +89,7 @@
             </div>
             <div class="cards" id="cards">
                 {% for machine in supplier.machine_set.all %}
-                <div class="machines" id="machines">
+                <div class="machines" id="machines-{{ forloop.counter }}">
                     <div class="machine-card">
                         <img src="{{machine.imageurl}}" alt="machine-image">
                         <div class="machine-info">

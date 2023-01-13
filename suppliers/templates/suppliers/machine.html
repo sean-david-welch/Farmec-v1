@@ -3,9 +3,18 @@
 
 {% block content %}
 
-{% for product in machine.product_set.all %}
 <section id="products" class="products">
     <div class="container">
+        <div class="product-index">
+            <h5>Product Index <div class="bottom-line-side"></div>
+            </h5>
+            {% for product in machine.product_set.all %}
+            <h1><a href="#product-{{forloop.counter}}">{{forloop.counter}} - {{product.name}}</a>
+            </h1>
+            {% endfor %}
+        </div>
+
+        {% for product in machine.product_set.all %}
         <div class="product-grid" id="product-{{forloop.counter}}">
             <h1>
                 {{product.name}} <div class="bottom-line-small"></div>
