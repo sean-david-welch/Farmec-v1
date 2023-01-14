@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for supplierpage in supplierpage %}
+
+<section id="supplier-parts">
+    <div class="container">
+        <div class="supplier-parts-grid" style="margin: 10rem;">
+            <img src="{{supplierpage.logo_image.url}}" alt="">
+            <h1>{{supplierpage.name}}</h1>
+        </div>
+    </div>
+    {% if request.user.is_superuser %}
+    <button class="btn-nav">
+        <a class="btn-small btn-secondary form-buttom" href="{% url 'create-warranty' %}">Create Warranty <i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+</section>
+
+{% endfor %}
+{% endblock content %}

@@ -37,7 +37,7 @@ def createSupplier(request):
                 post = form.save(commit=False)
                 post.owner = suppliers
                 post.save()
-                return redirect('suppliers')
+            return redirect('suppliers')
 
     context = {'form': form, 'suppliers': suppliers}
     return render(request, 'suppliers/supplier_form.html', context)
@@ -83,7 +83,7 @@ def createMachine(request):
                 post = form.save(commit=False)
                 post.owner = machines
                 post.save()
-                return redirect('suppliers')
+            return redirect('suppliers')
 
     context = {'form': form, 'machines': machines}
     return render(request, 'suppliers/supplier_form.html', context)
@@ -129,7 +129,7 @@ def createProduct(request):
                 post = form.save(commit=False)
                 post.owner = products
                 post.save()
-                return redirect('suppliers')
+            return redirect('suppliers')
 
     context = {'form': form, 'products': products}
     return render(request, 'suppliers/supplier_form.html', context)
