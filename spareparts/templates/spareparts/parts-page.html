@@ -1,0 +1,7 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% for partspage in supplierpage.partspage_set.all %}
+<h1 style="margin: 10rem;">{{partspage}}</h1>
+{% endfor %}
+{% endblock content %}

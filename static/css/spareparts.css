@@ -1,0 +1,32 @@
+#supplier-parts .form-button {
+    margin: 5rem 0 0 0;
+}
+
+#supplier-parts .supplier-parts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+} 
+
+#supplier-parts .supplier-parts-items {
+    display: inline-block;
+    background-color: var(--mdark-color);
+    margin: 1rem 5rem 1rem 5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 3px solid var(--darker-color);
+} 
+
+#supplier-parts .supplier-parts-items h1 {
+    margin: 0 0 1rem 0;
+    color: var(--light-color);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+#supplier-parts .supplier-parts-items img {
+    display: flex;
+    width: 12.5rem;
+    height: 7.5rem;
+    margin: 0 auto;
+}

@@ -2,22 +2,45 @@
 
 {% block content %}
 
-{% for supplierpage in supplierpage %}
 
 <section id="supplier-parts">
     <div class="container">
-        <div class="supplier-parts-grid" style="margin: 10rem;">
-            <img src="{{supplierpage.logo_image.url}}" alt="">
-            <h1>{{supplierpage.name}}</h1>
+        {% if request.user.is_superuser %}
+        <button class="btn-nav form-buttons">
+            <a class="btn btn-primary form-button" href="{% url 'create-supplier-page' %}">Create Supplier
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
+        <div class="supplier-parts-grid">
+            {% for supplierpage in supplierpage %}
+            <div class="supplier-parts-items">
+                <h1>{{supplierpage.name}} <div class="bottom-line"></div>
+                </h1>
+                <img src="{{supplierpage.logo_image.url}}" alt="">
+                <button class="btn-nav">
+                    <a href="{% url 'parts-page' pk=supplierpage.pk %}" class="btn btn-primary">Spare-Parts
+                    </a>
+                </button>
+                {% if request.user.is_superuser %}
+                <div class="form-buttons btn-nav">
+                    <a class="btn-small btn-secondary form-button"
+                        href="{% url 'update-supplier-page' pk=supplierpage.pk %}"><i class="fa-solid fa-user-pen"></i>
+                    </a>
+                    <a class="btn-small btn-secondary form-button"
+                        href="{% url 'delete-supplier-page' pk=supplierpage.pk %}"><i class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
+        {% if request.user.is_superuser %}
+        <button class="btn-nav">
+            <a class="btn-small btn-secondary form-buttom" href="{% url 'create-warranty' %}">Create Warranty <i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
     </div>
-    {% if request.user.is_superuser %}
-    <button class="btn-nav">
-        <a class="btn-small btn-secondary form-buttom" href="{% url 'create-warranty' %}">Create Warranty <i
-                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-    </button>
-    {% endif %}
 </section>
 
-{% endfor %}
 {% endblock content %}
