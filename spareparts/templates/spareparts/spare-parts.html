@@ -5,29 +5,45 @@
 
 <section id="supplier-parts">
     <div class="container">
+        <h2 class="section-title">
+            Spare-Parts: Brand Selection<div class="bottom-line"></div>
+        </h2>
+
         {% if request.user.is_superuser %}
-        <button class="btn-nav form-buttons">
-            <a class="btn btn-primary form-button" href="{% url 'create-supplier-page' %}">Create Supplier
+        <button class="btn-nav">
+            <a class="btn btn-primary" href="{% url 'create-supplier-page' %}">Create Supplier
                 <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
         {% endif %}
+
+        <div class="index">
+            <h1 class="index-heading">Index:
+                <div class="bottom-line-side"></div>
+            </h1>
+            {% for spareparts in spareparts %}
+            <h1 class="index-name"><a class="index-link" href="#supplier-parts-{{forloop.counter}}">{{forloop.counter}}
+                    . {{spareparts.name}}</a></h1>
+            {% endfor %}
+        </div>
+
         <div class="supplier-parts-grid">
-            {% for supplierpage in supplierpage %}
-            <div class="supplier-parts-items">
-                <h1>{{supplierpage.name}} <div class="bottom-line"></div>
+            {% for spareparts in spareparts %}
+            <div class="supplier-parts-items" id="supplier-parts-{{forloop.counter}}">
+                <h1>{{spareparts.name}} <div class="bottom-line"></div>
                 </h1>
-                <img src="{{supplierpage.logo_image.url}}" alt="">
+                <img src="{{spareparts.logo_image.url}}" alt="">
                 <button class="btn-nav">
-                    <a href="{% url 'parts-page' pk=supplierpage.pk %}" class="btn btn-primary">Spare-Parts
+                    <a href="{% url 'parts-page' pk=spareparts.pk %}" class="btn btn-primary">Spare-Parts
+                        <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                     </a>
                 </button>
                 {% if request.user.is_superuser %}
                 <div class="form-buttons btn-nav">
                     <a class="btn-small btn-secondary form-button"
-                        href="{% url 'update-supplier-page' pk=supplierpage.pk %}"><i class="fa-solid fa-user-pen"></i>
+                        href="{% url 'update-supplier-page' pk=spareparts.pk %}"><i class="fa-solid fa-user-pen"></i>
                     </a>
                     <a class="btn-small btn-secondary form-button"
-                        href="{% url 'delete-supplier-page' pk=supplierpage.pk %}"><i class="fa-solid fa-trash"></i>
+                        href="{% url 'delete-supplier-page' pk=spareparts.pk %}"><i class="fa-solid fa-trash"></i>
                     </a>
                 </div>
                 {% endif %}
@@ -35,8 +51,10 @@
             {% endfor %}
         </div>
         {% if request.user.is_superuser %}
-        <button class="btn-nav">
-            <a class="btn-small btn-secondary form-buttom" href="{% url 'create-warranty' %}">Create Warranty <i
+        <button class="btn-nav form-buttons">
+            <a class="btn-small btn-secondary form-button" href="{% url 'create-warranty' %}">Warranty Form <i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'create-registration' %}">Register Machine <i
                     class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
         {% endif %}

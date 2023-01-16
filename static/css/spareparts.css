@@ -1,18 +1,20 @@
-#supplier-parts .form-button {
-    margin: 5rem 0 0 0;
+#supplier-parts {
+    margin: 7.5rem 10rem 0 10rem;
 }
 
 #supplier-parts .supplier-parts-grid {
+    margin: 0 auto 2rem auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 } 
 
 #supplier-parts .supplier-parts-items {
     display: inline-block;
     background-color: var(--mdark-color);
-    margin: 1rem 5rem 1rem 5rem;
+    margin: 1rem 1.5rem 1rem 1.5rem;
     padding: 2rem;
     border-radius: 1rem;
+    height: 30rem;
     border: 3px solid var(--darker-color);
 } 
 
@@ -26,7 +28,39 @@
 
 #supplier-parts .supplier-parts-items img {
     display: flex;
-    width: 12.5rem;
-    height: 7.5rem;
+    object-fit: cover;
+    width: 10rem;
+    height: 10rem;
     margin: 0 auto;
+}
+
+/* Parts Page */
+#parts-page {
+    margin: 7.5rem 11rem;
+}
+
+#parts-page .machinery-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 2rem 1.75rem 1rem 1.75rem;
+    border-radius: 1rem;
+    border: 5px solid var(--darker-color);
+    background-color: var(--mdark-color);
+}
+
+#parts-page .machinery-card img {
+    object-fit: cover;
+    width: 100%;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-left: 3.5px solid var(--darker-color);
+}
+
+#parts-page .machinery-card .machinery-card-link {
+    color: var(--light-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }

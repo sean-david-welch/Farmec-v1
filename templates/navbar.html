@@ -27,8 +27,8 @@
                         class="{% if request.resolver_match.url_name == 'spare-parts' %} current {% endif %}">Spare
                         Parts</a>
                     <ul class="nav-drop">
-                        {% for supplier in suppliers %}
-                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{ supplier.name }}</a></li>
+                        {% for spareparts in spareparts %}
+                        <li><a href="{% url 'parts-page' pk=spareparts.pk %}">{{ spareparts.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
