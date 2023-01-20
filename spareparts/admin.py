@@ -2,7 +2,6 @@ from django.contrib import admin
 from . models import SupplierPage, PartsPage, WarrantyClaim, MachineRegistration
 from . models import PartsRequired
 
-
 class PartsInline(admin.TabularInline):
     model = PartsRequired
 

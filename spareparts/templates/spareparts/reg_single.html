@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section id="warranty-machine-single">
+    <h2 class="text-center">Warranty Claim Form <div class="bottom-line"></div>
+    </h2>
+    <div class="single-grid">
+        <h1>Dealer Name: </h1>
+        <p>{{regsingle.dealer_name}}</p>
+        <h1>Dealer Address: </h1>
+        <p>{{regsingle.dealer_address}}</p>
+        <h1>Owner Name: </h1>
+        <p>{{regsingle.owner_name}}</p>
+        <h1>Owner Address: </h1>
+        <p>{{regsingle.owner_address}}</p>
+        <h1>Machine Model: </h1>
+        <p>{{regsingle.machine_model}}</p>
+        <h1>Serial Number: </h1>
+        <p>{{regsingle.serial_number}}</p>
+        <h1>Install Date: </h1>
+        <p>{{regsingle.install_date}}</p>
+        <h1>Invoice Number: </h1>
+        <p>{{regsingle.invoice_number}}</p>
+        <h1>Complete Supply: {{regsingle.complete_supply}}</h1>
+        <p>{{regsingle.complete_supply}}</p>
+        <h1>PDI Complete: </h1>
+        <p>{{regsingle.pdi_complete}}</p>
+        <h1>PTO Correct: </h1>
+        <p>{{regsingle.pto_correct}}</p>
+        <h1>Machine Test Run:</h1>
+        <p>{{regsingle.machine_test_run}}</p>
+        <h1>Safety Induction:</h1>
+        <p>{{regsingle.safety_induction}}</p>
+        <h1>Operator Handbook: </h1>
+        <p>{{regsingle.operator_handbook}}</p>
+        <h1>Date: </h1>
+        <p>{{regsingle.date}}</p>
+        <h1>Completed By: </h1>
+        <p>{{regsingle.completed_by}}</p>
+    </div>
+    {% if request.user.is_superuser %}
+    <div class="form-buttons btn-nav">
+        <a class="btn-small btn-secondary form-button" href="{% url 'update-registration' pk=regsingle.pk %}"><i
+                class="fa-solid fa-user-pen"></i>
+        </a>
+        <a class="btn-small btn-secondary form-button" href="{% url 'delete-registration' pk=regsingle.pk %}"><i
+                class="fa-solid fa-trash"></i>
+        </a>
+    </div>
+    {% endif %}
+</section>
+
+{% endblock content %}

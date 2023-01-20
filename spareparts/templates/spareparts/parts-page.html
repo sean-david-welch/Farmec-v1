@@ -32,6 +32,16 @@
                 </a>
                 {% endif %}
             </button>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-parts-page' pk=partspage.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-parts-page' pk=partspage.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+            {% endif %}
         </div>
         <img src="{{partspage.imageurl}}" alt="image">
     </div>

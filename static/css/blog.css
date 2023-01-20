@@ -8,16 +8,16 @@
     margin: 0 0 4rem 0;
     background-color: var(--mdark-color);
     color: var(--light-color);
-    border: 3px solid var(--darker-color);
-    border-radius: 2rem;
+    border: 3.5px solid var(--darker-color);
+    border-radius: 1rem;
 }
 
 #main-blog .blog-grid img {
     object-fit: cover;
-    width: 30rem;
-    border-right: 3px solid var(--mdark-color);
-    border-start-start-radius: 1.75rem;
-    border-end-start-radius: 1.75rem;
+    width: 40rem;
+    border-right: 3px solid var(--darker-color);
+    border-start-start-radius: .75rem;
+    border-end-start-radius: .75rem;
 }
 
 #main-blog .blog-grid .blog-description {

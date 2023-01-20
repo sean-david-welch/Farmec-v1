@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for warantyclaims in warantyclaims %}
+<section id="warranty-machine">
+    <div class="warranty-machine-grid">
+        <h1>{{warantyclaims.owner_name}} -- {{warantyclaims.dealer_name}}</h1>
+        <button class="btn-nav form-button">
+            <a class="btn btn-primary" href="#">View Form
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+    </div>
+</section>
+{% endfor %}
+
+{% endblock content %}

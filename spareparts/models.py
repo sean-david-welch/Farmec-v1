@@ -59,11 +59,11 @@ class WarrantyClaim(models.Model):
     failure_details = models.TextField(blank=True, null=True)
     repair_details = models.TextField(blank=True, null=True)
     labour_hours = models.CharField(max_length=200, blank=True, null=True)
-    part_number = models.CharField(max_length=200, blank=True, null=True)
-    quantity_needed = models.CharField(max_length=20, blank=True, null=True, default=1)
-    invoice_number = models.CharField(max_length=200, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    date = models.CharField(max_length=200, blank=True, null=True)
+    # part_number = models.CharField(max_length=200, blank=True, null=True)
+    # quantity_needed = models.CharField(max_length=20, blank=True, null=True, default=1)
+    # invoice_number = models.CharField(max_length=200, blank=True, null=True)
+    # description = models.TextField(blank=True, null=True)
+    # date = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
@@ -78,7 +78,7 @@ class WarrantyClaim(models.Model):
         ordering = ['-created']
 
 class PartsRequired(models.Model):
-    supplier = models.ForeignKey(WarrantyClaim, on_delete=models.CASCADE, null=True, blank=True)
+    warranty = models.ForeignKey(WarrantyClaim, on_delete=models.CASCADE, null=True, blank=True)
     part_number = models.CharField(max_length=200, blank=True, null=True)
     quantity_needed = models.CharField(max_length=20, blank=True, null=True, default=1)
     invoice_number = models.CharField(max_length=200, blank=True, null=True)
@@ -87,14 +87,8 @@ class PartsRequired(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
 
-    def __str__(self):
-        return str(self.part_number)
-
-    class Meta:
-        ordering = ['created']
-
 class MachineRegistration(models.Model):
-    dealer_name = models.CharField(max_length=200, blank=True, null=True)
+    dealer_name = models.CharField(max_length=200, blank=True, null=True, verbose_name="Dealer Name")
     dealer_address = models.CharField(max_length=200, blank=True, null=True)
     owner_name = models.CharField(max_length=200, blank=True, null=True)
     owner_address = models.CharField(max_length=200, blank=True, null=True)
@@ -108,7 +102,7 @@ class MachineRegistration(models.Model):
     machine_test_run = models.BooleanField(default=False, blank=True, null=True)
     safety_induction = models.BooleanField(default=False, blank=True, null=True)
     operator_handbook = models.BooleanField(default=False, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    date = models.CharField(max_length=200, blank=True, null=True)
     completed_by = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,

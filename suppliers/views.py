@@ -73,7 +73,7 @@ def deleteSupplier(request, pk):
 # Machine Model CRUD:
 @login_required(login_url='login')
 def createMachine(request): 
-    machines = Machine.objects.all
+    machines = Machine.objects.all()
     form = MachineForm()
 
     if request.user.is_superuser:
@@ -90,7 +90,7 @@ def createMachine(request):
 
 @login_required(login_url='login')
 def updateMachine(request, pk):
-    machines = Machine.objects.all
+    machines = Machine.objects.all()
     machine = Machine.objects.get(id=pk)
     form = MachineForm(instance=machine)
     
@@ -136,7 +136,7 @@ def createProduct(request):
 
 @login_required(login_url='login')
 def updateProduct(request, pk):
-    products = Product.objects.all
+    products = Product.objects.all()
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
     

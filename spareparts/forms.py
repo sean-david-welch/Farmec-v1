@@ -14,17 +14,16 @@ class WarrantyClaimForm(ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update({'class':'input'})
 
-# class PartsRequiredForm(ModelForm):
-#     class Meta:
-#         model = PartsRequired
-#         fields = '__all__'
+class PartsRequiredForm(ModelForm):
+    class Meta:
+        model = PartsRequired
+        # fields = '__all__'
+        exclude = ['warranty', 'id']
 
-#     def __init__(self, *args, **kwargs):
-#         super(PartsRequiredForm, self).__init__(*args, **kwargs)
-#         for name, field in self.fields.items():
-#             field.widget.attrs.update({'class':'input'})
-
-# PartsRequiredFormSet = inlineformset_factory(WarrantyClaim, PartsRequired, form=PartsRequiredForm, extra=2)
+    def __init__(self, *args, **kwargs):
+        super(PartsRequiredForm, self).__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class':'input'})
 
 class SupplierPageForm(ModelForm):
     class Meta:
