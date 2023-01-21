@@ -2,16 +2,16 @@
 
 {% block content %}
 
-{% for warantyclaims in warantyclaims %}
 <section id="warranty-machine">
+    {% for warranty in warranty %}
     <div class="warranty-machine-grid">
-        <h1>{{warantyclaims.owner_name}} -- {{warantyclaims.dealer_name}}</h1>
+        <h1>{{warranty.owner_name}} -- {{warranty.dealer}}</h1>
         <button class="btn-nav form-button">
-            <a class="btn btn-primary" href="#">View Form
+            <a class="btn-small btn-primary" href="{% url 'single-warranty' pk=warranty.pk %}">View Form
                 <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
     </div>
+    {% endfor %}
 </section>
-{% endfor %}
 
 {% endblock content %}

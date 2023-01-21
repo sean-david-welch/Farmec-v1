@@ -18,8 +18,8 @@
 @import 'media.css';
 
 /* Home Grid - Stats */
-#home .stats div {
-	margin: 0 3rem;
+#home .stats {
+	margin: 0 2rem;
 	padding: 1rem 0 1rem 0;
 }
 

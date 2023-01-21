@@ -4,7 +4,9 @@
 <section id="form">
     <form class="form" action="" method="POST">
         {% csrf_token %}
-        <p>Are you sure you want to delete "{{object}}"?</p>
+        <p class="delete-form">Are you sure you want to delete "{{object}}"?
+        <div class="bottom-line"></div>
+        </p>
         <button class="form-buttons btn-nav">
             <a class="btn btn-primary form-button" href="javascript:history.back()">Go Back</a>
             <input class="btn btn-secondary form-button" type="submit" value="Confirm" />

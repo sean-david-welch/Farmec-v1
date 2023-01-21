@@ -1,5 +1,5 @@
 #main-blog {
-    margin: 4rem 6rem;
+    margin: 5rem 8rem 1rem 8rem;
 }
 
 #main-blog .blog-grid {
@@ -8,14 +8,14 @@
     margin: 0 0 4rem 0;
     background-color: var(--mdark-color);
     color: var(--light-color);
-    border: 3.5px solid var(--darker-color);
+    border: 5px solid var(--darker-color);
     border-radius: 1rem;
 }
 
 #main-blog .blog-grid img {
     object-fit: cover;
     width: 40rem;
-    border-right: 3px solid var(--darker-color);
+    border-right: 5px solid var(--darker-color);
     border-start-start-radius: .75rem;
     border-end-start-radius: .75rem;
 }
@@ -27,6 +27,7 @@
 #main-blog .blog-grid .blog-description h2,
 #main-blog .blog-grid .blog-description h1 {
     color: var(--light-color);
+    font-size: 1.2rem;
 }
 
 #main-blog .blog-grid .blog-description p {
@@ -40,22 +41,23 @@
 
 /* Individual Blog Post */
 #blog-post {
-    margin: 4rem;
+    margin: 4rem 6rem 2rem 6rem;
     display: flex;
     flex-direction: column;
 }
 
 #blog-post h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 #blog-post img {
-    margin: 1rem auto;
+    margin: 1rem 10rem 1rem 10rem;
     height: 40rem;
     object-fit: cover;
     border: 2px solid var(--mdark-color);
     border-radius: 1rem;
+    border: 4px solid var(--darker-color);
 }
 
 #blog-post a {
@@ -65,13 +67,14 @@
 }
 
 #blog-post h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 #blog-post p {
+    margin: 0 5rem;
     padding: 0 5rem;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -81,7 +84,7 @@
 }
 
 .form-button {
-    margin: 1rem;
+    margin: 0.25rem;
     text-align: center;
     justify-content: center;
 }

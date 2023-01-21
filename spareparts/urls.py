@@ -6,6 +6,7 @@ urlpatterns = [
     path('parts-page/<str:pk>/', views.partspage, name='parts-page'),
 
     path('warranty-claims/', views.warrantyclaims, name='warranty-claims'),
+    path('single-warranty/<str:pk>/', views.singlewarranty, name='single-warranty'),
     path('create-warranty/', views.createWarranty, name='create-warranty'),
 
     path('machine-registration/', views.machinereg, name='machine-registration'),

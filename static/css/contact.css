@@ -57,7 +57,7 @@
 }
 
 #contact-page .contact-form .send-button:hover {
-    transform: scale(1.025);
+    transform: scale(1.01);
     opacity: 1.1;
     background: rgb(255, 0, 0);
 }
@@ -112,7 +112,7 @@
 }
 
 #contact-page button:hover {
-	transform: scale(1.05);
+	transform: scale(1.01);
 }
 
 button i {

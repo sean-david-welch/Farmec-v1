@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section id="warranty-machine-single">
+    <h2 class="text-center">Warranty Claim Form <div class="bottom-line"></div>
+    </h2>
+    <h1 class="text-center">{{singlewarranty.owner_name}}</h1>
+    <div class="single-grid">
+        <h1>Dealer Name: </h1>
+        <p>{{singlewarranty.dealer}}</p>
+
+        <h1>Dealer Contact: </h1>
+        <p>{{singlewarranty.dealer_contact}}</p>
+
+        <h1>Owner Name: </h1>
+        <p>{{singlewarranty.owner_name}}</p>
+
+        <h1>Machine Model: </h1>
+        <p>{{singlewarranty.machine_model}}</p>
+
+        <h1>Serial Number: </h1>
+        <p>{{singlewarranty.serial_number}}</p>
+
+        <h1>Install Date: </h1>
+        <p>{{singlewarranty.install_date}}</p>
+
+        <h1>Failure Date: </h1>
+        <p>{{singlewarranty.failure_date}}</p>
+
+        <h1>Repair Date: </h1>
+        <p>{{singlewarranty.repair_date}}</p>
+
+        <h1>Failure_details: </h1>
+        <p>{{singlewarranty.failure_details}}</p>
+
+        <h1>Repair Details: </h1>
+        <p>{{singlewarranty.repair_details}}</p>
+
+        <h1>Labour Hours:</h1>
+        <p>{{singlewarranty.labour_hours}}</p>
+    </div>
+
+    <div class="parts-required-table">
+        <h1>Parts Required <div class="bottom-line"></div>
+        </h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Part Number</th>
+                    <th>Quantity Needed</th>
+                    <th>Invoice Number</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partsrequired in singlewarranty.partsrequired_set.all %}
+                <tr>
+                    <td>{{ partsrequired.part_number }}</td>
+                    <td>{{ partsrequired.quantity_needed }}</td>
+                    <td>{{ partsrequired.invoice_number }}</td>
+                    <td>{{ partsrequired.description }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if request.user.is_superuser %}
+    <div class="form-buttons btn-nav">
+        <a class="btn-small btn-secondary form-button" href="#"><i class="fa-solid fa-user-pen"></i>
+        </a>
+        <a class="btn-small btn-secondary form-button" href="#"><i class="fa-solid fa-trash"></i>
+        </a>
+    </div>
+    {% endif %}
+</section>
+
+{% endblock content %}

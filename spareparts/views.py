@@ -26,10 +26,19 @@ def partspage(request, pk):
 def warrantyclaims(request):
     suppliers = Supplier.objects.all()
     spareparts = SupplierPage.objects.all()
-    warrantyclaims = WarrantyClaim.objects.all()
+    warranty = WarrantyClaim.objects.all()
 
-    context = {'suppliers': suppliers, 'warrantyclaims': warrantyclaims, 'spareparts': spareparts}
+    context = {'suppliers': suppliers, 'warranty': warranty, 'spareparts': spareparts}
     return render(request, 'spareparts/warranty_claims.html', context)
+
+def singlewarranty(request, pk):
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
+    singlewarranty = WarrantyClaim.objects.get(id=pk)
+    partsrequired = PartsRequired.objects.all()
+
+    context = {'suppliers': suppliers, 'singlewarranty': singlewarranty, 'spareparts': spareparts, 'partsrequired': partsrequired}
+    return render(request, 'spareparts/claim_single.html', context)
 
 def machinereg(request):
     suppliers = Supplier.objects.all()

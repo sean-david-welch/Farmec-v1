@@ -1,17 +1,18 @@
 #suppliers {
-    margin: 8rem 4rem 0 4rem;
+    margin: 8rem 7.5rem 0 7.5rem;
 }
 
 #suppliers .supplier-profile {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(2, 1fr);
-    margin: 1rem;
+    margin: 1rem 1.5rem;
     padding: 2rem;
     background: var(--mdark-color);
     color: var(--medium-color);
-    border-radius: 2rem;
+    border-radius: 1rem;
     margin-bottom: 3rem;
+    border: 4px solid var(--darker-color);
 }
 
 #suppliers .supplier-info {

@@ -2,7 +2,8 @@
 /* Profile Page */
 #profile .profile-body {
     border-radius: 2rem;
-    padding: 6rem 2rem 3rem 2rem;
+    padding: 6rem 1rem 1rem 1rem;
+    margin: 0 3rem 0 3rem;
 }
 
 #profile .profile-logo {

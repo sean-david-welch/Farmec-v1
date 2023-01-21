@@ -1,6 +1,6 @@
 #form {
     display: flex;
-    margin: 10rem;
+    margin: 7.5rem 12rem;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -8,7 +8,7 @@
 
 #form .form {
     background-color: var(--mdark-color);
-    border: 2px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
     padding: 3rem;
     border-radius: 2rem;
 }
@@ -21,7 +21,7 @@
 }
 
 #form .input {
-    width: 50rem;
+    width: 45rem;
     text-align: start;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,7 @@
     padding-bottom: 1rem;
     padding-left: 1rem;
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: 0.8rem;
 }
 
 #form .input h1 {
@@ -45,4 +45,11 @@
 
 #form .form-button {
     margin: 1rem;
+}
+
+.delete-form {
+    color: var(--light-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
 }
