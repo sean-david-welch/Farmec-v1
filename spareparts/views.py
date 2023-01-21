@@ -56,7 +56,6 @@ def regsingle(request, pk):
     context = {'suppliers': suppliers, 'regsingle': regsingle, 'spareparts': spareparts}
     return render(request, 'spareparts/reg_single.html', context)
 
-# Warranty Claim Form
 @login_required(login_url='login')
 def createWarranty(request):
     warranty = WarrantyClaim.objects.all()
@@ -66,11 +65,13 @@ def createWarranty(request):
     if request.user.is_superuser:
         if request.method == 'POST':
             form = WarrantyClaimForm(request.POST, request.FILES)
-            formset = warrantyformset(request.POST, request.FILES)
+            formset = warrantyformset(request.POST, request.FILES, instance=WarrantyClaim())
             if form.is_valid() and formset.is_valid():
-                post = formset.save(commit=False)
-                post.owner = warrantyformset
+                post = form.save(commit=False)
+                post.owner = request.user
                 post.save()
+                formset.instance = post
+                formset.save()
             return redirect('spare-parts')
 
     context = {'warranty': warranty, 'form': form, 'formset': warrantyformset}

@@ -1,5 +1,5 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block content %}
 
 <section id="form">
@@ -17,7 +17,11 @@
             <h1>Parts Required:</h1>
             <p>{{field}}</p>
         </div>
+        <div id="empty-form" class="input">
+            <p>{{formset.empty_form}}</p>
+        </div>
         {% endfor %}
+        <button class="btn btn-primary" id="add-more" type="button">Add More</button>
         <input class="submit btn btn-primary" type="submit"></input>
     </form>
 </section>
