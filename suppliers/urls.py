@@ -10,11 +10,11 @@ urlpatterns = [
     path('update-supplier/<str:pk>/', views.updateSupplier, name='update-supplier'),
     path('delete-supplier/<str:pk>/', views.deleteSupplier, name='delete-supplier'),
 
-    path('create-machine/', views.createMachine, name='create-machine'),
+    path('create-machine/<str:pk>/', views.createMachine, name='create-machine'),
     path('update-machine/<str:pk>/', views.updateMachine, name='update-machine'),
     path('delete-machine/<str:pk>/', views.deleteMachine, name='delete-machine'),
 
-    path('create-product/', views.createProduct, name='create-product'),
+    path('create-product/<str:pk>/', views.createProduct, name='create-product'),
     path('update-product/<str:pk>/', views.updateProduct, name='update-product'),
     path('delete-product/<str:pk>/', views.deleteProduct, name='delete-product'),
 ]

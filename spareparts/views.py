@@ -59,6 +59,8 @@ def regsingle(request, pk):
 # Create Warranty Form:
 @login_required(login_url='login')
 def createWarranty(request):
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
     warranty = WarrantyClaim.objects.all()
     form = WarrantyClaimForm()
     warrantyformset = inlineformset_factory(WarrantyClaim, PartsRequired, form=WarrantyClaimForm, extra=1)
@@ -75,12 +77,14 @@ def createWarranty(request):
                 formset.save()
             return redirect('spare-parts')
 
-    context = {'warranty': warranty, 'form': form, 'formset': warrantyformset}
+    context = {'warranty': warranty, 'form': form, 'formset': warrantyformset, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'spareparts/parts_form.html', context)
 
 @login_required(login_url='login')
 def updateWarranty(request, pk):
     warrantysingle = WarrantyClaim.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
 
     form = WarrantyClaimForm(instance=warrantysingle)
     warrantyformset = inlineformset_factory(WarrantyClaim, PartsRequired, form=WarrantyClaimForm, extra=1)
@@ -93,20 +97,22 @@ def updateWarranty(request, pk):
         if form.is_valid() and formset.is_valid():
             form.save()
             formset.save()
-        return redirect('spare-parts')
+        return redirect('warranty-claims')
  
-    context = {'form': form, 'warrantysingle': warrantysingle, 'formset': formset}
+    context = {'form': form, 'warrantysingle': warrantysingle, 'formset': formset, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'spareparts/parts_form.html', context)
 
 @login_required(login_url='login')
 def deleteWarranty(request, pk):
     warrantysingle = WarrantyClaim.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
     
     if request.method == 'POST':
         warrantysingle.delete()
-        return redirect('spare-parts')
+        return redirect('warranty-claims')
  
-    context = {'object': warrantysingle}
+    context = {'object': warrantysingle, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'delete_form.html', context)
 
 ## Machine Registration Form:
@@ -114,6 +120,8 @@ def deleteWarranty(request, pk):
 def createRegistration(request):
     registration = MachineRegistration.objects.all()
     form = MachineRegistrationForm()
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
 
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -124,13 +132,15 @@ def createRegistration(request):
                 post.save()
             return redirect('spare-parts')
 
-    context = {'form': form, 'registration': registration}
+    context = {'form': form, 'registration': registration, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'spareparts/page_form.html', context)
 
 @login_required(login_url='login')
 def updateRegistration(request, pk):
     registrations = MachineRegistration.objects.all
     regsingle = MachineRegistration.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
 
     form = MachineRegistrationForm(instance=regsingle)
     
@@ -140,21 +150,23 @@ def updateRegistration(request, pk):
         if form.is_valid():
             regsingle = form.save()
 
-        return redirect('spare-parts')
+        return redirect('machine-registration')
  
-    context = {'form': form, 'registrations': registrations, 'regsingle':regsingle}
+    context = {'form': form, 'registrations': registrations, 'regsingle': regsingle, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'spareparts/page_form.html', context)
 
 
 @login_required(login_url='login')
 def deleteRegistration(request, pk):
     regsingle = MachineRegistration.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
     
     if request.method == 'POST':
         regsingle.delete()
-        return redirect('spare-parts')
+        return redirect('machine-registration')
  
-    context = {'object': regsingle}
+    context = {'object': regsingle, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'delete_form.html', context)
 
 # Supplier Page Form
@@ -162,6 +174,7 @@ def deleteRegistration(request, pk):
 def createPageform(request): 
     supplierspage = SupplierPage.objects.all()
     form = SupplierPageForm()
+    suppliers = Supplier.objects.all()
 
     if request.user.is_superuser:
         if request.method == 'POST':
@@ -172,12 +185,13 @@ def createPageform(request):
                 post.save()
             return redirect('spare-parts')
 
-    context = {'form': form, 'supplierspage': supplierspage}
+    context = {'form': form, 'supplierspage': supplierspage, 'suppliers': suppliers}
     return render(request, 'spareparts/page_form.html', context)
 
 @login_required(login_url='login')
 def updatePageform(request, pk):
     supplierspages = SupplierPage.objects.all
+    suppliers = Supplier.objects.all()
     supplierspage = SupplierPage.objects.get(id=pk)
 
     form = SupplierPageForm(instance=supplierspage)
@@ -190,26 +204,29 @@ def updatePageform(request, pk):
 
         return redirect('spare-parts')
  
-    context = {'form': form, 'supplierspages': supplierspages, 'supplierspage':supplierspage}
+    context = {'form': form, 'supplierspages': supplierspages, 'supplierspage': supplierspage, 'suppliers': suppliers}
     return render(request, 'spareparts/page_form.html', context)
 
 
 @login_required(login_url='login')
 def deletePageform(request, pk):
     supplierspage = SupplierPage.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
     
     if request.method == 'POST':
         supplierspage.delete()
         return redirect('spare-parts')
  
-    context = {'object': supplierspage}
+    context = {'object': supplierspage, 'suppliers': suppliers}
     return render(request, 'delete_form.html', context)
 
 # Parts Pages Form 
 @login_required(login_url='login')
-def createPartsform(request): 
-    partspage = PartsPage.objects.all
+def createPartsform(request ): 
+    partspage = PartsPage.objects.all()
     form = PartsPageForm()
+    suppliers = Supplier.objects.all()
+    supplierspage = SupplierPage.objects.all()
 
     if request.user.is_superuser:
         if request.method == 'POST':
@@ -218,15 +235,16 @@ def createPartsform(request):
                 post = form.save(commit=False)
                 post.owner = partspage
                 post.save()
-            return redirect('spare-parts')
+        return redirect('spare-parts')
 
-    context = {'form': form, 'partspage': partspage}
+    context = {'form': form, 'partspage': partspage, 'suppliers': suppliers, 'supplierspage': supplierspage}
     return render(request, 'spareparts/page_form.html', context)
 
 @login_required(login_url='login')
 def updatePartsform(request, pk):
-    supplierspages = PartsPage.objects.all
+    supplierspages = SupplierPage.objects.all
     partspage = PartsPage.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
 
     form = PartsPageForm(instance=partspage)
     
@@ -238,17 +256,19 @@ def updatePartsform(request, pk):
 
         return redirect('spare-parts')
  
-    context = {'form': form, 'supplierspages': supplierspages, 'partspage':partspage}
+    context = {'form': form, 'supplierspages': supplierspages, 'partspage': partspage, 'suppliers': suppliers}
     return render(request, 'spareparts/page_form.html', context)
 
 
 @login_required(login_url='login')
 def deletePartsform(request, pk):
     partspage = PartsPage.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
     
     if request.method == 'POST':
         partspage.delete()
         return redirect('spare-parts')
  
-    context = {'object': partspage}
+    context = {'object': partspage, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'delete_form.html', context)

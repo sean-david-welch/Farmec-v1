@@ -2,32 +2,37 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . models import Supplier, Machine, Product
 from . forms import SupplierForm, MachineForm, ProductForm
+from spareparts.models import SupplierPage
 
 # Create your views here.
 def suppliers(request):
     suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
 
-    context = {'suppliers': suppliers}
+    context = {'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/suppliers.html', context)
 
 def supplier(request, pk):
     supplier = Supplier.objects.get(id=pk)
     suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
 
-    context = {'supplier': supplier, 'suppliers': suppliers}
+    context = {'supplier': supplier, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/supplier.html', context)
 
 def machine(request, pk):
     machine = Machine.objects.get(id=pk)
     suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
 
-    context = {'machine': machine, 'suppliers': suppliers}
+    context = {'machine': machine, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/machine.html', context)
 
 # Supplier Model CRUD:
 @login_required(login_url='login')
 def createSupplier(request): 
-    suppliers = Supplier.objects.all
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
     form = SupplierForm()
 
     if request.user.is_superuser:
@@ -39,12 +44,13 @@ def createSupplier(request):
                 post.save()
             return redirect('suppliers')
 
-    context = {'form': form, 'suppliers': suppliers}
+    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/supplier_form.html', context)
 
 @login_required(login_url='login')
 def updateSupplier(request, pk):
-    suppliers = Supplier.objects.all
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
     supplier = Supplier.objects.get(id=pk)
     form = SupplierForm(instance=supplier)
     
@@ -54,26 +60,31 @@ def updateSupplier(request, pk):
         if form.is_valid():
             suppliers = form.save()
 
-        return redirect('suppliers')
+        return redirect('supplier', pk=pk)
  
-    context = {'form': form, 'suppliers': suppliers, 'supplier':supplier}
+    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts, 'supplier':supplier}
     return render(request, 'suppliers/supplier_form.html', context)
 
 @login_required(login_url='login')
 def deleteSupplier(request, pk):
-    suppliers = Supplier.objects.get(id=pk)
+    supplier = Supplier.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
     
     if request.method == 'POST':
         suppliers.delete()
         return redirect('suppliers')
  
-    context = {'object': suppliers}
+    context = {'object': supplier, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'delete_form.html', context)
 
 # Machine Model CRUD:
 @login_required(login_url='login')
-def createMachine(request): 
+def createMachine(request, pk): 
     machines = Machine.objects.all()
+    suppliers = Supplier.objects.all()
+    supplier = Supplier.objects.get(id=pk)
+    spareparts = SupplierPage.objects.all() 
     form = MachineForm()
 
     if request.user.is_superuser:
@@ -83,13 +94,15 @@ def createMachine(request):
                 post = form.save(commit=False)
                 post.owner = machines
                 post.save()
-            return redirect('suppliers')
+            return redirect('supplier', pk=pk)
 
-    context = {'form': form, 'machines': machines}
+    context = {'form': form, 'machines': machines, 'suppliers': suppliers, 'spareparts': spareparts, 'supplier': supplier}
     return render(request, 'suppliers/supplier_form.html', context)
 
 @login_required(login_url='login')
 def updateMachine(request, pk):
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
     machines = Machine.objects.all()
     machine = Machine.objects.get(id=pk)
     form = MachineForm(instance=machine)
@@ -98,28 +111,32 @@ def updateMachine(request, pk):
 
         form = MachineForm(request.POST, request.FILES, instance=machine)
         if form.is_valid():
-            machines = form.save()
-
-        return redirect('suppliers')
+            machine = form.save()
+        return redirect('supplier', pk=machine.supplier.pk)
  
-    context = {'form': form, 'machines': machines, 'machine': machine}
+    context = {'form': form, 'machines': machines, 'machine': machine, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/supplier_form.html', context)
 
 @login_required(login_url='login')
 def deleteMachine(request, pk):
-    machines = Machine.objects.get(id=pk)
+    machine = Machine.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
     
     if request.method == 'POST':
-        machines.delete()
-        return redirect('suppliers')
+        machine.delete()
+        return redirect('supplier', pk=machine.supplier.pk)
  
-    context = {'object': machines}
+    context = {'object': machine, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'delete_form.html', context)
 
 # Product Model CRUD:
 @login_required(login_url='login')
-def createProduct(request): 
-    products = Product.objects.all
+def createProduct(request, pk): 
+    products = Product.objects.all()
+    suppliers = Supplier.objects.all()
+    machine = Machine.objects.get(id=pk)
+    spareparts = SupplierPage.objects.all() 
     form = ProductForm()
 
     if request.user.is_superuser:
@@ -129,13 +146,15 @@ def createProduct(request):
                 post = form.save(commit=False)
                 post.owner = products
                 post.save()
-            return redirect('suppliers')
+            return redirect('machine', pk=pk)
 
-    context = {'form': form, 'products': products}
+    context = {'form': form, 'products': products, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/supplier_form.html', context)
 
 @login_required(login_url='login')
 def updateProduct(request, pk):
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
     products = Product.objects.all()
     product = Product.objects.get(id=pk)
     form = ProductForm(instance=product)
@@ -146,19 +165,21 @@ def updateProduct(request, pk):
         if form.is_valid():
             products = form.save()
 
-        return redirect('suppliers')
+        return redirect('machine', pk=product.machine.pk)
  
-    context = {'form': form, 'products': products, 'product': product}
+    context = {'form': form, 'products': products, 'product': product, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'suppliers/supplier_form.html', context)
 
 @login_required(login_url='login')
 def deleteProduct(request, pk):
-    products = Product.objects.get(id=pk)
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all() 
+    product = Product.objects.get(id=pk)
     
     if request.method == 'POST':
-        products.delete()
-        return redirect('suppliers')
+        product.delete()
+        return redirect('machine', pk=product.machine.pk)
  
-    context = {'object': products}
+    context = {'object': product, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'delete_form.html', context)
 

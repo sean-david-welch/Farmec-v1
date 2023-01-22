@@ -9,25 +9,18 @@ from spareparts.models import SupplierPage
 
 def home(request):
     suppliers = Supplier.objects.all()
-    special = Special.objects.all()
     spareparts = SupplierPage.objects.all()
+    special = Special.objects.all()
     stat = Stat.objects.all()
-    blogs = Blog.objects.order_by('created')[:3]
+    blogs = Blog.objects.order_by('-created')[:2]
 
     context = {'suppliers': suppliers, 'blogs': blogs, 'specials': special, 'stats': stat, 'spareparts': spareparts}
     return render(request, 'home.html', context)
 
-def navbar(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
-
-    context = {'suppliers': suppliers, 'spareparts': spareparts} 
-    return render(request, 'navbar.html', context)
 
 def contactPage(request):
     suppliers = Supplier.objects.all()
     spareparts = SupplierPage.objects.all()
-
 
     context = {'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'contact_page.html', context)
@@ -35,7 +28,6 @@ def contactPage(request):
 def loginPage(request):
     suppliers = Supplier.objects.all()
     spareparts = SupplierPage.objects.all()
-
 
     if request.method == 'POST':
         username = request.POST['username']

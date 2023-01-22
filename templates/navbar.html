@@ -11,6 +11,8 @@
                     <ul class="nav-drop">
                         <li><a href="{% url 'about' %}#about-team">Management & Staff</a></li>
                         <li><a href="{% url 'about' %}#timeline">Company History</a></li>
+                        <li><a href="{% url 'terms' %}">Terms of Use</a></li>
+                        <li><a href="{% url 'privacy' %}">Privacy</a></li>
                     </ul>
                 </li>
 
@@ -35,6 +37,10 @@
 
                 <li class="nav-list-item"><a href="{% url 'blogs' %}"
                         class="{% if request.resolver_match.url_name == 'blogs' %} current {% endif %}">Blog</a>
+                    <ul class="nav-drop">
+                        <li><a href="{% url 'blogs' %}">Latest Blog Posts</a></li>
+                        <li><a href="{% url 'exhibitions' %}">Exhibition Information</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-list-item"><a

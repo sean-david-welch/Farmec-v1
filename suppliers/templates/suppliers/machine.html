@@ -40,7 +40,7 @@
     {% endfor %}
     {% if request.user.is_superuser %}
     <button class="form-buttons btn-nav btn-create">
-        <a class="btn-small btn-primary form-buttom" href="{% url 'create-product' %}">Create Product <i
+        <a class="btn-small btn-primary form-buttom" href="{% url 'create-product' pk=machine.pk %}">Create Product <i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
     </button>
     {% endif %}

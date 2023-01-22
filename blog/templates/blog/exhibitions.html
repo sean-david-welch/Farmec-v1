@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="exhibitions">
+    <h2 class="text-center">Exhibitions</h2>
+    <div class="bottom-line"></div>
+    <p class="lead text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
+
+    {% if request.user.is_superuser %}
+    <button class="btn-nav form-buttons">
+        <a class="btn-small btn-primary form-button" href="{% url 'create-exhibition' %}">Create Exhibition<i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+    <div class="index">
+        <h1 class="index-heading">Index:
+            <div class="bottom-line-side"></div>
+        </h1>
+        {% for exhibition in exhibitions %}
+        <h1 class="index-name"><a class="index-link" href="#exhibitions-grid-{{forloop.counter}}">{{forloop.counter}}
+                . {{exhibition.title}} - {{exhibition.date}}</a></h1>
+        {% endfor %}
+    </div>
+
+    {% for exhibition in exhibitions %}
+    <div class="exhibitions-grid" id="exhibitions-grid-{{forloop.counter}}">
+        <h1>{{forloop.counter}} . {{exhibition.title}}:<div class="bottom-line-side"></div>
+        </h1>
+        <p>{{exhibition.date}}</p>
+        <p>{{exhibition.location}}</p>
+        <p>{{exhibition.info}}</p>
+        {% if request.user.is_superuser %}
+        <div class="form-buttons btn-nav">
+            <a class="btn-small btn-secondary form-button" href="{% url 'update-exhibition' pk=exhibition.pk %}"><i
+                    class="fa-solid fa-user-pen"></i>
+            </a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'delete-exhibition' pk=exhibition.pk %}"><i
+                    class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

@@ -1,7 +1,7 @@
 from django.db.models.base import Model
 from django.forms import ModelForm, widgets
 from django import forms
-from . models import Employee, Timeline
+from . models import Employee, Timeline, Terms, Privacy
 
 class EmployeeForm(ModelForm):
     class Meta:
@@ -21,6 +21,28 @@ class TimelineForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(TimelineForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class':'input'})
+
+class PriacyForm(ModelForm):
+    class Meta:
+        model = Privacy
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(PriacyForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class':'input'})
+
+class TermsForm(ModelForm):
+    class Meta:
+        model = Terms
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(TermsForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class':'input'})

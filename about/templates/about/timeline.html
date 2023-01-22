@@ -32,10 +32,12 @@
             </div>
             {% if request.user.is_superuser %}
             <div class="form-buttons btn-nav">
-                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}">Update
-                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}">Delete
-                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
             </div>
             {% endif %}
         </div>
@@ -49,10 +51,12 @@
             </div>
             {% if request.user.is_superuser %}
             <div class="form-buttons btn-nav">
-                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}">Update
-                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}">Delete
-                    timeline <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
             </div>
             {% endif %}
         </div>

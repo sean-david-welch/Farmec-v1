@@ -108,8 +108,8 @@
         </div>
         {% if request.user.is_superuser %}
         <button class="btn-nav form-buttons">
-            <a class="btn-small btn-primary form-button" href="{% url 'create-machine' %}">Create Machine <i
-                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            <a class="btn-small btn-primary form-button" href="{% url 'create-machine' pk=supplier.pk %}">Create Machine
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
         {% endif %}
     </div>
