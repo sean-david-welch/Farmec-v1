@@ -8,6 +8,8 @@ urlpatterns = [
     path('warranty-claims/', views.warrantyclaims, name='warranty-claims'),
     path('single-warranty/<str:pk>/', views.singlewarranty, name='single-warranty'),
     path('create-warranty/', views.createWarranty, name='create-warranty'),
+    path('update-warranty/<str:pk>/', views.updateWarranty, name='update-warranty'),
+    path('delete-warranty/<str:pk>/', views.deleteWarranty, name='delete-warranty'),
 
     path('machine-registration/', views.machinereg, name='machine-registration'),
     path('regsingle/<str:pk>/', views.regsingle, name='regsingle'),

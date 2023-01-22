@@ -15,6 +15,7 @@
 
 #timeline .timeline-container {
     position: relative;
+    padding: 0 0 1rem 0;
     width: 50%;
     border-radius: 1rem;
     background-color: var(--mdark-color);

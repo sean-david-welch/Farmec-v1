@@ -11,19 +11,31 @@
             <p>{{field}}</p>
         </div>
         {% endfor %}
-        {{formset.management_form}}
-        {% for field in formset %}
-        <div class="input">
-            <h1>Parts Required:</h1>
-            <p>{{field}}</p>
+        <div id="form-container">
+            {{formset.management_form}}
+            {% for field in formset %}
+            <div class="input">
+                <h1>Parts Required:</h1>
+                <p>{{field}}</p>
+            </div>
+            <div id="empty-form" class="input" style="display: none;">
+                <p>{{formset}}</p>
+            </div>
+            {% endfor %}
         </div>
-        <div id="empty-form" class="input">
-            <p>{{formset.empty_form}}</p>
-        </div>
-        {% endfor %}
         <button class="btn btn-primary" id="add-more" type="button">Add More</button>
         <input class="submit btn btn-primary" type="submit"></input>
     </form>
 </section>
+
+
+<script>
+    document.getElementById("add-more").onclick = function () {
+        var emptyForm = document.getElementById("empty-form");
+        var newForm = emptyForm.cloneNode(true);
+        newForm.style.display = "block";
+        document.getElementById("form-container").appendChild(newForm);
+    }
+</script>
 
 {% endblock content %}

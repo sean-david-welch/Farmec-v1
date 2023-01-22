@@ -68,9 +68,11 @@
 
     {% if request.user.is_superuser %}
     <div class="form-buttons btn-nav">
-        <a class="btn-small btn-secondary form-button" href="#"><i class="fa-solid fa-user-pen"></i>
+        <a class="btn-small btn-secondary form-button" href="{% url 'update-warranty' pk=singlewarranty.pk %}"><i
+                class="fa-solid fa-user-pen"></i>
         </a>
-        <a class="btn-small btn-secondary form-button" href="#"><i class="fa-solid fa-trash"></i>
+        <a class="btn-small btn-secondary form-button" href="{% url 'delete-warranty' pk=singlewarranty.pk %}"><i
+                class="fa-solid fa-trash"></i>
         </a>
     </div>
     {% endif %}

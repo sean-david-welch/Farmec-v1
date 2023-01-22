@@ -56,13 +56,14 @@ def regsingle(request, pk):
     context = {'suppliers': suppliers, 'regsingle': regsingle, 'spareparts': spareparts}
     return render(request, 'spareparts/reg_single.html', context)
 
+# Create Warranty Form:
 @login_required(login_url='login')
 def createWarranty(request):
     warranty = WarrantyClaim.objects.all()
     form = WarrantyClaimForm()
     warrantyformset = inlineformset_factory(WarrantyClaim, PartsRequired, form=WarrantyClaimForm, extra=1)
 
-    if request.user.is_superuser:
+    if request.user.is_authenticated:
         if request.method == 'POST':
             form = WarrantyClaimForm(request.POST, request.FILES)
             formset = warrantyformset(request.POST, request.FILES, instance=WarrantyClaim())
@@ -76,6 +77,37 @@ def createWarranty(request):
 
     context = {'warranty': warranty, 'form': form, 'formset': warrantyformset}
     return render(request, 'spareparts/parts_form.html', context)
+
+@login_required(login_url='login')
+def updateWarranty(request, pk):
+    warrantysingle = WarrantyClaim.objects.get(id=pk)
+
+    form = WarrantyClaimForm(instance=warrantysingle)
+    warrantyformset = inlineformset_factory(WarrantyClaim, PartsRequired, form=WarrantyClaimForm, extra=1)
+    formset = warrantyformset(instance=warrantysingle)
+
+    if request.method == 'POST':
+        form = WarrantyClaimForm(request.POST, instance=warrantysingle)
+        formset = warrantyformset(request.POST, instance=warrantysingle)
+
+        if form.is_valid() and formset.is_valid():
+            form.save()
+            formset.save()
+        return redirect('spare-parts')
+ 
+    context = {'form': form, 'warrantysingle': warrantysingle, 'formset': formset}
+    return render(request, 'spareparts/parts_form.html', context)
+
+@login_required(login_url='login')
+def deleteWarranty(request, pk):
+    warrantysingle = WarrantyClaim.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        warrantysingle.delete()
+        return redirect('spare-parts')
+ 
+    context = {'object': warrantysingle}
+    return render(request, 'delete_form.html', context)
 
 ## Machine Registration Form:
 @login_required(login_url='login')
@@ -106,7 +138,7 @@ def updateRegistration(request, pk):
 
         form = MachineRegistrationForm(request.POST, request.FILES, instance=regsingle)
         if form.is_valid():
-            suppliers = form.save()
+            regsingle = form.save()
 
         return redirect('spare-parts')
  
@@ -154,7 +186,7 @@ def updatePageform(request, pk):
 
         form = SupplierPageForm(request.POST, request.FILES, instance=supplierspage)
         if form.is_valid():
-            suppliers = form.save()
+            supplierspage = form.save()
 
         return redirect('spare-parts')
  
@@ -202,7 +234,7 @@ def updatePartsform(request, pk):
 
         form = PartsPageForm(request.POST, request.FILES, instance=partspage)
         if form.is_valid():
-            suppliers = form.save()
+            partspage = form.save()
 
         return redirect('spare-parts')
  

@@ -9,11 +9,11 @@
             <img src="{{blog.imageurl}}" alt="blog-image">
             <div class="blog-description">
                 <h2>
-                    {{blog.title}}
+                    {{blog.title}} <div class="bottom-line-side"></div>
                 </h2>
                 <h1>{{blog.subheading}}</h1>
                 <p>{{blog.body|slice:"400"}}</p>
-                <a href="{% url 'blog' pk=blog.pk %}" class="btn-small btn-primary">
+                <a href="{% url 'blog' pk=blog.pk %}" class="btn btn-primary">
                     Read More<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                 </a>
             </div>
