@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory
 from django.forms.models import inlineformset_factory
+from django.contrib import messages
 from . models import SupplierPage, PartsPage, WarrantyClaim, MachineRegistration
 from . models import PartsRequired
 from . forms import WarrantyClaimForm, SupplierPageForm, PartsPageForm, MachineRegistrationForm
@@ -75,7 +76,9 @@ def createWarranty(request):
                 post.save()
                 formset.instance = post
                 formset.save()
-            return redirect('spare-parts')
+                return redirect('spare-parts')
+            else:
+                messages.error(request, 'Field format is not valid')
 
     context = {'warranty': warranty, 'form': form, 'formset': warrantyformset, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'spareparts/parts_form.html', context)
@@ -130,7 +133,9 @@ def createRegistration(request):
                 post = form.save(commit=False)
                 post.owner = registration
                 post.save()
-            return redirect('spare-parts')
+                return redirect('spare-parts')
+            else:
+                messages.error(request, 'Field format is not valid')
 
     context = {'form': form, 'registration': registration, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'spareparts/page_form.html', context)

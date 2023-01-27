@@ -39,14 +39,13 @@ def createEmployee(request):
     employees = Employee.objects.all
     form = EmployeeForm()
 
-    if request.user.is_superuser:
-        if request.method == 'POST':
-            form = EmployeeForm(request.POST, request.FILES)
-            if form.is_valid():
-                post = form.save(commit=False)
-                post.owner = employees
-                post.save()
-                return redirect('about')
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = employees
+            post.save()
+            return redirect('about')
 
     context = {'form': form, 'employees': employees, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'about/about_form.html', context)
@@ -91,14 +90,13 @@ def createTimeline(request):
     timelines = Timeline.objects.all
     form = TimelineForm()
 
-    if request.user.is_superuser:
-        if request.method == 'POST':
-            form = TimelineForm(request.POST, request.FILES)
-            if form.is_valid():
-                post = form.save(commit=False)
-                post.owner = timelines
-                post.save()
-                return redirect('about')
+    if request.method == 'POST':
+        form = TimelineForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = timelines
+            post.save()
+            return redirect('about')
 
     context = {'form': form, 'timelines': timelines, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'about/about_form.html', context)
@@ -143,14 +141,13 @@ def createPrivacy(request):
     privacys = Privacy.objects.all
     form = PriacyForm()
 
-    if request.user.is_superuser:
-        if request.method == 'POST':
-            form = PriacyForm(request.POST, request.FILES)
-            if form.is_valid():
-                post = form.save(commit=False)
-                post.owner = privacys
-                post.save()
-                return redirect('privacy')
+    if request.method == 'POST':
+        form = PriacyForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = privacys
+            post.save()
+            return redirect('privacy')
 
     context = {'form': form, 'privacys': privacys, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'about/about_form.html', context)
@@ -195,14 +192,13 @@ def createTerms(request):
     terms = Terms.objects.all
     form = TermsForm()
 
-    if request.user.is_superuser:
-        if request.method == 'POST':
-            form = TermsForm(request.POST, request.FILES)
-            if form.is_valid():
-                post = form.save(commit=False)
-                post.owner = terms
-                post.save()
-                return redirect('terms')
+    if request.method == 'POST':
+        form = TermsForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = terms
+            post.save()
+            return redirect('terms')
 
     context = {'form': form, 'terms': terms, 'suppliers': suppliers, 'spareparts': spareparts}
     return render(request, 'about/about_form.html', context)

@@ -3,12 +3,13 @@
 
 {% block content %}
 <section id="form">
-    <form action="{% url 'login' %}" method="post" class="form">
+    <form action="{% url 'register' %}" method="post" class="form">
         {% csrf_token %}
         <div class="heading">
             <img src="{% static 'images/farmeclogo.png' %}" alt="">
-            <h1>Staff/Dealer Login:</h1>
-            <h2>Enter your details below...</h2>
+            <h1>Dealer Registration:</h1>
+            <h2>Enter details below... <div class="bottom-line"></div>
+            </h2>
             {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -17,16 +18,14 @@
             </ul>
             {% endif %}
         </div>
-
+        {% for field in form %}
         <div class="input">
-            <h1>Username:</h1>
-            <input class="input" type="text" name="username" placeholder="Enter your username...">
-            <h1>Password:</h1>
-            <input class="input" type="password" name="password" placeholder="Enter your password...">
+            <h1>{{field.label}}:</h1>
+            <p>{{field}}</p>
         </div>
-
+        {% endfor %}
         <button class="btn-nav">
-            <input type="submit" value="Login" class="login btn-small btn-primary form-button" class="form-button">
+            <input type="submit" value="Register" class="login btn-small btn-primary form-button" class="form-button">
         </button>
     </form>
 </section>

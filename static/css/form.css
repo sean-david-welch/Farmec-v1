@@ -4,6 +4,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    color: var(--light-color);
 }
 
 #form .form {
@@ -52,4 +53,28 @@
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
+}
+
+#form input.input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    width: 30rem;
+    justify-content: center;
+    text-align: center;
+    appearance: none;
+}
+
+#form .input h1 {
+    color: var(--light-color);
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    margin-left: 7rem;
 }

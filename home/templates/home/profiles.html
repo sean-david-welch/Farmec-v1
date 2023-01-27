@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section id="user-profiles">
+
+    <h2 class="section-title">
+        Spare-Parts: Brand Selection<div class="bottom-line spacing-bottom"></div>
+    </h2>
+
+    <div class="index">
+        <h1 class="index-heading">Index:
+            <div class="bottom-line-side"></div>
+        </h1>
+        {% for profile in profiles %}
+        <h1 class="index-name"><a class="index-link" href="#user-profile-grid{{forloop.counter}}">{{forloop.counter}} .
+                {{profile.name}}</a></h1>
+        {% endfor %}
+    </div>
+
+    {% for profile in profiles %}
+    <div class="user-profile-grid" id="user-profile-grid-{{forloop.counter}}">
+        <h1>User: {{profile.user}}</h1>
+        <h1>Name: {{profile.name}}</h1>
+        <h1>Email: {{profile.email}}</h1>
+        <h1>Username: {{profile.username}}</h1>
+        {% if request.user.is_superuser %}
+        <div class="form-buttons btn-nav">
+            <a class="btn-small btn-secondary form-button" href="{% url 'update-profile' pk=profile.pk %}"><i
+                    class="fa-solid fa-user-pen"></i>
+            </a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'delete-profile' pk=profile.pk %}"><i
+                    class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock content %}

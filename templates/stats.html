@@ -1,8 +1,14 @@
 {% load static %}
 <!-- Home Section -->
-<section id="home" class="text-center py2">
+<section id="home" class="text-center">
     <!-- Stats -->
     <div class="container spacing">
+        {% if request.user.is_superuser %}
+        <button class="btn-nav">
+            <a class="btn-small btn-secondary" href="{% url 'displays' %}">Edit Displays<i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
         <h2 class="section-title">Farmec at a Glance:</h2>
         <div class="bottom-line"></div>
         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, modi.</p>

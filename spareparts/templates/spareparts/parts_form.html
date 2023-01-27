@@ -5,6 +5,13 @@
 <section id="form">
     <form class="form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
         {% for field in form %}
         <div class="input">
             <h1>{{field.label}}:</h1>

@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from suppliers.models import Supplier
 from blog.models import Blog
-from home.models import Special, Stat
+from home.models import Profile, Special, Stat
+from home.forms import CustomUserCreationForm
 from spareparts.models import SupplierPage
 
 def home(request):
@@ -51,10 +54,7 @@ def loginPage(request):
 
 def logoutPage(request):
     logout(request)
-    messages.error(request, 'User was logged out!')
     return redirect('home')
-
-
 
 
 

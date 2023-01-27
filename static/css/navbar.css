@@ -90,11 +90,11 @@
 #navbar .nav-drop {
     position: absolute;
     top: 3rem;
-    left: 0.75rem;
+    left: -1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background-color: var(--dark-color);
     border-radius: 10px;
-    width: 12rem;
+    width: 10rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -111,8 +111,8 @@
     background-color: var(--dark-color);
     box-shadow: 0 2px 2px -2px rgba(255, 255, 255, 0.2);
     transition: background-color 200ms ease-in;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 #navbar .nav-drop li a {

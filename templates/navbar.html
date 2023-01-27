@@ -20,7 +20,8 @@
                         class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                     <ul class="nav-drop">
                         {% for supplier in suppliers %}
-                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{supplier.name}}</a></li>
+                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{forloop.counter}} . {{supplier.name}}</a>
+                        </li>
                         {% endfor %}
                     </ul>
                 </li>
@@ -30,7 +31,8 @@
                         Parts</a>
                     <ul class="nav-drop">
                         {% for spareparts in spareparts %}
-                        <li><a href="{% url 'parts-page' pk=spareparts.pk %}">{{ spareparts.name }}</a></li>
+                        <li><a href="{% url 'parts-page' pk=spareparts.pk %}">{{forloop.counter}} .
+                                {{spareparts.name}}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
@@ -46,6 +48,23 @@
                 <li class="nav-list-item"><a
                         href="{% if request.resolver_match.url_name == 'home' %} {% url 'home' %}#contact-page {% else %} {% url 'contact' %} {% endif %}">Contact</a>
                 </li>
+                {% if request.user.is_superuser %}
+                <li class="nav-list-item"><a href="{% url 'logout' %}"
+                        class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Logout</a>
+                    <ul class="nav-drop">
+                        <li><a href="{% url 'profiles' %}">Profiles</a></li>
+                        <li><a href="{% url 'displays' %}">Displays</a></li>
+                    </ul>
+                </li>
+                {% elif request.user.is_authenticated %}
+                <li class="nav-list-item"><a href="{% url 'logout' %}"
+                        class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-list-item"><a href="{% url 'login' %}"
+                        class="{% if request.resolver_match.url_name == 'login' %} current {% endif %}">Login</a>
+                </li>
+                {% endif %}
             </ul>
         </nav>
     </div>
