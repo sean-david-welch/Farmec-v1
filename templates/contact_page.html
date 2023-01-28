@@ -10,11 +10,18 @@
         </h2>
         <div class="form-container">
 
-            <form action="" class="contact-form" aria-required="true">
-                <input type="text" placeholder="Your Name..." required>
-                <input type="email" name="" id="" placeholder="Enter Your Email...">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Write Your Message here..."
-                    required></textarea>
+            <form action="{% url 'contact' %}" class="contact-form" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                {{field}}
+                {% endfor %}
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <input type="submit" value="Send" class="send-button">
             </form>
 
