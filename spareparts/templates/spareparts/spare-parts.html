@@ -29,14 +29,14 @@
             <h1 class="index-heading">Index:
                 <div class="bottom-line-side"></div>
             </h1>
-            {% for spareparts in spareparts %}
-            <h1 class="index-name"><a class="index-link" href="#supplier-parts-{{forloop.counter}}">{{forloop.counter}}
-                    . {{spareparts.name}}</a></h1>
-            {% endfor %}
             {% if request.user.is_authenticated %}
             <h1 class="index-name"><a class="index-link" href="#warranty">- Warranty Claim</a></h1>
             <h1 class="index-name"><a class="index-link" href="#registration">- Machine Registration</a></h1>
             {% endif %}
+            {% for spareparts in spareparts %}
+            <h1 class="index-name"><a class="index-link" href="#supplier-parts-{{forloop.counter}}">{{forloop.counter}}
+                    . {{spareparts.name}}</a></h1>
+            {% endfor %}
         </div>
 
         <div class="supplier-parts-grid">

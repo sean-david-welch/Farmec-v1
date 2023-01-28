@@ -76,6 +76,7 @@ def createWarranty(request):
                 post.save()
                 formset.instance = post
                 formset.save()
+                print(formset.management_form)
                 return redirect('spare-parts')
             else:
                 messages.error(request, 'Field format is not valid')

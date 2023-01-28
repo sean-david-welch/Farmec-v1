@@ -132,13 +132,3 @@
     color: var(--primary-color);
     font-weight: 700;
 }
-
-/* #navbar a.current::before {
-    content: '';
-    position: absolute;
-    width: 7%;
-    height: 0.2rem;
-    border-radius: 10px;
-    bottom: 1.5rem;
-    background-color: var(--primary-color);
-} */
