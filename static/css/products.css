@@ -4,9 +4,8 @@
     margin: 7.5rem 10rem 0 10rem;
     padding: 2rem 3.5rem;
     border: 5px solid var(--darker-color);
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
-
 
 #products .product-index h5 {
     font-size: 1.75rem;
@@ -36,7 +35,7 @@
     grid-template-rows: 1fr 3fr;
     background-color: var(--mdark-color);
     color: var(--light-color);
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 5px solid var(--darker-color);
     transition: all 300ms linear;
 }
@@ -49,6 +48,7 @@
 
 #products .product-grid img {
     margin: 0 auto 0 auto;
+    overflow: hidden;
     width: 45rem;
     object-fit: cover;
 }

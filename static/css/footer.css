@@ -2,6 +2,8 @@
 #main-footer {
 	background: var(--dark-color);
 	color: var(--light-color);
+	position: absolute;
+	width: 100vw;
 	height: 22rem;
 	max-width: var(--website-width);
 	border-top: 2px solid var(--primary-color);

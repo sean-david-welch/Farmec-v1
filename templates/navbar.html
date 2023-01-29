@@ -4,6 +4,13 @@
         <!-- Navbar -->
         <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
             <a href="{% url 'home' %}"><img src="{% static 'images/farmeclogo.png' %}" alt="Logo" id="logo"></a>
+
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+
             <ul class="nav-list">
 
                 <li class="nav-list-item"><a href="{% url 'about' %}"
@@ -69,3 +76,5 @@
         </nav>
     </div>
 </header>
+
+<script src="{% static 'js/hamburger.js' %}"></script>

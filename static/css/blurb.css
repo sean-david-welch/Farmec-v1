@@ -23,7 +23,7 @@
 }
 
 #blurb .blog-grid p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 #blurb .blog-grid img {
@@ -44,4 +44,8 @@
 	margin-top: 1.25rem;
 	text-align: center;
 	justify-content: center;
+}
+
+#blurb .blurb button {
+	justify-content: flex-start;
 }

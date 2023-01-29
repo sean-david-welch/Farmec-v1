@@ -13,9 +13,11 @@
                 </h2>
                 <h1>{{blog.subheading}}</h1>
                 <p>{{blog.body|slice:"400"}}</p>
-                <a href="{% url 'blog' pk=blog.pk %}" class="btn btn-primary">
-                    Read More<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
-                </a>
+                <button class="btn-nav">
+                    <a href="{% url 'blog' pk=blog.pk %}" class="btn-small btn-primary">
+                        Read More<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </button>
             </div>
         </div>
         {% endfor %}

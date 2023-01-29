@@ -25,6 +25,17 @@
     padding: 2rem;
 }
 
+#contact-page .form-box {
+    margin: 0 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--mdark-color);
+    gap: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+}
+
 #contact-page .contact-form {
     display: grid;
     row-gap: 2rem;
@@ -115,12 +126,12 @@
 	transform: scale(1.01);
 }
 
-button i {
+.socials button i {
 	color: var(--light-color);
 	font-size: 1.3rem;
 }
 
-button {
+#contact-page button {
     font-size: 1rem;
 }
 
@@ -134,22 +145,4 @@ button.linkedin {
 
 button.whatsapp {
 	background-color: #075e54;
-}
-
-/* Media */
-@media (max-width:964px){
-    .form-container{
-    margin: 0 auto;
-    width: 90%;
-    }
-}
-
-@media (max-width:700px){
-    .form-container{
-        grid-template-columns: 1fr;
-        margin-top: 20rem !important;
-    }
-    .map iframe {
-        height: 400px;
-    }
 }

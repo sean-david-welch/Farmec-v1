@@ -19,16 +19,6 @@
     margin-top: 1rem;
 }
 
-#profile .profile-image img {
-    display: block;
-    margin: auto;
-    object-fit: cover;
-    width: 77.5rem;
-    height: 35rem;
-    border: 5px solid var(--mdark-color);
-    border-radius: 2rem;
-}
-
 #profile .nav-button a {
     display: inline-block;
     text-align: center;
@@ -111,7 +101,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 2rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 7px solid var(--mdark-color);
 
 }
@@ -121,8 +111,8 @@
     width: 40rem;
     object-fit: cover;
     border-right: 5px solid var(--mdark-color);
-    border-start-start-radius: 1.5rem;
-    border-end-start-radius: 1.5rem;
+    border-start-start-radius: 0.75rem;
+    border-end-start-radius: 0.75rem;
 }
 
 #profile .machine-info {
@@ -167,7 +157,7 @@
 }
 
 #profile .supplier-social i {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 #profile .supplier-social button {
@@ -183,4 +173,8 @@
 
 #profile .supplier-social button:hover {
 	transform: scale(1.05);
+}
+
+#profile .supplier-social a button i {
+    color: var(--light-color);
 }

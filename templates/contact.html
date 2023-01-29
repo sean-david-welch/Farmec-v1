@@ -1,11 +1,11 @@
 {% load static %}
 <!-- Contact Page -->
 <section id="contact-page" class="text-center">
-    <div class="container">
+    <div class="container contact-page">
         <!-- Form -->
         <h2>Contact Us <div class="bottom-line"></div>
         </h2>
-        <div class="form-container">
+        <div class="form-box">
 
             <form action="{% url 'contact' %}" class="contact-form" method="POST">
                 {% csrf_token %}
@@ -38,7 +38,7 @@
                 <h2>International: <span>+353 1 825 9289</span></h2>
                 <h2>Email: info@farmec.ie</h2>
 
-                <div class="social">
+                <div class="socials">
                     <a href="" target="_blank"><button class="facebook"><i class="fab fa-facebook"></i></button></a>
                     <a href="" target="_blank"><button class="twitter"><i class="fab fa-twitter"></i></button></a>
                     <a href="" target="_blank"><button class="linkedin"><i class="fab fa-linkedin"></i></button></a>

@@ -40,11 +40,11 @@
                     {% if request.user.is_superuser %}
                     <div class="form-buttons btn-nav">
                         <a class="btn-small btn-secondary form-button"
-                            href="{% url 'update-supplier' pk=supplier.pk %}">Update
-                            Supplier <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                            href="{% url 'update-supplier' pk=supplier.pk %}"><i class="fa-solid fa-user-pen"></i>
+                        </a>
                         <a class="btn-small btn-secondary form-button"
-                            href="{% url 'delete-supplier' pk=supplier.pk %}">Delete
-                            Supplier <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                            href="{% url 'delete-supplier' pk=supplier.pk %}"><i class="fa-solid fa-trash"></i>
+                        </a>
                     </div>
                     {% endif %}
                 </div>
@@ -98,10 +98,12 @@
             </div>
             {% if request.user.is_superuser %}
             <div class="form-buttons btn-nav">
-                <a class="btn-small btn-secondary form-button" href="{% url 'update-machine' pk=machine.pk %}">Update
-                    Machine <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-                <a class="btn-small btn-secondary form-button" href="{% url 'delete-machine' pk=machine.pk %}">Delete
-                    Machine <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-machine' pk=machine.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-machine' pk=machine.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
             </div>
             {% endif %}
             {% endfor %}

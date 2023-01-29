@@ -95,8 +95,8 @@ def updateWarranty(request, pk):
     formset = warrantyformset(instance=warrantysingle)
 
     if request.method == 'POST':
-        form = WarrantyClaimForm(request.POST, instance=warrantysingle)
-        formset = warrantyformset(request.POST, instance=warrantysingle)
+        form = WarrantyClaimForm(request.POST, request.FILES, instance=warrantysingle)
+        formset = warrantyformset(request.POST, request.FILES, instance=warrantysingle)
 
         if form.is_valid() and formset.is_valid():
             form.save()

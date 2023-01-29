@@ -1,8 +1,8 @@
 /* Carousel */
 #carousel .carousel {
     height: 100vh;
-    width: 100vh;
-    margin: 0;
+    width: 100%;
+    margin: auto;
 }
 
 #carousel .carousel > ul {

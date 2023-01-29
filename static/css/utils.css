@@ -78,7 +78,7 @@ button .btn {
     text-decoration: none;
     transition: all 0.5s linear;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     justify-content: center;
 }
@@ -112,24 +112,24 @@ button .btn {
 .btn-primary {
     color: #fff;
     background-color: var(--primary-color);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .btn-secondary {
     color: #fff;
     background-color: var(--darker-color);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 /* Paragraph leads */
 .lead {
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .lead-light {
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--light-color);
 }
 
@@ -280,6 +280,8 @@ button.website {
     padding: 1rem 2rem;
     border: 5px solid var(--darker-color);
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 h1.index-heading {

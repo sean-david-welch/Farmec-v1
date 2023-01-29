@@ -13,6 +13,24 @@
     cursor: pointer;
 }
 
+#navbar .toggle-button {
+    position: absolute;
+    top: 1.35rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+#navbar .toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--light-color);
+    border-radius: 10px;
+}
+
 /* Navbar */
 #navbar {
     display: flex;
@@ -20,7 +38,7 @@
     padding-top: 1rem;
     position: absolute;
     width: 100vw;
-    z-index: 1;
+    z-index: 1000000;
     background: var(--dark-color);
 }
 
