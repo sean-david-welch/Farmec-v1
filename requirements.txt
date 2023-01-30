@@ -2,7 +2,7 @@ asgiref==3.5.2
 boto3==1.25.3
 botocore==1.28.3
 cachetools==5.2.0
-certifi==2022.9.24
+certifi==2022.12.7
 charset-normalizer==2.1.1
 click==7.1.2
 distlib==0.3.6
