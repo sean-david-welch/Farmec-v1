@@ -59,6 +59,7 @@ class WarrantyClaim(models.Model):
     failure_details = models.TextField(blank=True, null=True)
     repair_details = models.TextField(blank=True, null=True)
     labour_hours = models.CharField(max_length=200, blank=True, null=True)
+    completed_by = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)

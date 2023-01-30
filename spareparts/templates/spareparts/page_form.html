@@ -1,6 +1,28 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<h2 class="form-heading text-center">
+    {% if request.resolver_match.url_name == 'create-registration' %}
+    Machine Registration Form <div class="bottom-line"></div>
+    {% elif request.resolver_match.url_name == 'update-registration' %}
+    Machine Registration Form <div class="bottom-line"></div>
+
+    {% elif request.resolver_match.url_name == 'create-supplier-page' %}
+    Supplier Page Form <div class="bottom-line"></div>
+    {% elif request.resolver_match.url_name == 'update-supplier-page' %}
+    Supplier Page Form <div class="bottom-line"></div>
+
+    {% elif request.resolver_match.url_name == 'create-parts-page' %}
+    Parts Page From <div class="bottom-line"></div>
+    {% elif request.resolver_match.url_name == 'update-parts-page' %}
+    Parts Page Form <div class="bottom-line"></div>
+
+    {% else %}
+    Form <div class="bottom-line"></div>
+    {% endif %}
+</h2>
+<p class="form-lead text-center">Fill out the form field(s) below:</p>
+
 
 <section id="form">
     <form class="form" method="POST" enctype="multipart/form-data">

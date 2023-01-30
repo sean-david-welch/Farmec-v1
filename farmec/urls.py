@@ -8,10 +8,10 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+
+    path(r'^captcha/', include('captcha.urls')),
     
     path('admin/', admin.site.urls),
-
-    path('contact/', views.contactPage, name='contact'),
 
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutPage, name='logout'),

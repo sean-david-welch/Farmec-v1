@@ -1,6 +1,6 @@
 #form {
     display: flex;
-    margin: 7.5rem 12rem;
+    margin: 2rem 12rem 3rem 12rem;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -88,4 +88,13 @@
     font-weight: 600;
     margin: 0.5rem 0;
     margin-left: 7rem;
+}
+
+.form-heading {
+    margin: 8rem 0 0 0;
+}
+
+.form-lead {
+    font-size: 1.3rem;
+    font-weight: 600;
 }

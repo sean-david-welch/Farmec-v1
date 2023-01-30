@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.conf import settings
@@ -15,7 +16,7 @@ from . forms import ContactForm
 def home(request):
     suppliers = Supplier.objects.all()
     spareparts = SupplierPage.objects.all()
-    special = Special.objects.all()
+    specials = Special.objects.all()
     stat = Stat.objects.all()
     blogs = Blog.objects.order_by('-created')[:2]
     form = ContactForm
@@ -23,51 +24,24 @@ def home(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
 
-        if form.is_valid:
+        if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
-            body = form.cleaned_data['name']
-            send_mail(
-                'Contact for sent by: ' + name,
-                body,
-                email,
-                ['jennie@farmec.ie']
-            )
-            messages.success('Form was sent!')
-            return redirect('contact')
-        else:
-            messages.error(request, 'Form is not valid!')
-
-
-    context = {'suppliers': suppliers, 'blogs': blogs, 'specials': special, 'stats': stat, 'spareparts': spareparts, 'form': form}
-    return render(request, 'home.html', context)
-
-
-def contactPage(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
-    form = ContactForm
-
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-
-        if form.is_valid:
-            name = form['name']
-            email = form['email']
-            body = form['name']
+            body = form.cleaned_data['body']
             send_mail(
                 f'Contact Form sent by: {name}',
-                body,
-                email,
+                body + 'email sent by: ' + email,
+                'jennie@farmec.ie',
                 ['jennie@farmec.ie']
             )
-            messages.success('Form was sent!')
-            return redirect('contact')
+            messages.success(request, 'Form was sent!')
+            return redirect('home')
         else:
             messages.error(request, 'Form is not valid!')
 
-    context = {'suppliers': suppliers, 'spareparts': spareparts, 'form': form}
-    return render(request, 'contact_page.html', context)
+
+    context = {'suppliers': suppliers, 'blogs': blogs, 'specials': specials, 'stats': stat, 'spareparts': spareparts, 'form': form}
+    return render(request, 'home.html', context)
 
 def loginPage(request):
     suppliers = Supplier.objects.all()

@@ -7,16 +7,16 @@
 </div>
 
 <div class="specials">
-    {% for specials in specials %}
+    {% for special in specials %}
     <div class="icon">
-        <a href="about.html">
+        <a href="{{special.link}}" id="{{special.title}}">
             <ul>
-                <li><img src="{{specials.imageurl}}" alt=""></li>
+                <li><img src="{{special.imageurl}}" alt=""></li>
                 <li>
-                    <h3>{{specials.title}}</h3>
+                    <h3>{{special.title}}</h3>
                 </li>
                 <li>
-                    <p>{{specials.body}}</p>
+                    <p>{{special.body}}</p>
                 </li>
             </ul>
         </a>

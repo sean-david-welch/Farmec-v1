@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory
 from django.forms.models import inlineformset_factory
+from django.core.mail import send_mail
 from django.contrib import messages
 from . models import SupplierPage, PartsPage, WarrantyClaim, MachineRegistration
 from . models import PartsRequired
@@ -76,7 +77,13 @@ def createWarranty(request):
                 post.save()
                 formset.instance = post
                 formset.save()
-                print(formset.management_form)
+                send_mail(
+                'Warranty Claim Form Created by: ' + post.completed_by,
+                f'A new warranty claim form has been filed by {post.completed_by}! Make sure to log in and check the details at: http://127.0.0.1:8000/spareparts/warranty-claims/', 
+                'jennie@farmec.ie',
+                ['jennie@farmec.ie'],
+                fail_silently=False,
+                )
                 return redirect('spare-parts')
             else:
                 messages.error(request, 'Field format is not valid')
@@ -134,6 +141,13 @@ def createRegistration(request):
                 post = form.save(commit=False)
                 post.owner = registration
                 post.save()
+                send_mail(
+                'New Machine Registration Form Created by: ' + post.completed_by,
+                f'A new machine registration form has been created by {post.completed_by}! Make sure to log in and check the details at: http://127.0.0.1:8000/spareparts/machine-registration/', 
+                'jennie@farmec.ie',
+                ['jennie@farmec.ie'],
+                fail_silently=False,
+                )
                 return redirect('spare-parts')
             else:
                 messages.error(request, 'Field format is not valid')

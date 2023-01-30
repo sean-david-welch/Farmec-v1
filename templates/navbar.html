@@ -52,9 +52,9 @@
                     </ul>
                 </li>
 
-                <li class="nav-list-item"><a
-                        href="{% if request.resolver_match.url_name == 'home' %} {% url 'home' %}#contact-page {% else %} {% url 'contact' %} {% endif %}">Contact</a>
+                <li class="nav-list-item"><a href="{% url 'home' %}#contact-page">Contact</a>
                 </li>
+
                 {% if request.user.is_superuser %}
                 <li class="nav-list-item"><a href="{% url 'logout' %}"
                         class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Logout</a>

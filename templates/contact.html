@@ -7,7 +7,7 @@
         </h2>
         <div class="form-box">
 
-            <form action="{% url 'contact' %}" class="contact-form" method="POST">
+            <form action="{% url 'home' %}#contact-form" class="contact-form" method="POST">
                 {% csrf_token %}
                 {% for field in form %}
                 {{field}}
@@ -39,8 +39,10 @@
                 <h2>Email: info@farmec.ie</h2>
 
                 <div class="socials">
-                    <a href="" target="_blank"><button class="facebook"><i class="fab fa-facebook"></i></button></a>
-                    <a href="" target="_blank"><button class="twitter"><i class="fab fa-twitter"></i></button></a>
+                    <a href="https://www.facebook.com/FarmecIreland/" target="_blank"><button class="facebook"><i
+                                class="fab fa-facebook"></i></button></a>
+                    <a href="https://twitter.com/farmec1" target="_blank"><button class="twitter"><i
+                                class="fab fa-twitter"></i></button></a>
                     <a href="" target="_blank"><button class="linkedin"><i class="fab fa-linkedin"></i></button></a>
                 </div>
             </div>

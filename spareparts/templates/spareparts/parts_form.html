@@ -1,6 +1,17 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
+<h2 class="form-heading text-center">
+    {% if request.resolver_match.url_name == 'create-warranty' %}
+    Warranty Claim Form <div class="bottom-line"></div>
+    {% elif request.resolver_match.url_name == 'update-warranty' %}
+    Warranty Claim Form <div class="bottom-line"></div>
+
+    {% else %}
+    Form <div class="bottom-line"></div>
+    {% endif %}
+</h2>
+<p class="form-lead text-center">Fill out the form field(s) below:</p>
 
 <section id="form">
     <form class="form" method="POST" enctype="multipart/form-data">
