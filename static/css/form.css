@@ -7,6 +7,13 @@
     color: var(--light-color);
 }
 
+.captcha {
+    display: flex;
+    justify-content: center;
+    width: 10rem;
+    border-radius: 1rem;
+}
+
 #form .form {
     background-color: var(--mdark-color);
     border: 3px solid var(--primary-color);

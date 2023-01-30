@@ -1,5 +1,5 @@
 from django import forms
-from captcha.fields import CaptchaField
+from captcha.fields import CaptchaField, CaptchaTextInput
 
 class ContactForm(forms.Form):
     name = forms.CharField(
@@ -15,3 +15,7 @@ class ContactForm(forms.Form):
         widget=forms.Textarea(attrs={'placeholder': 'Your message....'}),
         required=True
     )
+    captcha = CaptchaField(
+                      error_messages={'invalid': 'Incorrect verification code'},
+                      widget=CaptchaTextInput(attrs={'placeholder': 'Enter the letters listed above...'}),
+                      required=True)
