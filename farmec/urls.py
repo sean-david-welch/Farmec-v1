@@ -9,8 +9,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
 
-    path('captcha/', include('captcha.urls')),
-
     path('admin/', admin.site.urls),
 
     path('login/', views.loginPage, name='login'),
