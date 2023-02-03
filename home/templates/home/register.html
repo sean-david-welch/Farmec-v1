@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+<h2 class="form-heading text-center">
+    Registration Form <div class="bottom-line"></div>
+</h2>
+<p class="form-lead text-center">Fill out the form field(s) below:</p>
+
 <section id="form">
     <form action="{% url 'register' %}" method="post" class="form">
         {% csrf_token %}

@@ -56,16 +56,22 @@
                 </li>
 
                 {% if request.user.is_superuser %}
-                <li class="nav-list-item"><a href="{% url 'logout' %}"
-                        class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Logout</a>
+                <li class="nav-list-item"><a href="{% url 'profiles' %}"
+                        class="{% if request.resolver_match.url_name == 'profiles' %} current {% endif %}">Account</a>
                     <ul class="nav-drop">
                         <li><a href="{% url 'profiles' %}">Profiles</a></li>
                         <li><a href="{% url 'displays' %}">Displays</a></li>
+                        <li><a href="#">Payments</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </li>
                 {% elif request.user.is_authenticated %}
-                <li class="nav-list-item"><a href="{% url 'logout' %}"
-                        class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Logout</a>
+                <li class="nav-list-item"><a href="{% url 'home' %}"
+                        class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Account</a>
+                    <ul class="nav-drop">
+                        <li><a href="#">Payments</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
                 </li>
                 {% else %}
                 <li class="nav-list-item"><a href="{% url 'login' %}"

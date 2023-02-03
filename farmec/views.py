@@ -30,7 +30,7 @@ def home(request):
             body = form.cleaned_data['body']
             send_mail(
                 f'Contact Form sent by: {name}',
-                body + 'email sent by: ' + email,
+                body + ',' + '\n' + 'email sent by: ' + email,
                 'jennie@farmec.ie',
                 ['jennie@farmec.ie']
             )
@@ -68,5 +68,13 @@ def loginPage(request):
     return render(request, 'login.html', context)
 
 def logoutPage(request):
-    logout(request)
-    return redirect('home')
+    suppliers = Supplier.objects.all()
+    spareparts = SupplierPage.objects.all()
+
+    if request.method == 'POST':   
+        logout(request)
+        return redirect('home')
+
+    context = {'suppliers': suppliers, 'spareparts': spareparts}
+    return render(request, 'logout.html', context)
+
