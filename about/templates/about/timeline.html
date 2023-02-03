@@ -15,7 +15,7 @@
 
     {% if request.user.is_superuser %}
     <button class="btn-nav form-buttons">
-        <a class="btn-small btn-primary form-button" href="{% url 'create-timeline' %}">Create Timeline <i
+        <a class="btn btn-secondary form-button" href="{% url 'create-timeline' %}">Create Timeline <i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
     </button>
     {% endif %}

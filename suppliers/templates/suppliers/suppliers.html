@@ -49,7 +49,7 @@
                         {% endif %}
                     </div>
                     <button class="supplier-link">
-                        <a href="{% url 'supplier' pk=supplier.pk %}" class="btn-small btn-secondary">
+                        <a href="{% url 'supplier' pk=supplier.pk %}" class="btn btn-secondary">
                             Learn More
                             <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                         </a>
@@ -72,7 +72,7 @@
 
         {% if request.user.is_superuser %}
         <button class="btn-nav">
-            <a class="btn-small btn-secondary form-buttom" href="{% url 'create-supplier' %}">Create Supplier <i
+            <a class="btn btn-primary form-buttom" href="{% url 'create-supplier' %}">Create Supplier <i
                     class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
         {% endif %}

@@ -20,11 +20,6 @@
         </div>
         {% endfor %}
     </div>
-    {% if request.user.is_superuser %}
-    <button class="btn-nav">
-        <a class="btn-small btn-primary" href="{% url 'displays' %}">Edit Displays<i
-                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-    </button>
-    {% endif %}
+
     {% include 'specials.html' %}
 </section>

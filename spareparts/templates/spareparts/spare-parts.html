@@ -11,17 +11,17 @@
 
         {% if request.user.is_superuser %}
         <button class="btn-nav">
-            <a class="btn btn-primary" href="{% url 'create-supplier-page' %}">Create Supplier
+            <a class="btn btn-secondary" href="{% url 'create-supplier-page' %}">Create Supplier
                 <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
         {% endif %}
 
-        {% if request.user.is_superuser %}
+        {% if request.user.is_authenticated %}
         <button class="btn-nav form-buttons">
-            <a class="btn btn-secondary form-button" href="{% url 'warranty-claims' %}">View Warranty Claims<i
-                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-            <a class="btn btn-secondary form-button" href="{% url 'machine-registration' %}">View Machine Registration<i
-                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            <a id="warranty" class="btn btn-primary form-button" href="{% url 'create-warranty' %}">Warranty
+                Form <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            <a id="registration" class="btn btn-primary form-button" href="{% url 'create-registration' %}">Register
+                Machine <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
         </button>
         {% endif %}
 
@@ -29,10 +29,6 @@
             <h1 class="index-heading">Index:
                 <div class="bottom-line-side"></div>
             </h1>
-            {% if request.user.is_authenticated %}
-            <h1 class="index-name"><a class="index-link" href="#warranty">- Warranty Claim</a></h1>
-            <h1 class="index-name"><a class="index-link" href="#registration">- Machine Registration</a></h1>
-            {% endif %}
             {% for spareparts in spareparts %}
             <h1 class="index-name"><a class="index-link" href="#supplier-parts-{{forloop.counter}}">{{forloop.counter}}
                     . {{spareparts.name}}</a></h1>
@@ -63,15 +59,7 @@
             </div>
             {% endfor %}
         </div>
-        {% if request.user.is_authenticated %}
-        <button class="btn-nav form-buttons">
-            <a id="warranty" class="btn-small btn-secondary form-button" href="{% url 'create-warranty' %}">Warranty
-                Form <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-            <a id="registration" class="btn-small btn-secondary form-button"
-                href="{% url 'create-registration' %}">Register Machine <i
-                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-        </button>
-        {% endif %}
+
     </div>
 </section>
 

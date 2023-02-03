@@ -35,7 +35,7 @@
                     <li><a href="{% url 'home' %}">Home </a></li>
                     <li><a href="{% url 'about' %}">About </a></li>
                     <li><a href="{% url 'suppliers' %}">Suppliers </a></li>
-                    <li><a href="parts.html">Spare Parts </a></li>
+                    <li><a href="{% url 'spare-parts' %}">Spare Parts </a></li>
                     <li><a href="{% url 'blogs' %}">Blog </a></li>
 
                     {% if request.user.is_superuser %}
