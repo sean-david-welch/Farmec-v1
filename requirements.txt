@@ -43,6 +43,7 @@ six==1.16.0
 smmap==5.0.0
 spython==0.0.79
 sqlparse==0.4.3
+stripe==5.1.0
 urllib3==1.26.12
 virtualenv==20.16.6
 websocket-client==1.4.1

@@ -1,20 +1,13 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.core.exceptions import ValidationError
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.conf import settings
-import os
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox
 
 from suppliers.models import Supplier
 from blog.models import Blog
-from home.models import Profile, Special, Stat
-from home.forms import CustomUserCreationForm
+from home.models import Special, Stat
 from spareparts.models import SupplierPage
 from . forms import ContactForm, LoginPageForm
 

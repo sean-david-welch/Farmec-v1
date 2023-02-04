@@ -64,7 +64,7 @@
                         <li><a href="{% url 'machine-registration' %}">Machine Registrations</a></li>
                         <li><a href="{% url 'warranty-claims' %}">Warranty Claims</a></li>
                         <li><a href="{% url 'register' %}">Register User</a></li>
-                        <li><a href="#">Payments</a></li>
+                        <li><a href="{% url 'payments' %}">Payments</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </li>
@@ -73,7 +73,7 @@
                 <li class="nav-list-item"><a href="{% url 'home' %}"
                         class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Account</a>
                     <ul class="nav-drop">
-                        <li><a href="#">Payments</a></li>
+                        <li><a href="{% url 'payments' %}">Payments</a></li>
                         <li><a href="{% url 'create-warranty' %}">Warranty Claim</a></li>
                         <li><a href="{% url 'create-registration' %}">Register Machinery</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -89,5 +89,4 @@
     </div>
 </header>
 
-<script src="{% static 'js/hamburger.js' %}"></script>
-<!-- <script src="{% static 'js/navbar.js' %}"></script> -->
+<script src="{% static 'js/hamburger.js' %}" defer></script>
