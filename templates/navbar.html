@@ -52,7 +52,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-list-item"><a href="{% url 'home' %}#contact-page">Contact</a>
+                <li class="nav-list-item"><a id="contact" href="{% url 'home' %}#contact-page">Contact</a>
                 </li>
 
                 {% if request.user.is_superuser %}
@@ -90,4 +90,4 @@
 </header>
 
 <script src="{% static 'js/hamburger.js' %}"></script>
-<script src="{% static 'js/navbar.js' %}"></script>
+<!-- <script src="{% static 'js/navbar.js' %}"></script> -->

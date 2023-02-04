@@ -33,6 +33,14 @@
         z-index: 100000 !important;
     }
 
+    #navbar .nav-list-item > a {
+        pointer-events: none !important;
+    }
+
+    #navbar .nav-list-item > a#contact {
+        pointer-events: auto !important;
+      }
+
     #navbar.main-page.mobile {
         background: var(--mdark-color) !important;
         color: var(--light-color) !important;
@@ -123,7 +131,7 @@
         width: 100% !important;
         border-radius: 0.75rem !important;
         border-bottom: 5px solid var(--darker-color) !important;
-        border-left: 5px solid var(--darker-color) !important;
+        border: none !important;
     }
 
     #contact-page .form-box {

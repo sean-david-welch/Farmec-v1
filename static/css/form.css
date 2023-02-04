@@ -105,3 +105,20 @@
     font-size: 1.3rem;
     font-weight: 600;
 }
+
+ul .messages {
+    color: var(--light-color);
+}
+
+ul .messages li {
+    background-color: var(--darker-color);
+    border-radius: 1rem;
+    border: 2px solid var(--primary-color);
+    text-transform: uppercase;
+}
+
+.g-recaptcha {
+    margin: 2rem auto 0 auto;
+    width: 20rem;
+    border-radius: 2rem;
+}

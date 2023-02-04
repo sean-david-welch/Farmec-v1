@@ -8,12 +8,20 @@
 <p class="form-lead text-center">Fill out the form field(s) below:</p>
 
 <section id="form">
-    <form action="{% url 'login' %}" method="post" class="form">
+    <form action="{% url 'login' %}" method="POST" class="form">
         {% csrf_token %}
         <div class="heading">
             <img src="{% static 'images/farmeclogo.png' %}" alt="">
             <h1>Staff/Dealer Login:</h1>
             <h2>Enter your details below...</h2>
+        </div>
+
+        <div class="input">
+            <h1>Username:</h1>
+            <input class="input" type="text" name="username" placeholder="Enter your username...">
+            <h1>Password:</h1>
+            <input class="input" type="password" name="password" placeholder="Enter your password...">
+            {{form.captcha}}
             {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -23,12 +31,6 @@
             {% endif %}
         </div>
 
-        <div class="input">
-            <h1>Username:</h1>
-            <input class="input" type="text" name="username" placeholder="Enter your username...">
-            <h1>Password:</h1>
-            <input class="input" type="password" name="password" placeholder="Enter your password...">
-        </div>
 
         <button class="btn-nav">
             <input type="submit" value="Login" class="login btn-small btn-primary form-button" class="form-button">
