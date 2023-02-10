@@ -18,7 +18,7 @@
     background-color: var(--mdark-color);
     border: 3px solid var(--primary-color);
     padding: 3rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 
 #form .form-fields {

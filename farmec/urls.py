@@ -19,7 +19,7 @@ urlpatterns = [
     path('suppliers/', include('suppliers.urls')),
     path('blog/', include('blog.urls')),
     path('spareparts/', include('spareparts.urls')),
-    path('payments/', include('payments.urls')),
+    path('stripepayments/', include('stripepayments.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

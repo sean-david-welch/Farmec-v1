@@ -1,7 +1,7 @@
 // Stripe Checkout // 
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 // Create an instance of the Stripe object with your publishable API key
-var stripe = Stripe("{{ TEST_PUBLIC_KEY }}");
+var stripe = stripe("pk_test_51MXRDIF4Np2hFMT0RIQLnmkUzb0FKSVHnxXhKt2N35xfkoptA8B8DyC8cOEZ2Ywok4kBZCQ1cVmjanaehEdKPfZY00tg4vjBjn");
 var checkoutButton = document.getElementById("checkout-button");
 checkoutButton.addEventListener("click", function () {
   fetch("{% url 'create-checkout-session' product.id %}", {

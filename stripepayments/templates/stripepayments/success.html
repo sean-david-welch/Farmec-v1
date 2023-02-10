@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="payments-view">
+    <section id="form">
+        <form class="form" action="" method="POST">
+            {% csrf_token %}
+            <p class="delete-form">Your Payment was Successful!
+            <div class="bottom-line"></div>
+            </p>
+            <button class="form-buttons btn-nav">
+                <a class="btn btn-secondary form-button" href="#">View Details</a>
+                <input class="btn btn-primary form-button" type="submit" value="Home Page" />
+            </button>
+        </form>
+    </section>
+</section>
+{% endblock content %}

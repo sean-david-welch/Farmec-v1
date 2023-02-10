@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'home.apps.HomeConfig',
     'spareparts.apps.SparepartsConfig',
-    'payments.apps.PaymentsConfig',
+    'stripepayments.apps.StripepaymentsConfig',
     'captcha',
 ]
 
@@ -143,6 +143,14 @@ RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_REQUIRED_SCORE = 0.85
 # SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
+
+
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+STRIPE_PRIVATE_KEY = os.environ.get('STRIPE_PRIVATE_KEY')
+
+TEST_SECRET_KEY = os.environ.get('TEST_SECRET_KEY')
+TEST_PUBLIC_KEY = os.environ.get('TEST_PUBLIC_KEY')
+
 
 
 # Default primary key field type

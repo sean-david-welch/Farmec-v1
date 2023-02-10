@@ -1,13 +1,18 @@
 {% extends 'main.html' %}
 {% load static %}
 
+<head>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'js/checkout.js' %}" defer></script>
+</head>
+
 {% block content %}
 <section id="stripe-form">
     <div id="payments-view">
         <h1>Farmec Payments</h1>
         <div class="product-view">
             <h1>{{product.name}}</h1>
-            <h1>{{product.price}}</h1>
+            <h1>€{{product.get_display_price}}</h1>
             <form action="{% url 'create-checkout-session' product.id %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" id="checkout-button">Checkout</button>
@@ -16,5 +21,4 @@
     </div>
 </section>
 
-<script src="{% static 'js/checkout.js' %}" defer></script>
 {% endblock content %}

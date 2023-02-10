@@ -1,7 +1,7 @@
 // Stripe Payment Intent //
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 // This is your test publishable API key.
-const stripe = Stripe("{{TEST_PUBLIC_KEY}}");
+const stripe = Stripe("pk_test_51MXRDIF4Np2hFMT0RIQLnmkUzb0FKSVHnxXhKt2N35xfkoptA8B8DyC8cOEZ2Ywok4kBZCQ1cVmjanaehEdKPfZY00tg4vjBjn");
 
 let elements;
 
@@ -15,7 +15,7 @@ document
 let emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-  const response = await fetch("/payments/create-payment-intent/<pk>/", {
+  const response = await fetch("/stripepayments/create-payment-intent/<pk>/", {
     method: "POST",
     headers: { 
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ async function initialize() {
   const appearance = {
     theme: 'stripe',
   };
-  elements = stripe.elements({ appearance, clientSecret: "{{client_secret}}" });
+  elements = stripe.elements({ appearance, clientSecret });
 
   const linkAuthenticationElement = elements.create("linkAuthentication");
   linkAuthenticationElement.mount("#link-authentication-element");
@@ -52,7 +52,7 @@ async function handleSubmit(e) {
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: "/payments/success/",
+      return_url: "/stripepayments/success/",
       receipt_email: emailAddress,
     },
   });

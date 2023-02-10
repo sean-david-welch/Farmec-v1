@@ -11,12 +11,12 @@
 <section id="form">
     <form class="form" action="" method="POST">
         {% csrf_token %}
-        <p class="delete-form">Are you sure you want to cancel?
+        <p class="delete-form">Are you sure you want to cancel this payment?
         <div class="bottom-line"></div>
         </p>
         <button class="form-buttons btn-nav">
-            <a class="btn btn-secondary form-button" href="javascript:history.back()">Go Back</a>
-            <input class="btn btn-primary form-button" type="submit" value="Confirm" />
+            <a class="btn btn-primary form-button" href="javascript:history.back()">Complete Payment</a>
+            <input class="btn btn-secondary form-button" type="submit" value="Cancel Payment" />
         </button>
     </form>
 </section>
