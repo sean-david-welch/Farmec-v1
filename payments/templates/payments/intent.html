@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<section id="stripe-form">
+    <form id="payment-form">
+        {% csrf_token %}
+        <div id="link-authentication-element">
+            <!--Stripe.js injects the Link Authentication Element-->
+        </div>
+        <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+        </div>
+        <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+    </form>
+
+    {% for paymentProduct in paymentProducts %}
+    <button class="btn-nav">
+        <a href="" class="btn btn-primary form-button"></a>
+    </button>
+    {% endfor %}
+
+</section>
+
+<script src="{% static 'js/intents.js' %}"></script>
+{% endblock content %}

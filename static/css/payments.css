@@ -1,3 +1,9 @@
+/* Payments View */
+#payments-view {
+    margin: 10rem 12rem 5rem 12rem;
+}
+
+/* Stripe form */
 #stripe-form {
     margin: 10rem 12rem 5rem 12rem;
 }

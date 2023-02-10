@@ -2,24 +2,19 @@
 {% load static %}
 
 {% block content %}
-
-<!-- Display a payment form -->
 <section id="stripe-form">
-    <form id="payment-form" action="{% url 'payments' %}" method="post">
-        {% csrf_token %}
-        <div id="link-authentication-element">
-            <!--Stripe.js injects the Link Authentication Element-->
+    <div id="payments-view">
+        <h1>Farmec Payments</h1>
+        <div class="product-view">
+            <h1>{{product.name}}</h1>
+            <h1>{{product.price}}</h1>
+            <form action="{% url 'create-checkout-session' product.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" id="checkout-button">Checkout</button>
+            </form>
         </div>
-        <div id="payment-element">
-            <!--Stripe.js injects the Payment Element-->
-        </div>
-        <button id="submit">
-            <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Pay now</span>
-        </button>
-        <div id="payment-message" class="hidden"></div>
-    </form>
+    </div>
 </section>
-<script src="https://js.stripe.com/v3/"></script>
+
 <script src="{% static 'js/checkout.js' %}" defer></script>
 {% endblock content %}
