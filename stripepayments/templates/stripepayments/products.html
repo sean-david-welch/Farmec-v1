@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section id="products-view">
+    <h2 class="form-heading text-center">
+        {% if request.resolver_match.url_name == 'stripe-products' %}
+        Products Page <div class="bottom-line"></div>
+        {% endif %}
+    </h2>
+    <p class="form-lead text-center">Use this page to View Product used for payments</p>
+    {% for product in products %}
+    <div class="payment-products">
+        <div class="product-view">
+            <div class="product-view text-center">
+                <h1>Product: {{product.name}}</h1>
+                <h1>Price: €{{product.get_display_price}}</h1>
+                <img src="{{product.imageurl}}" alt="">
+            </div>
+        </div>
+        <button class="btn-nav">
+            <a href="{% url 'update-stripe-product' product.id %}" class="btn btn-primary">Update Product <i
+                    class="fas fa-sharp fa-right-to-bracket"></i></a>
+        </button>
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

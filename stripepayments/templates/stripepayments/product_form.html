@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2 class="form-heading text-center">
+    {% if request.resolver_match.url_name == 'update-stripe-product' %}
+    Stripe Product Form <div class="bottom-line"></div>
+    {% else %}
+    Form <div class="bottom-line"></div>
+    {% endif %}
+</h2>
+<p class="form-lead text-center">Fill out the form field(s) below:</p>
+
+<section id="form">
+    <form class="form" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="input">
+            <h1>{{field.label}}:</h1>
+            <p>{{field}}</p>
+        </div>
+        {% endfor %}
+        <input class="submit btn btn-primary" type="submit"></input>
+    </form>
+</section>
+
+{% endblock content %}

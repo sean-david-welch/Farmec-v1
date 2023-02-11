@@ -40,6 +40,8 @@
 
                     {% if request.user.is_superuser %}
                     <li><a href="{% url 'register' %}">Register</a></li>
+                    {% elif request.user.is_authenticated %}
+                    <li><a href="{% url 'intents' %}">Checkout</a></li>
                     {% endif %}
                 </ul>
             </div>

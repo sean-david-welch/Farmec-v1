@@ -58,7 +58,7 @@ def updateSupplier(request, pk):
 
         form = SupplierForm(request.POST, request.FILES, instance=supplier)
         if form.is_valid():
-            suppliers = form.save()
+            supplier = form.save()
 
         return redirect('supplier', pk=pk)
  
@@ -72,7 +72,7 @@ def deleteSupplier(request, pk):
     spareparts = SupplierPage.objects.all() 
     
     if request.method == 'POST':
-        suppliers.delete()
+        supplier.delete()
         return redirect('suppliers')
  
     context = {'object': supplier, 'suppliers': suppliers, 'spareparts': spareparts}

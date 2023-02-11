@@ -15,4 +15,7 @@ urlpatterns = [
 
     path('webhooks/stripe/', views.stripe_webhook, name='stripe-webhook'),
 
+    path('stripe-products/', views.stripe_products, name='stripe-products'),
+    path('update-stripe-product/<pk>/', views.update_stripe_product, name='update-stripe-product')
+
 ]

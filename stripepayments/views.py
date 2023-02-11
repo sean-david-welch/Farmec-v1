@@ -11,7 +11,8 @@ from django.http import JsonResponse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
-from . models import StripeProduct, PaymentProduct
+from . models import PaymentProduct
+from . forms import PaymentProductForm
 
 # Create your views here.
 stripe.api_key = os.environ.get('TEST_SECRET_KEY')
@@ -34,6 +35,25 @@ def cancelview(request):
     context = {}
     return render(request, 'stripepayments/cancel.html', context)
 
+def stripe_products(request):
+    products = PaymentProduct.objects.all()
+
+    context = {'products': products}
+    return render(request, 'stripepayments/products.html', context)
+
+def update_stripe_product(request, pk):
+    product = PaymentProduct.objects.get(id=pk)
+    form = PaymentProductForm(instance=product)
+
+    if request.method == 'POST':
+        form = PaymentProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            product = form.save()
+        return redirect('intents')
+    
+    context = {'form': form}
+    return render(request, 'stripepayments/product_form.html', context)
+
 ##############################
 ####### Stripe Checkout ######
 ##############################
@@ -41,7 +61,7 @@ class PaymentsLandingPageView(TemplateView):
     template_name = 'stripepayments/payments.html'
 
     def get_context_data(self, **kwargs):
-        product = PaymentProduct.objects.get(name='Test Product')
+        product = PaymentProduct.objects.all().first()
         context = super(PaymentsLandingPageView, self).get_context_data(**kwargs)
         context.update({
             'product': product,

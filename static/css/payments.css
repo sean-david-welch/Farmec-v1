@@ -3,6 +3,18 @@
     margin: 10rem 12rem 5rem 12rem;
 }
 
+#products-view {
+    margin: 10rem 12rem 5rem 12rem;
+}
+
+#products-view .payment-products {
+    margin: 0 7rem;
+    background-color: var(--mdark-color);
+    color: var(--light-color);
+    border: solid 3px var(--primary-color);
+    border-radius: 1rem;
+}
+
 .product-view {
     padding: 1rem 0;
 }
@@ -132,12 +144,5 @@
 100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    #stripe-form form {
-        width: 80vw;
-        min-width: initial;
     }
 }

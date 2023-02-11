@@ -417,4 +417,17 @@
     #displays {
         margin: 7rem 1rem 2rem 1rem !important;
     }
+
+    #stripe-form {
+        margin: 7rem 1rem 2rem 1rem !important;
+    }
+
+    #stripe-form form {
+        width: 80vw !important;
+        min-width: initial !important;
+    }
+
+    #payments-view {
+        margin: 7rem 1rem 2rem 1rem !important;
+    }
 }

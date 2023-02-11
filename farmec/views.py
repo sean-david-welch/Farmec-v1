@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.urls import reverse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from django.core.mail import send_mail
 
 from suppliers.models import Supplier
 from blog.models import Blog
 from home.models import Special, Stat
 from spareparts.models import SupplierPage
+from stripepayments.models import PaymentProduct
 from . forms import ContactForm, LoginPageForm
 
 def home(request):
