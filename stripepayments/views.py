@@ -89,7 +89,7 @@ class CreateCheckoutSessionView(View):
 ####### Stripe Payement Intents ######
 ######################################
 def intentsLandingPage(request):
-    product = PaymentProduct.objects.get(name='Test Product')
+    product = PaymentProduct.objects.all().first()
     publicKey = os.environ.get('TEST_PUBLIC_KEY')
 
     context = {'product': product, 'TEST_PUBLIC_KEY': publicKey}
@@ -97,10 +97,10 @@ def intentsLandingPage(request):
 
 class StripeIntentView(View):
     def post(self, request, *args, **kwargs):
-        if request.method == 'POST':
             try:
                 product_id = self.kwargs['pk']
                 product = PaymentProduct.objects.get(id=product_id)
+
                 payment_intent = stripe.PaymentIntent.create(
                     amount=product.price,
                     currency='eur',

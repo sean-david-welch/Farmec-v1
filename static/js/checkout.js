@@ -12,12 +12,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     headers: {
       'Content-Type': 'application/json',
       'X-CSRFToken': csrftoken
-    }
+    },
   }).then(r => r.json())
 
+  const appearance = {
+    theme: 'night',
+  };
 
-  const elements = stripe.elements({clientSecret})
-  const paymentElement = elements.create('payment')
+  const elements = stripe.elements({appearance, clientSecret})
+  const linkAuthenticationElement = elements.create("linkAuthentication");
+  linkAuthenticationElement.mount("#link-authentication-element");
+
+  linkAuthenticationElement.on('change', (event) => {
+    emailAddress = event.value.email;
+  });
+
+  const paymentElementOptions = {
+    layout: "tabs",
+  };
+  
+  const paymentElement = elements.create('payment', paymentElementOptions)
   paymentElement.mount('#payment-element')
 
   const form = document.getElementById('payment-form')
@@ -28,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       elements,
       confirmParams: {
         return_url: "http://127.0.0.1:8000/stripepayments/success/",
-
+        receipt_email: emailAddress,
       }
     })
     if(error) {
@@ -37,3 +51,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   })
 })
+
+function showMessage(messageText) {
+  const messageContainer = document.querySelector("#payment-message");
+
+  messageContainer.classList.remove("hidden");
+  messageContainer.textContent = messageText;
+
+  setTimeout(function () {
+    messageContainer.classList.add("hidden");
+    messageText.textContent = "";
+  }, 4000);
+};
+
+// Show a spinner on payment submission
+function setLoading(isLoading) {
+  if (isLoading) {
+    // Disable the button and show a spinner
+    document.querySelector("#submit").disabled = true;
+    document.querySelector("#spinner").classList.remove("hidden");
+    document.querySelector("#button-text").classList.add("hidden");
+  } else {
+    document.querySelector("#submit").disabled = false;
+    document.querySelector("#spinner").classList.add("hidden");
+    document.querySelector("#button-text").classList.remove("hidden");
+  }
+};

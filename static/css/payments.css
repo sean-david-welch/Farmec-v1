@@ -3,18 +3,25 @@
     margin: 10rem 12rem 5rem 12rem;
 }
 
+.product-view {
+    padding: 1rem 0;
+}
+
 /* Stripe form */
 #stripe-form {
-    margin: 10rem 12rem 5rem 12rem;
+    margin: 7rem 12rem 5rem 12rem;
 }
 
 #stripe-form form {
-    width: 30vw;
+    width: 40vw;
     min-width: 500px;
     align-self: center;
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
         0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    background-color: var(--mdark-color);
+    color: var(--light-color);
     border-radius: 7px;
+    border: solid 2px var(--primary-color);
     padding: 40px;
     margin: 0 auto;
 }
@@ -24,7 +31,7 @@
 }
 
 #stripe-form #payment-message {
-    color: rgb(105, 115, 134);
+    color: var(--light-color);
     font-size: 16px;
     line-height: 20px;
     padding-top: 12px;
@@ -38,13 +45,12 @@
 /* Buttons and links */
 #stripe-form button {
     background: var(--primary-color);
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+    color: var(--light-color);
     border-radius: 0.25rem;
     border: 0;
     padding: 12px 16px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 500;
     cursor: pointer;
     display: block;
     transition: all 0.2s ease;
@@ -60,12 +66,12 @@
 }
 
 /* spinner/processing state, errors */
-.spinner,
-.spinner:before,
-.spinner:after {
+#stripe-form .spinner,
+#stripe-form .spinner:before,
+#stripe-form .spinner:after {
     border-radius: 50%;
 }
-.spinner {
+#stripe-form .spinner {
     color: #ffffff;
     font-size: 22px;
     text-indent: -99999px;
@@ -78,12 +84,12 @@
     -ms-transform: translateZ(0);
     transform: translateZ(0);
 }
-.spinner:before,
-.spinner:after {
+#stripe-form .spinner:before,
+#stripe-form .spinner:after {
     position: absolute;
     content: "";
 }
-.spinner:before {
+#stripe-form .spinner:before {
     width: 10.4px;
     height: 20.4px;
     background: #5469d4;
@@ -95,7 +101,7 @@
     -webkit-animation: loading 2s infinite ease 1.5s;
     animation: loading 2s infinite ease 1.5s;
 }
-.spinner:after {
+#stripe-form .spinner:after {
     width: 10.4px;
     height: 10.2px;
     background: #5469d4;
