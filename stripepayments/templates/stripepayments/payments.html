@@ -1,11 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
 
-<head>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{% static 'js/checkout.js' %}" defer></script>
-</head>
-
 {% block content %}
 <section id="stripe-form">
     <div id="payments-view">
@@ -21,4 +16,6 @@
     </div>
 </section>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'js/payments.js' %}" defer></script>
 {% endblock content %}

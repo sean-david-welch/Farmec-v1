@@ -1,30 +1,39 @@
-// Stripe Checkout // 
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-// Create an instance of the Stripe object with your publishable API key
-var stripe = stripe("pk_test_51MXRDIF4Np2hFMT0RIQLnmkUzb0FKSVHnxXhKt2N35xfkoptA8B8DyC8cOEZ2Ywok4kBZCQ1cVmjanaehEdKPfZY00tg4vjBjn");
-var checkoutButton = document.getElementById("checkout-button");
-checkoutButton.addEventListener("click", function () {
-  fetch("{% url 'create-checkout-session' product.id %}", {
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Fetch Publishable Key and init stripe
+  // const {publishableKey} = await fetch('/stripepayments/intents/').then(r => r.json())
+  const stripe = Stripe("pk_test_51MXRDIF4Np2hFMT0RIQLnmkUzb0FKSVHnxXhKt2N35xfkoptA8B8DyC8cOEZ2Ywok4kBZCQ1cVmjanaehEdKPfZY00tg4vjBjn")
+
+
+  // Fetch client secret and init elements
+  const {clientSecret} = await fetch("/stripepayments/create-payment-intent/1/", {
     method: "POST",
     headers: {
-        'X-CSRFToken': csrftoken
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrftoken
     }
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (session) {
-      return stripe.redirectToCheckout({ sessionId: session.id });
-    })
-    .then(function (result) {
-      // If redirectToCheckout fails due to a browser or network
-      // error, you should display the localized error message to your
-      // customer using error.message.
-      if (result.error) {
-        alert(result.error.message);
+  }).then(r => r.json())
+
+
+  const elements = stripe.elements({clientSecret})
+  const paymentElement = elements.create('payment')
+  paymentElement.mount('#payment-element')
+
+  const form = document.getElementById('payment-form')
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const {error} = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: "http://127.0.0.1:8000/stripepayments/success/",
+
       }
     })
-    .catch(function (error) {
-      console.error("Error:", error);
-    });
-});
+    if(error) {
+      const messages = document.getElementById('error-messages')
+      messages.innerText - error.message;
+    }
+  })
+})

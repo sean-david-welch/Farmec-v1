@@ -16,6 +16,7 @@ from . models import StripeProduct, PaymentProduct
 # Create your views here.
 stripe.api_key = os.environ.get('TEST_SECRET_KEY')
 
+
 ##############################
 ####### Stripe Endpoints #####
 ##############################
@@ -87,40 +88,39 @@ class CreateCheckoutSessionView(View):
 ######################################
 ####### Stripe Payement Intents ######
 ######################################
+def intentsLandingPage(request):
+    product = PaymentProduct.objects.get(name='Test Product')
+    publicKey = os.environ.get('TEST_PUBLIC_KEY')
+
+    context = {'product': product, 'TEST_PUBLIC_KEY': publicKey}
+    return render(request, 'stripepayments/checkout.html', context)
+
 class StripeIntentView(View):
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
             try:
                 product_id = self.kwargs['pk']
                 product = PaymentProduct.objects.get(id=product_id)
-                intent = stripe.PaymentIntent.create(
+                payment_intent = stripe.PaymentIntent.create(
                     amount=product.price,
-                    currency='usd',
+                    currency='eur',
+                    automatic_payment_methods = {'enabled': True},
                     metadata={
                         "product_id": product.id
                     }
                 )
                 return JsonResponse({
-                    'clientSecret': intent.client_secret
+                    'clientSecret': payment_intent.client_secret
                 })
             except Exception as e:
                 return JsonResponse({'error': str(e) }) 
          
-class IntentsLandingPageView(TemplateView):
-    template_name = 'stripepayments/intent.html'
-
-    def get_context_data(self, **kwargs):
-        product = PaymentProduct.objects.get(name='Test Product')
-        context = super(IntentsLandingPageView, self).get_context_data(**kwargs)
-        context.update({
-            'product': product,
-            'TEST_PUBLIC_KEY': os.environ.get('TEST_PUBLIC_KEY'),
-        })
-        return context
 
 ##############################
 ####### Stripe Webhooks ######
 ##############################
+endpoint_secret = os.environ.get('WEBHOOK_SECRET')
+
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
@@ -129,17 +129,19 @@ def stripe_webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-            payload, sig_header, os.environ.get('STRIPE_WEBHOOK_SECRET')
+        payload, sig_header, endpoint_secret
         )
     except ValueError as e:
-        return HttpResponse(status=400) 
+        # Invalid payload
+        return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
         return HttpResponse(status=400)
     
-    if event['type'] == 'checkout.session.completed':
+    if event['type'] == 'checkout.session.completed' or event['type'] == 'payment.intent.created':
         session = event['data']['object']
 
-        customer_email = session['customer_detail']['email']
+        customer_email = session['customer_details']['email']
         product_id = session['metadata']['product_id']
 
         product = PaymentProduct.objects.get(id=product_id)
@@ -148,7 +150,17 @@ def stripe_webhook(request):
             subject = 'Here is your product',
             message = f'Thanks for your purchase, here is the product you ordered, find it here at {product.url}',
             recipient_list= [customer_email],
-            from_email= ['jennie@farmec.ie'],
+            from_email= [os.environ.get('EMAIL_HOST_USER')],
         )
+    elif event['type'] == 'payment.intent.succeeded' or event['type'] == 'charge.succeeded':
+        send_mail (
+            subject = '💰💰💰 Payment Received!',
+            message = f'You have received a payment of {product.price}',
+            recipient_list= [os.environ.get('EMAIL_HOST_USER')],
+            from_email= [os.environ.get('EMAIL_HOST_USER')],
+        )
+    else:
+      print('Unhandled event type {}'.format(event['type']))
     
     return HttpResponse(status=200)
+

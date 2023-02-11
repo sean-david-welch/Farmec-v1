@@ -1,18 +1,25 @@
 {% extends 'main.html' %}
 {% load static %}
-{% block content %}
 
-<section>
-    <div class="product">
-        <img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
-        <div class="description">
-            <h3>Stubborn Attachments</h3>
-            <h5>$20.00</h5>
+{% block content %}
+<section id="stripe-form">
+    <form id="payment-form" action="/stripepayments/create-payment-intent/1/" method="post">
+        {% csrf_token %}
+        <div id="link-authentication-element">
+            <!--Stripe.js injects the Link Authentication Element-->
         </div>
-    </div>
-    <form action="/create-checkout-session" method="POST">
-        <button type="submit" id="checkout-button">Checkout</button>
+        <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+        </div>
+        <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+        <div id="error-messages" class="hidden"></div>
     </form>
 </section>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'js/checkout.js' %}" defer></script>
 {% endblock content %}

@@ -128,14 +128,14 @@
 	transition: all 1s;
 }
 
-#main-footer .to-top.active {
+#main-footer .to-top.ready {
 	bottom: 32px;
 	pointer-events: auto;
 	opacity: 1;
 	cursor: pointer;
 }
 
-#main-footer .to-top.active:hover {
+#main-footer .to-top.ready:hover {
 	transform: scale(1.1);
 }
 
