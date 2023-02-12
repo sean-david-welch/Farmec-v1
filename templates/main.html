@@ -20,7 +20,15 @@
         {% elif request.resolver_match.url_name == 'suppliers' %} Suppliers
         {% elif request.resolver_match.url_name == 'spare-parts' %} Spare Parts
         {% elif request.resolver_match.url_name == 'blogs' %} Blog
+        {% elif request.resolver_match.url_name == 'terms' %} Terms & Conditions
+        {% elif request.resolver_match.url_name == 'privacy' %} Privacy Policy
+        {% elif request.resolver_match.url_name == 'supplier' %} Supplier
+        {% elif request.resolver_match.url_name == 'machine' %} Machinery
+        {% elif request.resolver_match.url_name == 'blog' %} Blog Post
+        {% elif request.resolver_match.url_name == 'intents' %} Checkout
+        {% elif request.resolver_match.url_name == 'payments' %} Payments
         {% else %}
+        Machinery Importer & Distributor
         {% endif %}
     </title>
 

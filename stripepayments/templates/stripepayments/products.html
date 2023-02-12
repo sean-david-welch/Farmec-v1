@@ -9,6 +9,7 @@
         {% endif %}
     </h2>
     <p class="form-lead text-center">Use this page to View Product used for payments</p>
+    {% if request.user.is_superuser %}
     {% for product in products %}
     <div class="payment-products">
         <div class="product-view">
@@ -24,5 +25,6 @@
         </button>
     </div>
     {% endfor %}
+    {% endif %}
 </section>
 {% endblock content %}
