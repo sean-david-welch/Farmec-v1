@@ -4,12 +4,39 @@ from django.forms.models import modelformset_factory
 from django.forms.models import inlineformset_factory
 from django.core.mail import send_mail
 from django.contrib import messages
+
+from django.http import FileResponse, HttpResponse
+from reportlab.pdfgen import canvas
+from io import BytesIO
+
 from . models import SupplierPage, PartsPage, WarrantyClaim, MachineRegistration
 from . models import PartsRequired
 from . forms import WarrantyClaimForm, SupplierPageForm, PartsPageForm, MachineRegistrationForm
 from suppliers.models import Supplier
 
 # Create your views here.
+
+def generate_pdf(request, pk):
+    regsingle = MachineRegistration.objects.get(id=pk)
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="machine_registration.pdf"'
+
+    buffer = BytesIO()
+    pdf = canvas.Canvas(buffer)
+
+    y_coordinate = 750
+
+    for field in MachineRegistration._meta.get_fields():
+        if field.name == 'id':
+            continue
+        # pdf.drawImage("../static/images/farmec.png", 100, 100, width=100, height=100)
+        pdf.drawString(100, y_coordinate, "{}: {}".format(field.verbose_name.title(), getattr(regsingle, field.name)))
+        y_coordinate -= 20
+
+    pdf.save()
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename='machine_registration.pdf')
+
 def spareparts(request):
     suppliers = Supplier.objects.all()
     spareparts = SupplierPage.objects.all()
@@ -242,7 +269,7 @@ def deletePageform(request, pk):
 
 # Parts Pages Form 
 @login_required(login_url='login')
-def createPartsform(request ): 
+def createPartsform(request): 
     partspage = PartsPage.objects.all()
     form = PartsPageForm()
     suppliers = Supplier.objects.all()
@@ -255,7 +282,7 @@ def createPartsform(request ):
                 post = form.save(commit=False)
                 post.owner = partspage
                 post.save()
-        return redirect('spare-parts')
+            return redirect('spare-parts')
 
     context = {'form': form, 'partspage': partspage, 'suppliers': suppliers, 'supplierspage': supplierspage}
     return render(request, 'spareparts/page_form.html', context)

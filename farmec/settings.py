@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 if not DEBUG:
@@ -77,6 +77,20 @@ WSGI_APPLICATION = 'farmec.wsgi.application'
 #     }
 # }
 
+# Database Blacknight
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('BLACKNIGHT_DB_NAME'),
+#         'USER': os.environ.get('BLACKNIGHT_DB_USER'),
+#         'PASSWORD': os.environ.get('BLACKNIGHT_DB_PASS'),
+#         'HOST': os.environ.get('BLACKNIGHT_DB_HOST'),
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -141,7 +155,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_REQUIRED_SCORE = 0.85
-# SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 SSL_CERT_FILE = os.environ.get('SSL_CERT_FILE')
 
 
