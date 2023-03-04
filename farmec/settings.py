@@ -5,11 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://web-production-52fc.up.railway.app/', '127.0.0.1', 'web-production-52fc.up.railway.app']
 
-# CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+CSRF_TRUSTED_ORIGINS = ['https://web-production-52fc.up.railway.app/']
 
 
 INSTALLED_APPS = [
