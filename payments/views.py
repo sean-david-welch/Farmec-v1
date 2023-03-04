@@ -26,7 +26,7 @@ def successview(request):
         return redirect('home')
     
     context = {}
-    return render(request, 'stripepayments/success.html', context)
+    return render(request, 'payments/success.html', context)
 
 @login_required(login_url='login')
 def cancelview(request): 
@@ -35,14 +35,14 @@ def cancelview(request):
         return redirect('payments')
     
     context = {}
-    return render(request, 'stripepayments/cancel.html', context)
+    return render(request, 'payments/cancel.html', context)
 
 @login_required(login_url='login')
 def stripe_products(request): 
     products = PaymentProduct.objects.all()
 
     context = {'products': products, }
-    return render(request, 'stripepayments/products.html', context)
+    return render(request, 'payments/products.html', context)
 
 @login_required(login_url='login')
 def update_stripe_product(request, pk): 
@@ -56,14 +56,14 @@ def update_stripe_product(request, pk):
         return redirect('intents')
     
     context = {'form': form, }
-    return render(request, 'stripepayments/product_form.html', context)
+    return render(request, 'payments/product_form.html', context)
 
 ##############################
 ####### Stripe Checkout ######
 ##############################
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class PaymentsLandingPageView(TemplateView):
-    template_name = 'stripepayments/payments.html'
+    template_name = 'payments/payments.html'
 
     def get_context_data(self, **kwargs):
         product = PaymentProduct.objects.all().first()
@@ -99,8 +99,8 @@ class CreateCheckoutSessionView(View):
                     "product_id": product.id
                 },
                 mode='payment',
-                success_url= YOUR_DOMAIN + '/stripepayments/success/',
-                cancel_url= YOUR_DOMAIN + '/stripepayments/cancel/',
+                success_url= YOUR_DOMAIN + '/payments/success/',
+                cancel_url= YOUR_DOMAIN + '/payments/cancel/',
             )
             if request.method == 'POST':
                 return redirect(checkout_session.url, code=303)
@@ -120,7 +120,7 @@ def intentsLandingPage(request):
     publicKey = os.environ.get('STIPE_PUBLIC_KEY')
 
     context = {'product': product, 'STIPE_PUBLIC_KEY': publicKey, }
-    return render(request, 'stripepayments/checkout.html', context)
+    return render(request, 'payments/checkout.html', context)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class StripeIntentView(View):
