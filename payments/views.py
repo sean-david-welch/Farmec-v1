@@ -14,7 +14,7 @@ from . models import PaymentProduct
 from . forms import PaymentProductForm
 
 # Create your views here.
-stripe.api_key = os.environ.get('STIPE_SECRET_KEY')
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
 ##############################
 ####### Stripe Endpoints #####
@@ -70,7 +70,7 @@ class PaymentsLandingPageView(TemplateView):
         context = super(PaymentsLandingPageView, self).get_context_data(**kwargs)
         context.update({
             'product': product,
-            'STIPE_PUBLIC_KEY': os.environ.get('STIPE_PUBLIC_KEY'),
+            'STRIPE_PUBLIC_KEY': os.environ.get('STRIPE_PUBLIC_KEY'),
         })
         return context
 
@@ -117,9 +117,9 @@ class CreateCheckoutSessionView(View):
 @login_required(login_url='login')
 def intentsLandingPage(request): 
     product = PaymentProduct.objects.all().first()
-    publicKey = os.environ.get('STIPE_PUBLIC_KEY')
+    publicKey = os.environ.get('STRIPE_PUBLIC_KEY')
 
-    context = {'product': product, 'STIPE_PUBLIC_KEY': publicKey, }
+    context = {'product': product, 'STRIPE_PUBLIC_KEY': publicKey, }
     return render(request, 'payments/checkout.html', context)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
