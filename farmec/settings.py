@@ -9,7 +9,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://web-production-52fc.up.railway.app/', '127.0.0.1', 'web-production-52fc.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-52fc.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-52fc.up.railway.app']
 
 
 INSTALLED_APPS = [
@@ -59,6 +59,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'farmec.context_processors.navbar_links',
             ],
         },
     },
