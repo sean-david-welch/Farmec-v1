@@ -1,0 +1,63 @@
+{% load static %}
+{% block content %}
+<!-- About - Team -->
+<section id="about-team" class="text-center spacing">
+    <div class="container spacing">
+        <h2>Our Team</h2>
+        <div class="bottom-line"></div>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
+
+        {% if request.user.is_superuser %}
+        <button class="btn-nav form-buttons">
+            <a class="btn-small btn-primary form-buttons" href="{% url 'create-employee' %}">Create Employee <i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
+
+        <!-- Bio Section -->
+        <div class="spacing">
+            <div class="about-info">
+                {% for employee in employee %}
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{employee.imageurl}}" alt="Profile Image">
+                    </div>
+                    <div class="card-info">
+                        <p class="name lead-1">{{employee.name}}</p>
+                        <p class="name lead-1">{{employee.email}}</p>
+                        <p class="role lead-1">{{employee.role}}</p>
+                        <p class="short bio lead">{{employee.bio | slice:"250"}}</p>
+                    </div>
+                    <div class="socials">
+                        {% if employee.social_twitter %}
+                        <a href="{{employee.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if employee.social_linkedin %}
+                        <a href="{{employee.linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if employee.social_whatsapp %}
+                        <a href="{{employee.social_whatsapp}}" target="_blank"><button class="whatsapp"><i
+                                    class="fab fa-whatsapp"></i></button></a>
+                        {% endif %}
+                    </div>
+                    {% if request.user.is_superuser %}
+                    <div class="form-buttons btn-nav">
+                        <a class="btn-small btn-secondary form-button"
+                            href="{% url 'update-employee' pk=employee.pk %}"><i class="fa-solid fa-user-pen"></i>
+                        </a>
+                        <a class="btn-small btn-secondary form-button"
+                            href="{% url 'delete-employee' pk=employee.pk %}"><i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            <a href="#timeline" class="btn btn-primary">
+                Company History <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+            </a>
+        </div>
+</section>
+{% endblock %}

@@ -1,1 +1,1 @@
-web: gunicorn 'farmec.wsgi'
+web: python manage.py migrate && gunicorn farmec.wsgi

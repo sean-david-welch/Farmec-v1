@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="displays">
+
+    <h2 class="text-center">Stats <div class="bottom-line"></div>
+    </h2>
+
+    {% for stat in stats %}
+    <div class="display-list">
+        <h1>{{forloop.counter}} . {{stat.title}}</h1>
+        {% if request.user.is_superuser %}
+        <div class="form-buttons btn-nav">
+            <a class="btn-small btn-secondary form-button" href="{% url 'update-stat' pk=stat.pk %}"><i
+                    class="fa-solid fa-user-pen"></i>
+            </a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'delete-stat' pk=stat.pk %}"><i
+                    class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <h2 class="text-center">Specials <div class="bottom-line"></div>
+    </h2>
+
+    {% for special in specials %}
+    <div class="display-list">
+        <h1>{{forloop.counter}} . {{special.title}}</h1>
+        {% if request.user.is_superuser %}
+        <div class="form-buttons btn-nav">
+            <a class="btn-small btn-secondary form-button" href="{% url 'update-special' pk=special.pk %}"><i
+                    class="fa-solid fa-user-pen"></i>
+            </a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'delete-special' pk=special.pk %}"><i
+                    class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    {% if request.user.is_superuser %}
+    <button class="btn-nav form-buttons">
+        <a class="btn btn-secondary form-button" href="{% url 'create-stat' %}">Create Stat<i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        <a class="btn btn-secondary form-button" href="{% url 'create-special' %}">Create Special<i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+</section>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section id="blog-post">
+    <h2 class="text-center spacing">
+        {{blog.title}}<div class="bottom-line"></div>
+    </h2>
+    <a href="#post" class="btn btn-primary">Read Post <i class="fa-sharp fa-solid fa-circle-chevron-down"></i></a>
+    <img src="{{blog.imageurl}}" alt="">
+    <h1 class="text-center" id="post">
+        {{blog.subheading}}<div class="bottom-line"></div>
+    </h1>
+    <p class="text-center">{{blog.body|linebreaks}}
+    <div class="bottom-line-gap"></div>
+    </p>
+    {% if request.user.is_superuser %}
+    <div class="form-buttons btn-nav">
+        <a class="btn-small btn-secondary form-button" href="{% url 'update-blog' pk=blog.pk %}"><i
+                class="fa-solid fa-user-pen"></i>
+        </a>
+        <a class="btn-small btn-secondary form-button" href="{% url 'delete-blog' pk=blog.pk %}"><i
+                class="fa-solid fa-trash"></i>
+        </a>
+    </div>
+    {% endif %}
+</section>
+{% endblock content %}

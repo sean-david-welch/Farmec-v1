@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="main-blog">
+    <h2 class="section-title">
+        Check out our Latest Blog Posts<div class="bottom-line"></div>
+    </h2>
+    <p class="text-center spacing-bottom lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, eos.</p>
+
+    <div class="index">
+        <h1 class="index-heading">Index:
+            <div class="bottom-line-side"></div>
+        </h1>
+        {% for blog in blogs %}
+        <h1 class="index-name"><a class="index-link" href="#blog-grid-{{forloop.counter}}">{{forloop.counter}}
+                . {{blog.title}}</a></h1>
+        {% endfor %}
+    </div>
+
+    {% for blog in blogs %}
+    <div class="blog-grid" id="blog-grid-{{forloop.counter}}">
+        <img src="{{blog.imageurl}}" alt="">
+        <div class="blog-description">
+            <h2>{{blog.title}}:
+                <div class="bottom-line-side-long"></div>
+            </h2>
+            <h1>{{blog.subheading}}</h1>
+            <p>{{blog.body|slice:"400"}}.....</p>
+            <a href="{% url 'blog' pk=blog.pk %}" class="btn-small btn-primary form-buttom">
+                Read More<i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    {% if request.user.is_superuser %}
+    <button class="btn-nav">
+        <a class="btn-small btn-primary form-buttom" href="{% url 'create-blog' %}">Create Blog <i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+</section>
+
+{% endblock content %}

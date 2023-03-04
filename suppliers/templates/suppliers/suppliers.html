@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="suppliers">
+    <div class="container">
+
+        <div class="index">
+            <h1 class="index-heading">Index:
+                <div class="bottom-line-side"></div>
+            </h1>
+            {% for supplier in suppliers %}
+            <h1 class="index-name"><a class="index-link"
+                    href="#supplier-profile-{{forloop.counter}}">{{forloop.counter}} . {{supplier.name}}</a></h1>
+            {% endfor %}
+        </div>
+
+        {% for supplier in suppliers %}
+        <div class="supplier-profile" id="supplier-profile-{{ forloop.counter }}">
+            <div class="supplier-info">
+                <img src="{{supplier.imageurl}}" alt="supplier-logo">
+                <h1>{{supplier.name}}</h1>
+                <div class="link-grid">
+                    <div class="supplier-social">
+                        {% if supplier.social_facebook %}
+                        <a href="{{supplier.social_facebook}}" target="_blank"><button class="facebook"><i
+                                    class="fab fa-facebook"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_twitter %}
+                        <a href="{{supplier.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_instagram %}
+                        <a href="{{supplier.social_instagram}}" target="_blank"><button class="instagram"><i
+                                    class="fab fa-instagram"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_youtube %}
+                        <a href="{{supplier.social_youtube}}" target="_blank"><button class="youtube"><i
+                                    class="fab fa-youtube"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_linkedin %}
+                        <a href="{{supplier.social_linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_website %}
+                        <a href="{{supplier.social_website}}" target="_blank"><button class="website"><i
+                                    class="fa-solid fa-globe"></i></button></a>
+                        {% endif %}
+                    </div>
+                    <button class="supplier-link">
+                        <a href="{% url 'supplier' pk=supplier.pk %}" class="btn btn-secondary">
+                            Learn More
+                            <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <img src="{{supplier.marketing_imageurl}}" alt="marketing-image" class="marketing-image">
+            <div class="supplier-description">
+                <p>{{supplier.description|linebreaks}}</p>
+            </div>
+
+            <div class="supplier-facts">
+                {% for fact in supplier.fact_set.all %}
+                <p>{{fact}}</p>
+                <br>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if request.user.is_superuser %}
+        <button class="btn-nav">
+            <a class="btn btn-primary form-buttom" href="{% url 'create-supplier' %}">Create Supplier <i
+                    class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

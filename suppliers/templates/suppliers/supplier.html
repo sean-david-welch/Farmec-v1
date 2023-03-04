@@ -1,0 +1,124 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="profile">
+    <div class="container">
+        <div class="profile-body">
+            <div class="profile-header">
+                <h1 class="text-center">{{supplier.name}}
+                    <div class="bottom-line"></div>
+                </h1>
+                <div class="link-grid">
+                    <div class="supplier-social">
+                        {% if supplier.social_facebook %}
+                        <a href="{{supplier.social_facebook}}" target="_blank"><button class="facebook"><i
+                                    class="fab fa-facebook"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_twitter %}
+                        <a href="{{supplier.social_twitter}}" target="_blank"><button class="twitter"><i
+                                    class="fab fa-twitter"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_instagram %}
+                        <a href="{{supplier.social_instagram}}" target="_blank"><button class="instagram"><i
+                                    class="fab fa-instagram"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_youtube %}
+                        <a href="{{supplier.social_youtube}}" target="_blank"><button class="youtube"><i
+                                    class="fab fa-youtube"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_linkedin %}
+                        <a href="{{supplier.social_linkedin}}" target="_blank"><button class="linkedin"><i
+                                    class="fab fa-linkedin"></i></button></a>
+                        {% endif %}
+                        {% if supplier.social_website %}
+                        <a href="{{supplier.social_website}}" target="_blank"><button class="website"><i
+                                    class="fa-solid fa-globe"></i></button></a>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="border">
+                    <div class="profile-grid-description" id="description">
+                        <div class="logo-index">
+                            <img class="profile-logo" src="{{supplier.imageurl}}" alt="logo">
+                            <div class="model-index">
+                                <h1>Machinery Index:
+                                    <div class="bottom-line"></div>
+                                </h1>
+                                {% for machine in supplier.machine_set.all %}
+                                <h1><a href="#machines-{{forloop.counter}}">{{forloop.counter}} .
+                                        {{machine.name}}</a></h1>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="bottom-line-side"></div>
+                        <p>{{supplier.description}}</p>
+                    </div>
+                    <div class="profile-facts">
+                        <h1>{{supplier.name.split.0}} Features:</h1>
+                        <div class="bottom-line-side"></div>
+                        {% for fact in supplier.fact_set.all %}
+                        <p>{{fact}}</p>
+                        {% endfor %}
+                    </div>
+
+                    {% if request.user.is_superuser %}
+                    <div class="form-buttons btn-nav">
+                        <a class="btn-small btn-secondary form-button"
+                            href="{% url 'update-supplier' pk=supplier.pk %}"><i class="fa-solid fa-user-pen"></i>
+                        </a>
+                        <a class="btn-small btn-secondary form-button"
+                            href="{% url 'delete-supplier' pk=supplier.pk %}"><i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="nav-button">
+                        <a href="#cards" class="btn btn-primary">
+                            Brand Products <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards" id="cards">
+                {% for machine in supplier.machine_set.all %}
+                <div class="machines" id="machines-{{ forloop.counter }}">
+                    <div class="machine-card">
+                        <img src="{{machine.imageurl}}" alt="machine-image">
+                        <div class="machine-info">
+                            <h1>{{machine.name}}</h1>
+                            <div class="bottom-line-side"></div>
+                            <p>{{machine.description}}</p>
+                            <a href="{% url 'machine' pk=machine.pk %}" class="btn btn-primary">
+                                View Products
+                                <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                            </a>
+                            {% if request.user.is_superuser %}
+                            <div class="form-buttons btn-nav">
+                                <a class="btn-small btn-secondary form-button"
+                                    href="{% url 'update-machine' pk=machine.pk %}"><i class="fa-solid fa-user-pen"></i>
+                                </a>
+                                <a class="btn-small btn-secondary form-button"
+                                    href="{% url 'delete-machine' pk=machine.pk %}"><i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+        {% if request.user.is_superuser %}
+        <button class="btn-nav form-buttons">
+            <a class="btn btn-primary form-button" href="{% url 'create-machine' pk=supplier.pk %}">Create Machine
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="parts-page">
+
+    {% if request.user.is_superuser %}
+    <button class="btn-nav">
+        <a class="btn btn-secondary" href="{% url 'create-parts-page' %}">Create Catalogue
+            <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+    <div class="index">
+        <h1 class="index-heading">Index:
+            <div class="bottom-line-side"></div>
+        </h1>
+        {% for partspage in supplierpage.partspage_set.all %}
+        <h1 class="index-name"><a class="index-link" href="#machinery-card-{{forloop.counter}}">{{forloop.counter}}
+                . {{partspage.name}}</a></h1>
+        {% endfor %}
+    </div>
+
+    {% for partspage in supplierpage.partspage_set.all %}
+    <div class="machinery-card" id="machinery-card-{{forloop.counter}}">
+        <div class="machinery-card-link">
+            <h1>{{partspage.supplier}}</h1>
+            <h1>{{partspage.name}} <div class="bottom-line"></div>
+            </h1>
+            <button class="supplier-link btn-nav">
+                {% if partspage.catalogue_link %}
+                <a href="{{partspage.catalogue_link}}" class="btn btn-primary" target="_blank">
+                    Catalogue Link
+                    <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                </a>
+                {% else %}
+                <a href="{{partspage.supplier_page}}" class="btn btn-primary" target="_blank">
+                    Catalogue Link
+                    <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                </a>
+                {% endif %}
+            </button>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-parts-page' pk=partspage.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-parts-page' pk=partspage.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <img src="{{partspage.imageurl}}" alt="image">
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}
