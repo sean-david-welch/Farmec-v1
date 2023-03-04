@@ -5,6 +5,9 @@
 <section id="warranty-machine-single">
     <h2 class="text-center">Warranty Claim Form <div class="bottom-line"></div>
     </h2>
+    <button class="btn-nav form-buttons">
+        <a href="{% url 'generate-claim' singlewarranty.id %}" class="btn btn-primary">Download PDF</a>
+    </button>
     <h1 class="text-center">{{singlewarranty.owner_name}}</h1>
     <div class="single-grid">
         <h1>Dealer Name: </h1>

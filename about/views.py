@@ -2,40 +2,31 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . models import Employee, Timeline, Privacy, Terms
 from . forms import EmployeeForm, TimelineForm, PriacyForm, TermsForm
-from suppliers.models import Supplier
-from spareparts.models import SupplierPage
 
 # Create your views here.
 def about(request):
     employee = Employee.objects.all()
     timeline = Timeline.objects.all()
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
 
-    context = {'employee': employee, 'suppliers': suppliers, 'spareparts': spareparts, 'timeline': timeline,}
+    context = {'employee': employee, 'timeline': timeline,}
     return render(request, 'about/about.html', context)
 
 def terms(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     terms = Terms.objects.all()
 
-    context = {'suppliers': suppliers, 'spareparts': spareparts, 'terms': terms,}
+    context = {'terms': terms}
     return render(request, 'about/terms.html', context)
 
 def privacy(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     privacy = Privacy.objects.all()
 
-    context = {'suppliers': suppliers, 'spareparts': spareparts, 'privacy': privacy,}
+    context = {'privacy': privacy}
     return render(request, 'about/privacy.html', context)
 
 # Employee Model CRUD:
 @login_required(login_url='login')
 def createEmployee(request): 
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+
     employees = Employee.objects.all
     form = EmployeeForm()
 
@@ -47,13 +38,12 @@ def createEmployee(request):
             post.save()
             return redirect('about')
 
-    context = {'form': form, 'employees': employees, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'employees': employees}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def updateEmployee(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+
     employees = Employee.objects.all
     employee = Employee.objects.get(id=pk)
     form = EmployeeForm(instance=employee)
@@ -66,27 +56,23 @@ def updateEmployee(request, pk):
 
         return redirect('about')
  
-    context = {'form': form, 'employees': employees, 'employee':employee, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'employees': employees, 'employee':employee}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def deleteEmployee(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     employees = Employee.objects.get(id=pk)
     
     if request.method == 'POST':
         employees.delete()
         return redirect('about')
  
-    context = {'object': employees, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': employees}
     return render(request, 'delete_form.html', context)
 
 # Timeline Model CRUD:
 @login_required(login_url='login')
 def createTimeline(request): 
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     timelines = Timeline.objects.all
     form = TimelineForm()
 
@@ -98,13 +84,11 @@ def createTimeline(request):
             post.save()
             return redirect('about')
 
-    context = {'form': form, 'timelines': timelines, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'timelines': timelines}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def updateTimeline(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     timelines = Timeline.objects.all
     timeline = Timeline.objects.get(id=pk)
     form = TimelineForm(instance=timeline)
@@ -117,27 +101,23 @@ def updateTimeline(request, pk):
 
         return redirect('about')
  
-    context = {'form': form, 'timelines': timelines, 'timeline':timeline, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'timelines': timelines, 'timeline':timeline}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def deleteTimeline(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     timelines = Timeline.objects.get(id=pk)
     
     if request.method == 'POST':
         timelines.delete()
         return redirect('about')
  
-    context = {'object': timelines, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': timelines}
     return render(request, 'delete_form.html', context)
 
 # Privacy Model CRUD:
 @login_required(login_url='login')
 def createPrivacy(request): 
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     privacys = Privacy.objects.all
     form = PriacyForm()
 
@@ -149,13 +129,11 @@ def createPrivacy(request):
             post.save()
             return redirect('privacy')
 
-    context = {'form': form, 'privacys': privacys, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'privacys': privacys}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def updatePrivacy(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     privacys = Privacy.objects.all
     privacy = Privacy.objects.get(id=pk)
     form = PriacyForm(instance=privacy)
@@ -168,27 +146,23 @@ def updatePrivacy(request, pk):
 
         return redirect('privacy')
  
-    context = {'form': form, 'privacys': privacys, 'privacy':privacy, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'privacys': privacys, 'privacy':privacy}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def deletePrivacy(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     privacy = Privacy.objects.get(id=pk)
     
     if request.method == 'POST':
         privacy.delete()
         return redirect('privacy')
  
-    context = {'object': privacy, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': privacy}
     return render(request, 'delete_form.html', context)
 
 # Terms Model CRUD:
 @login_required(login_url='login')
 def createTerms(request): 
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     terms = Terms.objects.all
     form = TermsForm()
 
@@ -200,13 +174,11 @@ def createTerms(request):
             post.save()
             return redirect('terms')
 
-    context = {'form': form, 'terms': terms, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'terms': terms}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def updateTerms(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     terms = Terms.objects.all
     term = Terms.objects.get(id=pk)
     form = TermsForm(instance=term)
@@ -219,18 +191,16 @@ def updateTerms(request, pk):
 
         return redirect('terms')
  
-    context = {'form': form, 'terms': terms, 'term':term, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, 'terms': terms, 'term':term}
     return render(request, 'about/about_form.html', context)
 
 @login_required(login_url='login')
 def deleteTerms(request, pk):
     term = Terms.objects.get(id=pk)
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     
     if request.method == 'POST':
         term.delete()
         return redirect('terms')
  
-    context = {'object': term, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': term}
     return render(request, 'delete_form.html', context)

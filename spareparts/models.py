@@ -50,7 +50,7 @@ class PartsPage(models.Model):
 class WarrantyClaim(models.Model):
     dealer = models.CharField(max_length=200, blank=True, null=True)
     dealer_contact = models.CharField(max_length=200, blank=True, null=True)
-    owner_name = models.CharField(max_length=200, blank=True, null=True)
+    owner_name = models.CharField(max_length=200, blank=True, null=True, verbose_name="Owner Name")
     machine_model = models.CharField(max_length=200, blank=True, null=True)
     serial_number = models.CharField(max_length=200, blank=True, null=True)
     install_date = models.CharField(max_length=200, blank=True, null=True)

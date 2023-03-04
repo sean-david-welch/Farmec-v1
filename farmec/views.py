@@ -5,16 +5,12 @@ from django.urls import reverse
 from django.contrib.auth.models import User, Permission
 from django.core.mail import send_mail
 
-from suppliers.models import Supplier
 from blog.models import Blog
 from home.models import Special, Stat
-from spareparts.models import SupplierPage
 from stripepayments.models import PaymentProduct
 from . forms import ContactForm, LoginPageForm
 
 def home(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
     specials = Special.objects.all()
     stat = Stat.objects.all()
     blogs = Blog.objects.order_by('-created')[:2]
@@ -44,12 +40,10 @@ def home(request):
                 messages.error(request, error)
 
 
-    context = {'suppliers': suppliers, 'blogs': blogs, 'specials': specials, 'stats': stat, 'spareparts': spareparts, 'form': form}
+    context = {'blogs': blogs, 'specials': specials, 'stats': stat, 'form': form}
     return render(request, 'home.html', context)
 
 def loginPage(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
     form = LoginPageForm
 
     if request.method == 'POST':
@@ -74,17 +68,13 @@ def loginPage(request):
                         messages.error(request, 'Please complete the form validation')
                 messages.error(request, 'Username OR Password is incorrect')
 
-    context = {'suppliers': suppliers, 'spareparts': spareparts, 'form': form}
+    context = {'form': form}
     return render(request, 'login.html', context)
 
 def logoutPage(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
-
     if request.method == 'POST':   
         logout(request)
         return redirect('home')
 
-    context = {'suppliers': suppliers, 'spareparts': spareparts}
-    return render(request, 'logout.html', context)
+    return render(request, 'logout.html')
 

@@ -1,25 +1,18 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from . models import Profile, Stat, Special
-from suppliers.models import Supplier
-from spareparts.models import SupplierPage
 from . forms import CustomUserCreationForm, ProfileForm, StatForm, SpecialForm
 
 def profiles(request):
     profiles = Profile.objects.all()
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
 
-    context = {'profiles': profiles, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'profiles': profiles}
     return render(request, 'home/profiles.html', context)
 
 #User CRUD Forms:
 @login_required(login_url='login')
 def registerUser(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     page = 'register'
     form = CustomUserCreationForm()
 
@@ -36,14 +29,12 @@ def registerUser(request):
         else:
             messages.error(request, 'User Format is invalid')
 
-    context = {'page': page, 'form': form, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'page': page, 'form': form}
     return render(request, 'home/register.html', context)
 
 @login_required(login_url='login')
 def updateProfile(request, pk):
     profile = Profile.objects.get(id=pk)
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     form = ProfileForm(instance=profile)
 
     if request.method == 'POST':
@@ -52,36 +43,30 @@ def updateProfile(request, pk):
             form.save()
             return redirect('profiles')
 
-    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form}
     return render(request, 'home/profile_form.html', context)
 
 @login_required(login_url='login')
 def deleteProfile(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     profile = Profile.objects.get(id=pk)
     
     if request.method == 'POST':
         profile.delete()
         return redirect('profiles')
  
-    context = {'object': profile, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': profile}
     return render(request, 'delete_form.html', context)
 
 # Stat & Special CRUD forms:
 def displays(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     stats = Stat.objects.all() 
     specials = Special.objects.all() 
 
-    context = {'suppliers': suppliers, 'spareparts': spareparts, 'stats': stats, 'specials': specials}
+    context = {'stats': stats, 'specials': specials}
     return render(request, 'home/displays.html', context)
 
 @login_required(login_url='login')
 def createStat(request): 
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
     stats = Stat.objects.all() 
     form = StatForm()
 
@@ -90,17 +75,15 @@ def createStat(request):
             form = StatForm(request.POST, request.FILES)
             if form.is_valid():
                 post = form.save(commit=False)
-                post.owner = suppliers
+                post.owner = stats
                 post.save()
             return redirect('displays')
 
-    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts, 'stats': stats}
+    context = {'form': form, 'stats': stats}
     return render(request, 'home/profile_form.html', context)
 
 @login_required(login_url='login')
 def updateStat(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     stat = Stat.objects.get(id=pk)
     form = StatForm(instance=stat)
     
@@ -108,30 +91,26 @@ def updateStat(request, pk):
 
         form = StatForm(request.POST, request.FILES, instance=stat)
         if form.is_valid():
-            suppliers = form.save()
+            stat = form.save()
 
         return redirect('displays')
  
-    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts, 'stat': stat}
+    context = {'form': form, 'stat': stat}
     return render(request, 'home/profile_form.html', context)
 
 @login_required(login_url='login')
 def deleteStat(request, pk):
     stat = Stat.objects.get(id=pk)
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     
     if request.method == 'POST':
-        suppliers.delete()
+        stat.delete()
         return redirect('displays')
  
-    context = {'object': stat, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': stat}
     return render(request, 'delete_form.html', context)
 
 @login_required(login_url='login')
 def createSpecial(request): 
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all()
     specials = Special.objects.all() 
     form = SpecialForm()
 
@@ -140,17 +119,15 @@ def createSpecial(request):
             form = SpecialForm(request.POST, request.FILES)
             if form.is_valid():
                 post = form.save(commit=False)
-                post.owner = suppliers
+                post.owner = specials
                 post.save()
             return redirect('displays')
 
-    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts, 'specials': specials}
+    context = {'form': form, 'specials': specials}
     return render(request, 'home/profile_form.html', context)
 
 @login_required(login_url='login')
 def updateSpecial(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     special = Special.objects.get(id=pk)
     form = SpecialForm(instance=special)
     
@@ -158,22 +135,20 @@ def updateSpecial(request, pk):
 
         form = SpecialForm(request.POST, request.FILES, instance=special)
         if form.is_valid():
-            suppliers = form.save()
+            special = form.save()
 
         return redirect('displays')
  
-    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts, 'special': special}
+    context = {'form': form, 'special': special}
     return render(request, 'home/profile_form.html', context)
 
 @login_required(login_url='login')
 def deleteSpecial(request, pk):
     special = Special.objects.get(id=pk)
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
     
     if request.method == 'POST':
-        suppliers.delete()
+        special.delete()
         return redirect('displays')
  
-    context = {'object': special, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'object': special}
     return render(request, 'delete_form.html', context)

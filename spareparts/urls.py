@@ -5,8 +5,6 @@ urlpatterns = [
     path('spare-parts/', views.spareparts, name='spare-parts'),
     path('parts-page/<str:pk>/', views.partspage, name='parts-page'),
 
-    path('generate-pdf/<str:pk>/', views.generate_pdf, name='generate-pdf'),
-
     path('warranty-claims/', views.warrantyclaims, name='warranty-claims'),
     path('single-warranty/<str:pk>/', views.singlewarranty, name='single-warranty'),
     path('create-warranty/', views.createWarranty, name='create-warranty'),
@@ -27,4 +25,6 @@ urlpatterns = [
     path('update-parts-page/<str:pk>/', views.updatePartsform, name='update-parts-page'),
     path('delete-parts-page/<str:pk>/', views.deletePartsform, name='delete-parts-page'),
 
+    path('generate-reg/<str:pk>/', views.generate_reg, name='generate-reg'),
+    path('generate-claim/<str:pk>/', views.generate_claim, name='generate-claim'),
 ]

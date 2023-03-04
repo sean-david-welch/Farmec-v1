@@ -1,65 +1,51 @@
 # Create your views here.
 import os
-import json
 import stripe
 import stripe.error
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.mail import send_mail
-from django.http import HttpResponse
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from . models import PaymentProduct
 from . forms import PaymentProductForm
-from suppliers.models import Supplier
-from spareparts.models import SupplierPage
 
 # Create your views here.
 stripe.api_key = os.environ.get('TEST_SECRET_KEY')
-
 
 ##############################
 ####### Stripe Endpoints #####
 ##############################
 @login_required(login_url='login')
-def successview(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+def successview(request): 
 
     if request.method == 'POST':
         return redirect('home')
     
-    context = {'suppliers': suppliers, 'spareparts': spareparts}
+    context = {}
     return render(request, 'stripepayments/success.html', context)
 
 @login_required(login_url='login')
-def cancelview(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+def cancelview(request): 
 
     if request.method == 'POST':
         return redirect('payments')
     
-    context = {'suppliers': suppliers, 'spareparts': spareparts}
+    context = {}
     return render(request, 'stripepayments/cancel.html', context)
 
 @login_required(login_url='login')
-def stripe_products(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+def stripe_products(request): 
     products = PaymentProduct.objects.all()
 
-    context = {'products': products, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'products': products, }
     return render(request, 'stripepayments/products.html', context)
 
 @login_required(login_url='login')
-def update_stripe_product(request, pk):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+def update_stripe_product(request, pk): 
     product = PaymentProduct.objects.get(id=pk)
     form = PaymentProductForm(instance=product)
 
@@ -69,7 +55,7 @@ def update_stripe_product(request, pk):
             product = form.save()
         return redirect('intents')
     
-    context = {'form': form, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'form': form, }
     return render(request, 'stripepayments/product_form.html', context)
 
 ##############################
@@ -80,15 +66,11 @@ class PaymentsLandingPageView(TemplateView):
     template_name = 'stripepayments/payments.html'
 
     def get_context_data(self, **kwargs):
-        suppliers = Supplier.objects.all()
-        spareparts = SupplierPage.objects.all() 
         product = PaymentProduct.objects.all().first()
         context = super(PaymentsLandingPageView, self).get_context_data(**kwargs)
         context.update({
             'product': product,
             'TEST_PUBLIC_KEY': os.environ.get('TEST_PUBLIC_KEY'),
-            'suppliers': suppliers,
-            'spareparts': spareparts
         })
         return context
 
@@ -133,13 +115,11 @@ class CreateCheckoutSessionView(View):
 ####### Stripe Payement Intents ######
 ######################################
 @login_required(login_url='login')
-def intentsLandingPage(request):
-    suppliers = Supplier.objects.all()
-    spareparts = SupplierPage.objects.all() 
+def intentsLandingPage(request): 
     product = PaymentProduct.objects.all().first()
     publicKey = os.environ.get('TEST_PUBLIC_KEY')
 
-    context = {'product': product, 'TEST_PUBLIC_KEY': publicKey, 'suppliers': suppliers, 'spareparts': spareparts}
+    context = {'product': product, 'TEST_PUBLIC_KEY': publicKey, }
     return render(request, 'stripepayments/checkout.html', context)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
