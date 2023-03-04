@@ -1,0 +1,28 @@
+{% load static %}
+<!-- Specials -->
+<div class="container">
+    <h2 class="section-title">We Specialize In:<div class="bottom-line"></div>
+    </h2>
+    <p class="lead">Farmec is Commited to Bringing Value for our Customers - These are our Specialitse: </p>
+</div>
+
+<div class="specials">
+    {% for special in specials %}
+    <div class="icon">
+        <a href="{{special.link}}" id="{{special.title}}">
+            <ul>
+                <li><img src="{{special.imageurl}}" alt=""></li>
+                <li>
+                    <h3>{{special.title}}</h3>
+                </li>
+                <li>
+                    <p>{{special.body}}</p>
+                </li>
+            </ul>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+<a href="#blurb" class="btn btn-primary spacing-bottom spacing-1">
+    Blog Posts <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+</a>
