@@ -10,11 +10,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('home/', include('home.urls')),
-    path('home/', include('about.urls')),
-    path('home/', include('blog.urls')),
-    path('home/', include('payments.urls')),
-    path('home/', include('spareparts.urls')),
-    path('home/', include('suppliers.urls')),
+    path('about/', include('about.urls')),
+    path('blog/', include('blog.urls')),
+    path('payments/', include('payments.urls')),
+    path('spareparts/', include('spareparts.urls')),
+    path('suppliers/', include('suppliers.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

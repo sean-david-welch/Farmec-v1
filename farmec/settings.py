@@ -7,7 +7,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://web-production-52fc.up.railway.app/', '127.0.0.1']
+ALLOWED_HOSTS = ['https://web-production-52fc.up.railway.app/', '127.0.0.1', 'web-production-52fc.up.railway.app']
 
 # CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
 
