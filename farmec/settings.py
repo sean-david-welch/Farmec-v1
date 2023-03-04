@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
 
     'captcha',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -136,8 +137,6 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
