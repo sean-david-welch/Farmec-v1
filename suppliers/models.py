@@ -69,7 +69,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     product_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     description = models.TextField(blank=True, null=True)
-    short_description = models.CharField(max_length=200, blank=True, null=True)
+    facts = models.TextField(blank=True, null=True)
     serial_number = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
@@ -88,16 +88,3 @@ class Product(models.Model):
         except: 
             url = ''
         return url
-
-class Fact(models.Model):
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
-    description = models.TextField(blank=True, null=True)
-    created = models.DateTimeField(auto_now_add=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, 
-                            primary_key=True, editable=False)
-
-    class Meta:
-        ordering = ['created']
-
-    def __str__(self):
-        return str(self.description)
