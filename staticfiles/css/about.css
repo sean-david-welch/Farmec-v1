@@ -1,0 +1,111 @@
+/* About Page - Team Section */
+#about-team {
+	margin: 6rem 7.5rem 0 7.5rem;
+	justify-content: center;  
+	box-sizing: border-box;
+}
+
+#about-team .about-info {
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+#about-team .card {
+	position: relative;
+	width: 20rem;
+	background-color: var(--mdark-color);
+	color: var(--light-color);
+	border-radius: 1rem;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s linear;
+	border: 4px solid var(--darker-color);
+}
+
+#about-team .card:hover {
+	transform: scale(1.01);
+}
+
+#about-team .card-image img {
+	object-fit: cover;
+	overflow: hidden;
+	width: 100%;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	border-bottom: 3px solid var(--darker-color);
+	transition: all 0.3s linear;
+}
+
+#about-team .card-image img:hover {
+	transform: scale(1.01);
+}
+
+#about-team .card-info {
+	padding: 0 2rem;
+}
+
+#about-team p {
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+#about-team .name {
+	margin-bottom: 0.5rem;
+}
+
+#about-team .socials {
+	padding-bottom: 1rem;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+}
+
+#about-team .socials button {
+	margin: 12px 8px;
+	width: 44px;
+	height: 44px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.3s linear;
+}
+
+#about-team .socials button:hover {
+	transform: scale(1.05);
+}
+
+#terms {
+	margin: 7rem 10rem 2rem 10rem;
+}
+
+#terms .terms-grid {
+	margin: 2rem 2rem;
+	padding: 1rem;
+	background-color: var(--mdark-color);
+	color: var(--light-color);
+	border-radius: 1rem;
+	border: 4px solid var(--darker-color);
+}
+
+#privacy {
+	margin: 7rem 10rem 2rem 10rem;
+}
+
+#privacy .privacy-grid {
+	margin: 2rem 2rem;
+	padding: 1rem;
+	background-color: var(--mdark-color);
+	color: var(--light-color);
+	border-radius: 1rem;
+	border: 4px solid var(--darker-color);
+}
+	
+	
+	

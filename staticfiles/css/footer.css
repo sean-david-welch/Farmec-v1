@@ -1,0 +1,141 @@
+/* Footer */
+#main-footer {
+	background: var(--dark-color);
+	color: var(--light-color);
+	position: absolute;
+	width: 100vw;
+	height: 22rem;
+	max-width: var(--website-width);
+	border-top: 2px solid var(--primary-color);
+}
+
+#main-footer .footer-content {
+	margin: 2rem 1rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#main-footer .information {
+	margin-top: -1.25rem;
+}
+
+#main-footer .information img {
+	display: flex;
+	width: 7.5rem;
+	margin-left: 2.25rem;
+}
+
+#main-footer .information ul {
+	list-style: none;
+	margin-left: 2.4rem;
+}
+
+#main-footer .legal {
+	color: var(--primary-color);
+}
+
+#main-footer .accreditation p {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	color: var(--light-color);
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+#main-footer .accreditation img {
+	width: 10rem;
+	display: flex;
+	margin-left: 10rem;
+	justify-content: center;
+}
+
+#main-footer .social {
+	margin-top: 1.5rem;
+	margin-left: 4.5rem;
+}
+
+#main-footer .footer-content li a,
+#main-footer .soc {
+	text-decoration: none;
+	color: var(--light-color);
+	transition: all 0.5s ease-in;
+}
+
+#main-footer .navigation {
+	margin-top: -1.25rem;
+	margin-left: 10rem;
+}
+
+#main-footer .navigation ul {
+	display: flex;
+	flex-direction: column;
+	margin-left: 2rem;
+}
+
+#main-footer .navigation li {
+	margin: 0.5rem;
+	list-style: none;
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-decoration: underline;
+	justify-content: space-between;
+	transition: all 0.5s ease-in;
+}
+
+#main-footer .navigation a:hover {
+	transform: scale(1.025);
+	color: var(--primary-color);
+}
+
+#main-footer .social .fab {
+	border: 3px var(--medium-color) solid;
+	margin-left: 1.5rem;
+	border-radius: 10px;
+	height: 50px;
+	width: 50px;
+	line-height: 45px;
+	text-align: center;
+	transition: all 0.3s linear;
+}
+
+#main-footer .footer-content .social .fab:hover {
+	background: var(--primary-color);
+	transform: scale(1.05);
+}
+
+/* To top button */
+#main-footer .to-top {
+	background: var(--light-color);
+	position: fixed;
+	right: 0;
+	margin-right: 2rem;
+	margin-bottom: -0.75rem;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28px;
+	color: var(--dark-color);
+	text-decoration: none;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 1s;
+}
+
+#main-footer .to-top.ready {
+	bottom: 32px;
+	pointer-events: auto;
+	opacity: 1;
+	cursor: pointer;
+}
+
+#main-footer .to-top.ready:hover {
+	transform: scale(1.1);
+}
+

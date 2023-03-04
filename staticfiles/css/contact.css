@@ -1,0 +1,148 @@
+#contact-page {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2rem
+}
+
+#contact-page .contact-page {
+    margin: 1rem 0 2rem 0;
+}
+
+#contact-page h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 1rem;
+}
+
+#contact-page .form-container {
+    margin: 0 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--mdark-color);
+    gap: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+#contact-page .form-box {
+    margin: 0 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--mdark-color);
+    gap: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+#contact-page .contact-form {
+    display: grid;
+    row-gap: 2rem;
+}
+
+#contact-page .contact-form input,
+#contact-page .contact-form textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#contact-page .contact-form textarea {
+    resize: 300;
+    height: 15rem;
+}
+
+#contact-page .contact-form .send-button {
+    border: none;
+    outline: none;
+    background: var(--primary-color);
+    color: var(--light-color);
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    height: 3.5rem;
+    transition: all 500ms linear;
+}
+
+#contact-page .contact-form .send-button:hover {
+    transform: scale(1.01);
+    opacity: 1.1;
+    background: rgb(255, 0, 0);
+}
+
+#contact-page .map iframe {
+    border-radius: 1rem;
+}
+
+#contact-page .business-info{
+    background-color: var(--medium-color);
+    border-radius: 1rem;
+    justify-content: space-evenly;
+    padding: .5rem;
+}
+
+#contact-page .business-info h1 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#contact-page .business-info h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#contact-page .business-info > h2 {
+    padding: 1rem;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    background-color: var(--darker-color);
+    border-radius: 10px;
+}
+
+#contact-page .business-info span {
+    display: block;
+}
+
+#contact-page .social {
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+}
+
+#contact-page button {
+	margin: 12px 8px;
+	width: 44px;
+	height: 44px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.3s linear;
+}
+
+#contact-page button:hover {
+	transform: scale(1.01);
+}
+
+.socials button i {
+	color: var(--light-color);
+	font-size: 1.3rem;
+}
+
+#contact-page button {
+    font-size: 1rem;
+}
+
+button.twitter {
+	background-color: #00acee;
+}
+
+button.linkedin {
+	background-color: #0072b1;
+}
+
+button.whatsapp {
+	background-color: #075e54;
+}
