@@ -11,7 +11,6 @@ ALLOWED_HOSTS = ['https://web-production-52fc.up.railway.app/', '127.0.0.1', 'we
 
 CSRF_TRUSTED_ORIGINS = ['https://web-production-52fc.up.railway.app']
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -137,6 +136,8 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
