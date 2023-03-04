@@ -10,7 +10,7 @@
     </h2>
     <p class="form-lead text-center">Fill out the form field(s) below:</p>
 
-    <form id="payment-form" action="/stripepayments/create-payment-intent/1/" method="post">
+    <form id="payment-form" action="/payments/create-payment-intent/1/" method="post">
         {% csrf_token %}
         <div class="product-view">
             <h1>Product: {{product.name}}</h1>
