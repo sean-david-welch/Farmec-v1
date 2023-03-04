@@ -59,9 +59,7 @@
                     <div class="profile-facts">
                         <h1>{{supplier.name.split.0}} Features:</h1>
                         <div class="bottom-line-side"></div>
-                        {% for fact in supplier.fact_set.all %}
-                        <p>{{fact}}</p>
-                        {% endfor %}
+                        <p>{{supplier.facts|linebreaks}}</p>
                     </div>
 
                     {% if request.user.is_superuser %}
