@@ -7,7 +7,7 @@ class Supplier(models.Model):
     logo_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     marketing_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     description = models.TextField(blank=True, null=True)
-    short_description = models.TextField(blank=True, null=True)
+    facts = models.TextField(blank=True, null=True)
     social_facebook = models.CharField(max_length=200, blank=True, null=True)
     social_twitter = models.CharField(max_length=200, blank=True, null=True)
     social_instagram = models.CharField(max_length=200, blank=True, null=True)
@@ -69,7 +69,6 @@ class Product(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     product_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     description = models.TextField(blank=True, null=True)
-    facts = models.TextField(blank=True, null=True)
     serial_number = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,

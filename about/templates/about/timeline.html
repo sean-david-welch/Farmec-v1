@@ -1,34 +1,70 @@
-{% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
-<section id="terms">
-    <h2 class="text-center">Terms of Use</h2>
+<!-- About - Timeline -->
+<section id="timeline">
+
+    <h2 class="text-center section-heading">Our Story<div class="bottom-line"></div>
+    </h2>
+    <p class="company-bio text-center section-heading">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+        quia
+        illo ex minus commodi magnam quos exercitationem, ducimus, pariatur quaerat debitis recusandae aut beatae
+        molestiae et saepe. Nam, perferendis voluptates!
     <div class="bottom-line"></div>
-    <p class="lead text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
+    </p>
 
     {% if request.user.is_superuser %}
     <button class="btn-nav form-buttons">
-        <a class="btn-small btn-primary form-button" href="{% url 'create-terms' %}">Create Term <i
+        <a class="btn btn-secondary form-button" href="{% url 'create-timeline' %}">Create Timeline <i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
     </button>
     {% endif %}
 
-    {% for term in terms %}
-    <div class="terms-grid">
-        <h1>{{term.title}}:<div class="bottom-line-side"></div>
-        </h1>
-        <p>{{term.body}}</p>
-        {% if request.user.is_superuser %}
-        <div class="form-buttons btn-nav">
-            <a class="btn-small btn-secondary form-button" href="{% url 'update-terms' pk=term.pk %}"><i
-                    class="fa-solid fa-user-pen"></i>
-            </a>
-            <a class="btn-small btn-secondary form-button" href="{% url 'delete-terms' pk=term.pk %}"><i
-                    class="fa-solid fa-trash"></i>
-            </a>
+
+    <div class="timeline">
+        {% for timeline in timeline %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="timeline-container right-container">
+            <div class="text-box">
+                <h2>{{timeline.title}}</h2>
+                <h3><i class="fa fa-clock"></i> - {{timeline.date}}</h3>
+                <p>{{timeline.body}}</p>
+                <span class="right-container-arrow"></span>
+            </div>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="timeline-container left-container">
+            <div class="text-box">
+                <h2>{{timeline.title}}</h2>
+                <h3><i class="fa fa-clock"></i> - {{timeline.date}}</h3>
+                <p>{{timeline.body}}</p>
+                <span class="left-container-arrow"></span>
+            </div>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-timeline' pk=timeline.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+            {% endif %}
         </div>
         {% endif %}
+        {% endfor %}
     </div>
-    {% endfor %}
 </section>
-{% endblock content %}
+
+<script src="{% static 'js/timeline.js' %}"></script>
+{% endblock %}
