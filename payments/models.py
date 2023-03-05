@@ -2,11 +2,9 @@ from django.db import models
 
 # Create your models here.
 
-from django.db import models
-
 class PaymentProduct(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True) # Euros
+    price = models.IntegerField(default=0, null=True, blank=True) #cents
     image = models.ImageField(upload_to='models/', null=True, blank=True)
     url = models.URLField(max_length=200, null=True, blank=True)
 
@@ -14,7 +12,7 @@ class PaymentProduct(models.Model):
         return str(self.name)
 
     def get_display_price(self):
-        return "{0:.2f}".format(self.price)
+        return "{0:.2f}".format(self.price / 100)
     
     @property
     def imageurl(self):

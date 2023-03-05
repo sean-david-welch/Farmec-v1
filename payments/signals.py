@@ -4,6 +4,4 @@ from . models import PaymentProduct
 
 @receiver(pre_save, sender=PaymentProduct)
 def multiply_price(sender, instance, **kwargs):
-    for instance in PaymentProduct.objects.all():
-        instance.price *= 100
-        print(instance.price + 'singal fired') 
+    instance.price *= 100
