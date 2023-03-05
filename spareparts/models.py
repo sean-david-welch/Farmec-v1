@@ -27,7 +27,7 @@ class PartsPage(models.Model):
     supplier = models.ForeignKey(SupplierPage, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     catalogue_link = models.URLField(max_length=200, blank=True, null=True)
-    supplier_page = models.URLField(max_length=200, blank=True, null=True)
+    file_link = models.FileField(upload_to='pdf/', null=True, blank=True)
     marketing_image = models.ImageField(null=True, blank=True, upload_to='models/', default="default.jpg")
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,

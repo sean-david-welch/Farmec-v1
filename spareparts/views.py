@@ -253,7 +253,7 @@ def updatePartsform(request, pk):
         if form.is_valid():
             partspage = form.save()
 
-        return redirect('parts-page')
+        return redirect('spare-parts')
  
     context = {'form': form, 'supplierspages': supplierspages, 'partspage': partspage}
     return render(request, 'spareparts/page_form.html', context)
@@ -265,7 +265,7 @@ def deletePartsform(request, pk):
     
     if request.method == 'POST':
         partspage.delete()
-        return redirect('parts-page')
+        return redirect('spare-parts')
  
     context = {'object': partspage}
     return render(request, 'delete_form.html', context)
