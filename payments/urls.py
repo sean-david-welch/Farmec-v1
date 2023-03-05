@@ -16,6 +16,8 @@ urlpatterns = [
     path('webhooks/stripe/', views.stripe_webhook, name='stripe-webhook'),
 
     path('stripe-products/', views.stripe_products, name='stripe-products'),
-    path('update-stripe-product/<pk>/', views.update_stripe_product, name='update-stripe-product')
+    path('create-stripe-product/', views.create_stripe_product, name='create-stripe-product'),
+    path('update-stripe-product/<pk>/', views.update_stripe_product, name='update-stripe-product'),
+    path('delete-stripe-product/<pk>/', views.delete_stripe_product, name='delete-stripe-product')
 
 ]

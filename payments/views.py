@@ -45,6 +45,23 @@ def stripe_products(request):
     return render(request, 'payments/products.html', context)
 
 @login_required(login_url='login')
+def create_stripe_product(request): 
+    form = PaymentProductForm()
+    product = PaymentProduct.objects.all()
+
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = PaymentProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.owner = product
+                post.save()
+            return redirect('stripe-products')
+
+    context = {'form': form}
+    return render(request, 'payments/product_form.html', context)
+
+@login_required(login_url='login')
 def update_stripe_product(request, pk): 
     product = PaymentProduct.objects.get(id=pk)
     form = PaymentProductForm(instance=product)
@@ -57,6 +74,17 @@ def update_stripe_product(request, pk):
     
     context = {'form': form, }
     return render(request, 'payments/product_form.html', context)
+
+@login_required(login_url='login')
+def delete_stripe_product(request, pk): 
+    product = PaymentProduct.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        product.delete()
+        return redirect('stripe-products')
+ 
+    context = {'object': product}
+    return render(request, 'delete_form.html', context)
 
 ##############################
 ####### Stripe Checkout ######
