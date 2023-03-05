@@ -13,6 +13,10 @@
         <form action="{% url 'create-checkout-session' product.id %}" method="POST">
             {% csrf_token %}
             <div class="product-view text-center">
+                {% if product.imageurl %}
+                <img src="{{product.imageurl}}" alt="Product Image" class="payment-product-image">
+                {% endif %}
+
                 <h1>Product: {{product.name}}</h1>
                 <h1>Price: €{{product.get_display_price}}</h1>
             </div>
