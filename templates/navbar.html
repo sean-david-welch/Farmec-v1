@@ -13,7 +13,7 @@
 
             <ul class="nav-list">
 
-                <li class="nav-list-item"><a href="{% url 'about' %}" id="about"
+                <li class="nav-list-item"><a href="{% url 'about' %}"
                         class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
                     <ul class="nav-drop">
                         <li><a href="{% url 'about' %}#about-team">Management & Staff</a></li>
@@ -23,7 +23,7 @@
                     </ul>
                 </li>
 
-                <li class=" nav-list-item"><a href="{% url 'suppliers' %}" id="suppliers"
+                <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
                         class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
                     <ul class="nav-drop">
                         {% for supplier in suppliers %}
@@ -33,7 +33,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-list-item"><a href="{% url 'spare-parts' %}" id="spare-parts"
+                <li class="nav-list-item"><a href="{% url 'spare-parts' %}"
                         class="{% if request.resolver_match.url_name == 'spare-parts' %} current {% endif %}">Spare
                         Parts</a>
                     <ul class="nav-drop">
@@ -44,7 +44,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-list-item"><a href="{% url 'blogs' %}" id="blog"
+                <li class="nav-list-item"><a href="{% url 'blogs' %}"
                         class="{% if request.resolver_match.url_name == 'blogs' %} current {% endif %}">Blog</a>
                     <ul class="nav-drop">
                         <li><a href="{% url 'blogs' %}">Latest Blog Posts</a></li>
@@ -87,7 +87,7 @@
                     </ul>
                 </li>
                 {% else %}
-                <li class="nav-list-item"><a href="{% url 'login' %}" id="login"
+                <li class="nav-list-item"><a href="{% url 'login' %}" id="login-link"
                         class="{% if request.resolver_match.url_name == 'login' %} current {% endif %}">Login</a>
                 </li>
                 {% endif %}
