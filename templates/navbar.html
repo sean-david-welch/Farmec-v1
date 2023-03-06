@@ -82,6 +82,11 @@
                         {% elif user.profile.username == "dealer_account" %}
                         <li><a href="{% url 'create-warranty' %}">Warranty Claim</a></li>
                         <li><a href="{% url 'create-registration' %}">Register Machinery</a></li>
+                        {% elif user.profile.username == "staff_account" %}
+                        <li><a href="{% url 'intents' %}">Checkout</a></li>
+                        <li><a href="{% url 'payments' %}">Payments</a></li>
+                        <li><a href="{% url 'create-warranty' %}">Warranty Claim</a></li>
+                        <li><a href="{% url 'create-registration' %}">Register Machinery</a></li>
                         {% endif %}
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
