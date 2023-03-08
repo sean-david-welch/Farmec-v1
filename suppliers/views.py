@@ -19,7 +19,7 @@ def supplier(request, pk):
 def machine(request, pk):
     machine = Machine.objects.get(id=pk)
 
-    context = {'machine': machine, }
+    context = {'machine': machine}
     return render(request, 'suppliers/machine.html', context)
 
 # Supplier Model CRUD:

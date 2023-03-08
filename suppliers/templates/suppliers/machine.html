@@ -14,6 +14,12 @@
             {% endfor %}
         </div>
 
+        {% for machine in machines %}
+        <button class="btn-nav">
+            <a class="btn btn-primary" href="{{machine.machine_link}}">Supplier Website</a>
+        </button>
+        {% endfor %}
+
         {% for product in machine.product_set.all %}
         <div class="product-grid" id="product-{{forloop.counter}}">
             <h1>
