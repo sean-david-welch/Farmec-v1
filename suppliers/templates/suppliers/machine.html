@@ -5,18 +5,19 @@
 
 <section id="products" class="products">
     <div class="container">
+
         <div class="product-index">
             <h5>Product Index <div class="bottom-line-side"></div>
             </h5>
             {% for product in machine.product_set.all %}
             <h1><a href="#product-{{forloop.counter}}">{{forloop.counter}} - {{product.name}}</a>
             </h1>
+            {% endfor %}
+            <button class="btn-nav">
+                <a class="btn btn-primary" href="{{machine.machine_link}}">Supplier Website<i
+                        class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+            </button>
         </div>
-
-        <button class="btn-nav">
-            <a class="btn btn-primary" href="{{machine.machine_link}}">Supplier Website</a>
-        </button>
-        {% endfor %}
 
         {% for product in machine.product_set.all %}
         <div class="product-grid" id="product-{{forloop.counter}}">
