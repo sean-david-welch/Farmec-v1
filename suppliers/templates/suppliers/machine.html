@@ -11,10 +11,8 @@
             {% for product in machine.product_set.all %}
             <h1><a href="#product-{{forloop.counter}}">{{forloop.counter}} - {{product.name}}</a>
             </h1>
-            {% endfor %}
         </div>
 
-        {% for machine in machines %}
         <button class="btn-nav">
             <a class="btn btn-primary" href="{{machine.machine_link}}">Supplier Website</a>
         </button>
