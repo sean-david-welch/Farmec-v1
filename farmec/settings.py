@@ -9,7 +9,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://web-production-52fc.up.railway.app/', '127.0.0.1', 'web-production-52fc.up.railway.app', 'farmec.ie', 'www.farmec.ie', 'http://farmec.ie', 'https://farmec.ie']
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-52fc.up.railway.app', 'https://www.farmec.ie/' 'https://www.farmec.ie']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-52fc.up.railway.app', 'https://www.farmec.ie/', 'https://www.farmec.ie']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
