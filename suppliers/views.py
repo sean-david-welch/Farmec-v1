@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+
 from . models import Supplier, Machine, Product
 from . forms import SupplierForm, MachineForm, ProductForm
-from spareparts.models import SupplierPage
 
 # Create your views here.
 def suppliers(request):
