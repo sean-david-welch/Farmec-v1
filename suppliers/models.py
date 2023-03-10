@@ -40,7 +40,6 @@ class Supplier(models.Model):
             url = ''
         return url
 
-
 class Machine(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
