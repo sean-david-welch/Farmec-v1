@@ -63,6 +63,50 @@ def machine(request, pk):
     context = {'machine': machine}
     return render(request, 'suppliers/machine.html', context)
 
+# Supplier Model CRUD:
+@login_required(login_url='login')
+def createSupplier(request): 
+    form = SupplierForm()
+
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = SupplierForm(request.POST, request.FILES)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.owner = suppliers
+                post.save()
+            return redirect('suppliers')
+
+    context = {'form': form}
+    return render(request, 'suppliers/supplier_form.html', context)
+
+@login_required(login_url='login')
+def updateSupplier(request, pk):
+    supplier = Supplier.objects.get(id=pk)
+    form = SupplierForm(instance=supplier)
+    
+    if request.method == 'POST':
+
+        form = SupplierForm(request.POST, request.FILES, instance=supplier)
+        if form.is_valid():
+            supplier = form.save()
+
+        return redirect('supplier', pk=pk)
+ 
+    context = {'form': form, 'supplier':supplier}
+    return render(request, 'suppliers/supplier_form.html', context)
+
+@login_required(login_url='login')
+def deleteSupplier(request, pk):
+    supplier = Supplier.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        supplier.delete()
+        return redirect('suppliers')
+ 
+    context = {'object': supplier}
+    return render(request, 'delete_form.html', context)
+
 # Video Model CRUD:
 @login_required(login_url='login')
 def createVideo(request, pk): 
@@ -107,50 +151,6 @@ def deleteVideo(request, pk):
         return redirect('supplier', pk=video.supplier.pk)
 
     context = {'object': video}
-    return render(request, 'delete_form.html', context)
-
-# Supplier Model CRUD:
-@login_required(login_url='login')
-def createSupplier(request): 
-    form = SupplierForm()
-
-    if request.user.is_superuser:
-        if request.method == 'POST':
-            form = SupplierForm(request.POST, request.FILES)
-            if form.is_valid():
-                post = form.save(commit=False)
-                post.owner = suppliers
-                post.save()
-            return redirect('suppliers')
-
-    context = {'form': form}
-    return render(request, 'suppliers/supplier_form.html', context)
-
-@login_required(login_url='login')
-def updateSupplier(request, pk):
-    supplier = Supplier.objects.get(id=pk)
-    form = SupplierForm(instance=supplier)
-    
-    if request.method == 'POST':
-
-        form = SupplierForm(request.POST, request.FILES, instance=supplier)
-        if form.is_valid():
-            supplier = form.save()
-
-        return redirect('supplier', pk=pk)
- 
-    context = {'form': form, 'supplier':supplier}
-    return render(request, 'suppliers/supplier_form.html', context)
-
-@login_required(login_url='login')
-def deleteSupplier(request, pk):
-    supplier = Supplier.objects.get(id=pk)
-    
-    if request.method == 'POST':
-        supplier.delete()
-        return redirect('suppliers')
- 
-    context = {'object': supplier}
     return render(request, 'delete_form.html', context)
 
 # Machine Model CRUD:

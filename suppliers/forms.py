@@ -38,7 +38,7 @@ class ProductForm(ModelForm):
 class VideoForm(ModelForm):
     class Meta:
         model = Video
-        fields = ['supplier', 'web_url']
+        fields = ['supplier', 'title', 'web_url']
 
     def __init__(self, *args, **kwargs):
         super(VideoForm, self).__init__(*args, **kwargs)
