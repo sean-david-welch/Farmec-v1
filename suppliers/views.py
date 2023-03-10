@@ -5,51 +5,11 @@ from django.conf import settings
 from . models import Supplier, Machine, Product, Video
 from . forms import SupplierForm, MachineForm, ProductForm, VideoForm
 
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from datetime import datetime
-
 # Create your views here.
 def suppliers(request):
 
     context = {}
     return render(request, 'suppliers/suppliers.html', context)
-
-def get_video_details(web_url, pk):
-    youtube = build('youtube', 'v3', developerKey='<your-developer-key>')
-    try:
-        supplier = Supplier.objects.get(id=pk)
-        video = Video.objects.get(pk=supplier.pk)
-
-        # Call the API's videos().list method to retrieve video details
-        video_id = None
-        thumbnail_url = None
-        try:
-            request = youtube.videos().list(
-                part="id,snippet",
-                fields="items(id,snippet(thumbnails(high(url))))",
-                url=Video.web_url
-            )
-            response = request.execute()
-            video_id = response['items'][0]['id']
-            thumbnail_url = response['items'][0]['snippet']['thumbnails']['high']['url']
-
-            # update the video model with the retrieved video_id and thumbnail_url
-            try:
-                video.video_id = video_id
-                video.thumbnail_url = thumbnail_url
-                video.save()
-            except Exception as e:
-                print(f"An error occurred while updating the video: {e}")
-
-        except HttpError as error:
-            print(f"An error occurred: {error}")
-        
-        return video_id, thumbnail_url
-
-    except Supplier.DoesNotExist or Video.DoesNotExist:
-        print("Supplier or Video does not exist")
-        return None, None
 
 def supplier(request, pk):
     supplier = Supplier.objects.get(id=pk)
