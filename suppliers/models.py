@@ -39,23 +39,6 @@ class Supplier(models.Model):
         except: 
             url = ''
         return url
-    
-class Video(models.Model):
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    video_id = models.CharField(max_length=100, blank=True, null=True)
-    title = models.CharField(max_length=200, blank=True, null=True)
-    description = models.TextField(null=True, blank=True)
-    thumbnail_url = models.URLField(null=True, blank=True)
-    publish_date = models.DateTimeField(null=True, blank=True)
-    created = models.DateTimeField(auto_now_add=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
-
-    class Meta:
-        ordering = ['created']
-    
-    def __str__(self):
-        return str(self.title)
 
 
 class Machine(models.Model):
