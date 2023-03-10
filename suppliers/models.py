@@ -41,11 +41,12 @@ class Supplier(models.Model):
         return url
     
 class Video(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    video_id = models.CharField(max_length=50, unique=True)
-    thumbnail_url = models.URLField()
-    published_at = models.DateTimeField()
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
+    title = models.CharField(max_length=200, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    video_id = models.CharField(max_length=50, unique=True, null=True, blank=True)
+    thumbnail_url = models.URLField(null=True, blank=True)
+    published_at = models.DateTimeField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
