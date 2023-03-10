@@ -51,6 +51,7 @@
                                 <h1><a href="#machines-{{forloop.counter}}">{{forloop.counter}} .
                                         {{machine.name}}</a></h1>
                                 {% endfor %}
+                                <h1><a href="#supplier-videos"> - Supplier Videos</a></h1>
                             </div>
                         </div>
                         <div class="bottom-line-side"></div>
@@ -106,10 +107,30 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
+            <section id="supplier-videos">
 
-            {% endfor %}
+                <h1>{{ supplier.name}} Videos
+                    <div class="bottom-line"></div>
+                </h1>
+
+                <div class="supplier-videos-grid">
+                    {% for video in supplier.video_set.all %}
+
+                    <div class="video-grid-element">
+                        <h1>{{ video.title }}</h1>
+                        <iframe width="500" height="315" src="https://www.youtube.com/embed/{{ video.video_id }}"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+            </section>
         </div>
+
         {% if request.user.is_superuser %}
         <button class="btn-nav form-buttons">
             <a class="btn btn-primary form-button" href="{% url 'create-machine' pk=supplier.pk %}">Create Machine

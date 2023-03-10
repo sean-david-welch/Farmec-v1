@@ -2,30 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
-from . models import Supplier, Machine, Product
+from . models import Supplier, Machine, Product, Video
 from . forms import SupplierForm, MachineForm, ProductForm
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from datetime import datetime
 
 # Create your views here.
 def suppliers(request):
 
     context = {}
     return render(request, 'suppliers/suppliers.html', context)
-
-def get_video_data(video_id, api_key):
-    youtube = build('youtube', 'v3', developerKey=settings.YOUTUBE_API_KEY)
-    video_data = None
-    try:
-        response = youtube.videos().list(
-            part='snippet',
-            id=video_id
-        ).execute()
-        video_data = response['items'][0]['snippet']
-    except HttpError as e:
-        print('An error occurred: %s' % e)
-    return video_data
 
 def supplier(request, pk):
     supplier = Supplier.objects.get(id=pk)

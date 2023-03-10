@@ -46,7 +46,6 @@ class Video(models.Model):
     description = models.TextField(null=True, blank=True)
     video_id = models.CharField(max_length=50, unique=True, null=True, blank=True)
     thumbnail_url = models.URLField(null=True, blank=True)
-    published_at = models.DateTimeField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)

@@ -6,6 +6,7 @@ urlpatterns = [
     path('supplier/<str:pk>/', views.supplier, name='supplier'),
     path('machine/<str:pk>/', views.machine, name='machine'),
 
+
     path('create-supplier/', views.createSupplier, name='create-supplier'),
     path('update-supplier/<str:pk>/', views.updateSupplier, name='update-supplier'),
     path('delete-supplier/<str:pk>/', views.deleteSupplier, name='delete-supplier'),
