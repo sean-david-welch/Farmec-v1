@@ -11,6 +11,10 @@ urlpatterns = [
     path('update-supplier/<str:pk>/', views.updateSupplier, name='update-supplier'),
     path('delete-supplier/<str:pk>/', views.deleteSupplier, name='delete-supplier'),
 
+    path('create-video', views.createVideo, name='create-video'),
+    path('update-video/<str:pk>/', views.updateVideo, name='update-video'),
+    path('delete-video/<str:pk>/', views.deleteVideo, name='delete-video'),
+
     path('create-machine/<str:pk>/', views.createMachine, name='create-machine'),
     path('update-machine/<str:pk>/', views.updateMachine, name='update-machine'),
     path('delete-machine/<str:pk>/', views.deleteMachine, name='delete-machine'),

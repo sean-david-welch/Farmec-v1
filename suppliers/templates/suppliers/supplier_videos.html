@@ -1,0 +1,37 @@
+<section id="supplier-videos">
+
+    <h1>{{ supplier.name}} Videos
+        <div class="bottom-line"></div>
+    </h1>
+
+    {% if request.user.is_superuser %}
+    <button class="btn-nav">
+        <a class="btn btn-primary form-buttom" href="{% url 'create-video' %}">Create Video<i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+    <div class="supplier-videos-grid">
+        {% for video in supplier.video_set.all %}
+
+        <div class="video-grid-element">
+            <h1>{{ video.title }}</h1>
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/{{ video.video_id }}" frameborder="0"
+                allowfullscreen>
+            </iframe>
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-video' pk=video.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-video' pk=video.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+        {% endfor %}
+    </div>
+
+</section>

@@ -42,6 +42,7 @@ class Supplier(models.Model):
     
 class Video(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
+    web_url = models.URLField(null=True, blank=True)
     title = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     video_id = models.CharField(max_length=50, unique=True, null=True, blank=True)
