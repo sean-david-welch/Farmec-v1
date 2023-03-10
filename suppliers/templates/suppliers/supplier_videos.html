@@ -6,7 +6,7 @@
 
     {% if request.user.is_superuser %}
     <button class="btn-nav">
-        <a class="btn btn-primary form-buttom" href="{% url 'create-video' %}">Create Video<i
+        <a class="btn btn-primary form-buttom" href="{% url 'create-video' pk=supplier.pk %}">Create Video<i
                 class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
     </button>
     {% endif %}
