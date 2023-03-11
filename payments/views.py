@@ -147,7 +147,7 @@ def intentsLandingPage(request):
     product = PaymentProduct.objects.all().first()
     publicKey = os.environ.get('STRIPE_PUBLIC_KEY')
 
-    context = {'product': product, 'STRIPE_PUBLIC_KEY': publicKey, }
+    context = {'product': product, 'STRIPE_PUBLIC_KEY': publicKey}
     return render(request, 'payments/checkout.html', context)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
@@ -158,7 +158,7 @@ class StripeIntentView(View):
                 product = PaymentProduct.objects.get(id=product_id)
 
                 payment_intent = stripe.PaymentIntent.create(
-                    amount=product.price,
+                    amount=product.get_price_in_cents(),
                     currency='eur',
                     automatic_payment_methods = {'enabled': True},
                     metadata={

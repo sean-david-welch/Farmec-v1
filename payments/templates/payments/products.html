@@ -23,7 +23,7 @@
         <div class="product-view">
             <div class="product-view text-center">
                 <h1>Product: {{product.name}}</h1>
-                <h1>Price: €{{product.price}}</h1>
+                <h1>Price: €{{product.get_price_in_euro}}</h1>
                 {% if product.imageurl %}
                 <img src="{{product.imageurl}}" alt="Product Image" class="payment-product-image">
                 {% endif %}
