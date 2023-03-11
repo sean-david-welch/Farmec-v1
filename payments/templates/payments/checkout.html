@@ -14,7 +14,7 @@
         {% csrf_token %}
         <div class="product-view text-center">
             <h1>Product: {{product.name}}</h1>
-            <h1>Price: €{{product.get_price_in_euro}}
+            <h1>Price: €{{product.get_price_in_euros}}
                 <div class="bottom-line"></div>
             </h1>
             {% if product.imageurl %}
@@ -29,7 +29,7 @@
         </div>
         <button id="submit">
             <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Pay €{{product.get_display_price}}</span>
+            <span id="button-text">Pay €{{product.get_price_in_euros}}</span>
         </button>
         <div id="payment-message" class="hidden"></div>
         <div id="error-messages" class="hidden"></div>
