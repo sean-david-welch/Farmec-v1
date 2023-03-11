@@ -11,8 +11,8 @@ class PaymentProduct(models.Model):
     def __str__(self):
         return str(self.name)
 
-    def get_display_price(self):
-        return "{0:.2f}".format(self.price / 100)
+    # def get_display_price(self):
+    #     return "{0:.2f}".format(self.price / 100)
     
     @property
     def imageurl(self):
