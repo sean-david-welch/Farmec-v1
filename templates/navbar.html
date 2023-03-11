@@ -66,8 +66,8 @@
                         <li><a href="{% url 'warranty-claims' %}">Warranty Claims</a></li>
                         <li><a href="{% url 'register' %}">Register User</a></li>
                         <li><a href="{% url 'stripe-products' %}">Products</a></li>
-                        <li><a href="{% url 'intents' %}">Checkout</a></li>
-                        <li><a href="{% url 'payments' %}">Payments</a></li>
+                        <li><a href="{% url 'intents' %}">Product Checkout</a></li>
+                        <!-- <li><a href="{% url 'payments' %}">Payments</a></li> -->
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </li>
@@ -77,14 +77,14 @@
                         class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Account</a>
                     <ul class="nav-drop">
                         {% if user.profile.username == "customer_account" %}
-                        <li><a href="{% url 'intents' %}">Checkout</a></li>
-                        <li><a href="{% url 'payments' %}">Payments</a></li>
+                        <li><a href="{% url 'intents' %}">Product Checkout</a></li>
+                        <!-- <li><a href="{% url 'payments' %}">Payments</a></li> -->
                         {% elif user.profile.username == "dealer_account" %}
                         <li><a href="{% url 'create-warranty' %}">Warranty Claim</a></li>
                         <li><a href="{% url 'create-registration' %}">Register Machinery</a></li>
                         {% elif user.profile.username == "staff_account" %}
-                        <li><a href="{% url 'intents' %}">Checkout</a></li>
-                        <li><a href="{% url 'payments' %}">Payments</a></li>
+                        <li><a href="{% url 'intents' %}">Product Checkout</a></li>
+                        <!-- <li><a href="{% url 'payments' %}">Payments</a></li> -->
                         <li><a href="{% url 'create-warranty' %}">Warranty Claim</a></li>
                         <li><a href="{% url 'create-registration' %}">Register Machinery</a></li>
                         {% endif %}
