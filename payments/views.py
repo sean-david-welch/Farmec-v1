@@ -158,7 +158,7 @@ class StripeIntentView(View):
                 product = PaymentProduct.objects.get(id=product_id)
 
                 payment_intent = stripe.PaymentIntent.create(
-                    amount=self.get_price_in_cents(),
+                    amount=product.get_price_in_cents(),
                     currency='eur',
                     automatic_payment_methods = {'enabled': True},
                     metadata={
