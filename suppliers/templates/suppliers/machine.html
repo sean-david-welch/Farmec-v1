@@ -24,7 +24,10 @@
             <h1>
                 {{product.name}} <div class="bottom-line-small"></div>
             </h1>
-            <img src="{{product.imageurl}}" alt="product image">
+            {% if product.product_link %}
+            <a href="{{product.product_link}}" target="_blank">
+                {% endif %}
+                <img src="{{product.imageurl}}" alt="product image"></a>
             <p>{{product.description}}</p>
 
             {% if request.user.is_superuser %}

@@ -94,30 +94,31 @@
                                 View Products
                                 <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
                             </a>
-                            {% if request.user.is_superuser %}
-                            <div class="form-buttons btn-nav">
-                                <a class="btn-small btn-secondary form-button"
-                                    href="{% url 'update-machine' pk=machine.pk %}"><i class="fa-solid fa-user-pen"></i>
-                                </a>
-                                <a class="btn-small btn-secondary form-button"
-                                    href="{% url 'delete-machine' pk=machine.pk %}"><i class="fa-solid fa-trash"></i>
-                                </a>
-                            </div>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
+                {% if request.user.is_superuser %}
+                <div class="form-buttons btn-nav">
+                    <a class="btn-small btn-secondary form-button" href="{% url 'update-machine' pk=machine.pk %}"><i
+                            class="fa-solid fa-user-pen"></i>
+                    </a>
+                    <a class="btn-small btn-secondary form-button" href="{% url 'delete-machine' pk=machine.pk %}"><i
+                            class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
+                {% endif %}
                 {% endfor %}
+                {% if request.user.is_superuser %}
+                <button class="btn-nav form-buttons">
+                    <a class="btn btn-primary form-button" href="{% url 'create-machine' pk=supplier.pk %}">Create
+                        Machine
+                        <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+                </button>
+                {% endif %}
             </div>
             {% include './supplier_videos.html' %}
         </div>
 
-        {% if request.user.is_superuser %}
-        <button class="btn-nav form-buttons">
-            <a class="btn btn-primary form-button" href="{% url 'create-machine' pk=supplier.pk %}">Create Machine
-                <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-        </button>
-        {% endif %}
     </div>
 </section>
 
