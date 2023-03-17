@@ -3,11 +3,16 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
 
 from . import views
-
+from .sitemaps import StaticViewSitemap
+sitemaps = {
+    'static': StaticViewSitemap
+}
 urlpatterns = [
     path('', views.home, name='home'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 
     path('admin/', admin.site.urls, name='admin'),
 
