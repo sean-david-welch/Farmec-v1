@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Carousel -->
+<section id="carousel">
+	<div class="container">
+		<div class="carousel" data-carousel>
+			<button class="carousel-button prev" data-carousel-button="prev">&#8249;</button>
+			<button class="carousel-button next" data-carousel-button="next">&#8250;</button>
+			<i class="fa-solid fa-square-arrow-right"></i>
+			<ul data-slides>
+				<li class="slide" data-active><img src="{% static 'images/sulky/sulkydx30.jpg' %}" alt="image1"></li>
+				<li class="slide"><img src="{% static 'images/sip/sip1250.jpeg' %}" alt="image3"></li>
+				<li class="slide"><img src="{% static 'images/mx/mxloader.jpeg' %}" alt="image4"></li>
+				<li class="slide"><img src="{% static 'images/sip/sipdisc.jpeg' %}" alt="image5"></li>
+			</ul>
+		</div>
+		<!-- Header Content -->
+		<div class="header-content">
+			<div class="header-subcontent">
+				<h1>
+					<span class="txt-type" data-wait="100000"
+						data-words='["Importers & Distributors of Quality Agricultural and Amenity Machinery"]'></span>
+				</h1>
+				<a href="#home" class="btn btn-primary">
+					Find Out More <i class="fa-sharp fa-solid fa-circle-chevron-down"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'stats.html' %}
+
+{% include 'blurb.html' %}
+
+{% include 'contact.html' %}
+
+<script src="{% static 'js/carousel.js' %}" defer></script>
+<script src="{% static 'js/typewriter.js' %}" defer></script>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section id="warranty-machine">
+    <div class="index">
+        <h1 class="index-heading">Index:
+            <div class="bottom-line-side"></div>
+        </h1>
+        {% for machinereg in machinereg %}
+        <h1 class="index-name"><a class="index-link" href="#form-registration-{{forloop.counter}}">{{forloop.counter}}
+                . {{machinereg.owner_name}}</a></h1>
+        {% endfor %}
+    </div>
+    {% for machinereg in machinereg %}
+    <div class="warranty-machine-grid" id="form-registration-{{forloop.counter}}">
+        <h1>{{forloop.counter}} . {{machinereg.owner_name}} -- {{machinereg.dealer_name}}</h1>
+        <button class="btn-nav form-button">
+            <a class="btn-small btn-primary" href="{% url 'regsingle' pk=machinereg.pk %}">View Form
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+        </button>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock content %}

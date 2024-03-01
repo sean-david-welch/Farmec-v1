@@ -1,0 +1,53 @@
+{% load static %}
+<!-- Footer -->
+<section id="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="information">
+                <img src="{% static 'images/farmeclogo.png' %}" alt="little-logo">
+                <ul>
+                    <li>Farmec Ireland Ltd.</li>
+                    <li>Clonross, Drumree</li>
+                    <li>Co. Meath,</li>
+                    <li>A85 PK30</li>
+                    <li>Tel: 01 - 8259289</li>
+                    <li>Email: <a href="" class="email">info@farmec.ie</a></li>
+                    <li class="legal">
+                        <a href="">Terms of Use |</a>
+                        <a href="">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="accreditation">
+                <p>Accreditation:</p>
+                <a target="_blank" href="https://ftmta.ie/"><img src="{% static 'images/ftmta-logo.png' %}" alt=""></a>
+                <div class="social">
+                    <a href="https://www.facebook.com/FarmecIreland/" target="_blank" class="soc"><i
+                            class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://twitter.com/farmec1" target="_blank" class="soc"><i
+                            class="fab fa-twitter fa-2x"></i></a>
+                    <a href="" target="_blank" class="soc"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="" target="_blank" class="soc"><i class="fab fa-linkedin fa-2x"></i></a>
+                </div>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home </a></li>
+                    <li><a href="{% url 'about' %}">About </a></li>
+                    <li><a href="{% url 'suppliers' %}">Suppliers </a></li>
+                    <li><a href="{% url 'spare-parts' %}">Spare Parts </a></li>
+                    <li><a href="{% url 'blogs' %}">Blog </a></li>
+
+                    {% if request.user.is_superuser %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    {% elif request.user.is_authenticated %}
+                    <li><a href="{% url 'intents' %}">Checkout</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <a href="#" class="to-top ready"><i class="fas fa-chevron-up"></i></a>
+        </div>
+    </div>
+
+    <script src="{% static 'js/footer.js' %}" defer></script>
+</section>

@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="privacy">
+    <h2 class="text-center">Privacy Policy</h2>
+    <div class="bottom-line"></div>
+    <p class="lead text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
+
+    {% if request.user.is_superuser %}
+    <button class="btn-nav form-buttons">
+        <a class="btn-small btn-primary form-button" href="{% url 'create-privacy' %}">Create Privacy <i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+    {% for privacy in privacy %}
+    <div class="privacy-grid">
+        <h1>{{privacy.title}}:<div class="bottom-line-side"></div>
+        </h1>
+        <p>{{privacy.body}}</p>
+        {% if request.user.is_superuser %}
+        <div class="form-buttons btn-nav">
+            <a class="btn-small btn-secondary form-button" href="{% url 'update-privacy' pk=privacy.pk %}"><i
+                    class="fa-solid fa-user-pen"></i>
+            </a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'delete-privacy' pk=privacy.pk %}"><i
+                    class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

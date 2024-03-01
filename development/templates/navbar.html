@@ -1,0 +1,98 @@
+{% load static %}
+<header>
+    <div class="container">
+        <!-- Navbar -->
+        <nav id="navbar" class="{% if request.resolver_match.url_name == 'home' %} main-page {% endif %}">
+            <a href="{% url 'home' %}"><img src="{% static 'images/farmeclogo.png' %}" alt="Logo" id="logo"></a>
+
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+
+            <ul class="nav-list">
+
+                <li class="nav-list-item"><a href="{% url 'about' %}"
+                        class="{% if request.resolver_match.url_name == 'about' %} current {% endif %}">About Us</a>
+                    <ul class="nav-drop">
+                        <li><a href="{% url 'about' %}#about-team">Management & Staff</a></li>
+                        <li><a href="{% url 'about' %}#timeline">Company History</a></li>
+                        <li><a href="{% url 'terms' %}">Terms of Use</a></li>
+                        <li><a href="{% url 'privacy' %}">Privacy</a></li>
+                    </ul>
+                </li>
+
+                <li class=" nav-list-item"><a href="{% url 'suppliers' %}"
+                        class="{% if request.resolver_match.url_name == 'suppliers' %} current {% endif %}">Suppliers</a>
+                    <ul class="nav-drop">
+                        {% for supplier in suppliers %}
+                        <li><a href="{% url 'supplier' pk=supplier.pk %}">{{forloop.counter}} . {{supplier.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li class="nav-list-item"><a href="{% url 'spare-parts' %}"
+                        class="{% if request.resolver_match.url_name == 'spare-parts' %} current {% endif %}">Spare
+                        Parts</a>
+                    <ul class="nav-drop">
+                        {% for spareparts in spareparts %}
+                        <li><a href="{% url 'parts-page' pk=spareparts.pk %}">{{forloop.counter}} .
+                                {{spareparts.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li class="nav-list-item"><a href="{% url 'blogs' %}"
+                        class="{% if request.resolver_match.url_name == 'blogs' %} current {% endif %}">Blog</a>
+                    <ul class="nav-drop">
+                        <li><a href="{% url 'blogs' %}">Latest Blog Posts</a></li>
+                        <li><a href="{% url 'exhibitions' %}">Exhibition Information</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-list-item"><a id="contact" href="{% url 'home' %}#contact-page">Contact</a>
+                </li>
+
+                {% if request.user.is_superuser %}
+                <li class="nav-list-item"><a href="{% url 'profiles' %}"
+                        class="{% if request.resolver_match.url_name == 'profiles' %} current {% endif %}">Account</a>
+                    <ul class="nav-drop">
+                        <li><a href="{% url 'profiles' %}">Profiles</a></li>
+                        <li><a href="{% url 'displays' %}">Displays</a></li>
+                        <li><a href="{% url 'machine-registration' %}">Machine Registrations</a></li>
+                        <li><a href="{% url 'warranty-claims' %}">Warranty Claims</a></li>
+                        <li><a href="{% url 'register' %}">Register User</a></li>
+                        <li><a href="{% url 'stripe-products' %}">Products</a></li>
+                        <li><a href="{% url 'intents' %}">Checkout</a></li>
+                        <li><a href="{% url 'payments' %}">Payments</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </li>
+
+                {% elif request.user.is_authenticated %}
+                <li class="nav-list-item"><a href="{% url 'home' %}"
+                        class="{% if request.resolver_match.url_name == 'logout' %} current {% endif %}">Account</a>
+                    <ul class="nav-drop">
+                        {% if user.profile.username == "customer_account" %}
+                        <li><a href="{% url 'intents' %}">Checkout</a></li>
+                        <li><a href="{% url 'payments' %}">Payments</a></li>
+                        {% elif user.profile.username == "dealer_account" %}
+                        <li><a href="{% url 'create-warranty' %}">Warranty Claim</a></li>
+                        <li><a href="{% url 'create-registration' %}">Register Machinery</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li class="nav-list-item"><a href="{% url 'login' %}"
+                        class="{% if request.resolver_match.url_name == 'login' %} current {% endif %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<script src="{% static 'js/hamburger.js' %}" defer></script>

@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="payments-view">
+    <h2 class="form-heading text-center">
+        Cancel Payment <div class="bottom-line"></div>
+    </h2>
+    <p class="form-lead text-center">Select from the option(s) below:</p>
+
+
+    <section id="form">
+        <form class="form" action="" method="POST">
+            {% csrf_token %}
+            <p class="delete-form">Are you sure you want to cancel this payment?
+            <div class="bottom-line"></div>
+            </p>
+            <button class="form-buttons btn-nav">
+                <a class="btn btn-primary form-button" href="javascript:history.back()">Complete Payment</a>
+                <input class="btn btn-secondary form-button" type="submit" value="Cancel Payment" />
+            </button>
+        </form>
+    </section>
+</section>
+{% endblock content %}

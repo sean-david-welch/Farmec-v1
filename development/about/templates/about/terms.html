@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section id="terms">
+    <h2 class="text-center">Terms of Use</h2>
+    <div class="bottom-line"></div>
+    <p class="lead text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque.</p>
+
+    {% if request.user.is_superuser %}
+    <button class="btn-nav form-buttons">
+        <a class="btn-small btn-primary form-button" href="{% url 'create-terms' %}">Create Term <i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+
+    {% for term in terms %}
+    <div class="terms-grid">
+        <h1>{{term.title}}:<div class="bottom-line-side"></div>
+        </h1>
+        <p>{{term.body}}</p>
+        {% if request.user.is_superuser %}
+        <div class="form-buttons btn-nav">
+            <a class="btn-small btn-secondary form-button" href="{% url 'update-terms' pk=term.pk %}"><i
+                    class="fa-solid fa-user-pen"></i>
+            </a>
+            <a class="btn-small btn-secondary form-button" href="{% url 'delete-terms' pk=term.pk %}"><i
+                    class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

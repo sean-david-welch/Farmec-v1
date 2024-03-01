@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="products" class="products">
+    <div class="container">
+        <div class="product-index">
+            <h5>Product Index <div class="bottom-line-side"></div>
+            </h5>
+            {% for product in machine.product_set.all %}
+            <h1><a href="#product-{{forloop.counter}}">{{forloop.counter}} - {{product.name}}</a>
+            </h1>
+            {% endfor %}
+        </div>
+
+        {% for product in machine.product_set.all %}
+        <div class="product-grid" id="product-{{forloop.counter}}">
+            <h1>
+                {{product.name}} <div class="bottom-line-small"></div>
+            </h1>
+            <img src="{{product.imageurl}}" alt="product image">
+            <p>{{product.description}}</p>
+
+            {% if request.user.is_superuser %}
+            <div class="form-buttons btn-nav">
+                <a class="btn-small btn-secondary form-button" href="{% url 'update-product' pk=product.pk %}"><i
+                        class="fa-solid fa-user-pen"></i>
+                </a>
+                <a class="btn-small btn-secondary form-button" href="{% url 'delete-product' pk=product.pk %}"><i
+                        class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% if request.user.is_superuser %}
+    <button class="form-buttons btn-nav btn-create">
+        <a class="btn-small btn-primary form-buttom" href="{% url 'create-product' pk=machine.pk %}">Create Product <i
+                class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+    </button>
+    {% endif %}
+</section>
+
+{% endblock content %}
